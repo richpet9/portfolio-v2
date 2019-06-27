@@ -11,4 +11,4 @@
 
 # Production files to exclude
 *.css
-/client/public/*.js
+/frontend/public/*.js

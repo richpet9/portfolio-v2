@@ -1,0 +1,200 @@
+@import '../../defaults.scss';
+
+.directory-card-container {
+    width: calc(16.66% - 13.5px);
+    margin: 8px;
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    cursor: pointer;
+    z-index: 2;
+
+    * {
+        font-size: 14px;
+    }
+
+    .label {
+        color: #ff8f40;
+        font-size: 10px;
+        margin-bottom: 10px;
+    }
+
+    .directory-card-image {
+        width: 100%;
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 6px;
+    }
+
+    .directory-card-body {
+        padding: 0 6px;
+
+        .directory-card-row {
+            width: 100%;
+            display: flex;
+
+            div {
+                flex-grow: 1;
+                width: 50%;
+            }
+        }
+
+        .directory-card-popup {
+            display: none;
+            position: absolute;
+            width: 100%;
+
+            //This removes the margin under the cell label, so we can add padding to email container
+            .label {
+                margin-bottom: 0;
+            }
+
+            .email-container {
+                position: relative;
+                overflow-x: hidden;
+                margin-top: 8px;
+
+                a {
+                    background: white;
+                    padding: 8px 0;
+                    padding-right: 6px;
+                    border-radius: 6px;
+                }
+            }
+
+            .email-container:hover {
+                overflow: visible !important;
+            }
+        }
+    }
+}
+
+.directory-card-container::before {
+    width: calc(100% + 38px);
+    height: calc(100% + 105px);
+    content: '';
+    display: none;
+    background: white;
+    position: absolute;
+    z-index: -1;
+    top: -19px;
+    left: -19px;
+    border-radius: 6px;
+}
+
+.directory-card-container:hover {
+    background: white;
+
+    * {
+        color: #2a2a2a;
+    }
+
+    .label {
+        color: #ff8f40;
+    }
+
+    .directory-card-popup {
+        display: block;
+    }
+
+    a {
+        color: #1e50bd;
+    }
+}
+
+.directory-card-container:hover::before {
+    display: block;
+}
+
+// LARGEST
+.directory-card-container:nth-child(6n) {
+    margin-right: 0;
+}
+.directory-card-container:nth-child(6n + 1) {
+    margin-left: 0;
+}
+
+// MEDIUM
+@media all and (max-width: 1238px) {
+    .directory-card-container {
+        width: calc(20% - 13px);
+    }
+    .directory-card-container:nth-child(6n) {
+        margin-right: 8px;
+    }
+    .directory-card-container:nth-child(6n + 1) {
+        margin-left: 8px;
+    }
+    .directory-card-container:nth-child(5n) {
+        margin-right: 0;
+    }
+    .directory-card-container:nth-child(5n + 1) {
+        margin-left: 0;
+    }
+}
+
+// SMALL
+@media all and (max-width: 1123px) {
+    .directory-card-container {
+        width: calc(25% - 12.5px);
+    }
+    .directory-card-container:nth-child(6n) {
+        margin-right: 8px;
+    }
+    .directory-card-container:nth-child(6n + 1) {
+        margin-left: 8px;
+    }
+    .directory-card-container:nth-child(5n) {
+        margin-right: 8px;
+    }
+    .directory-card-container:nth-child(5n + 1) {
+        margin-left: 8px;
+    }
+    .directory-card-container:nth-child(4n) {
+        margin-right: 0;
+    }
+    .directory-card-container:nth-child(4n + 1) {
+        margin-left: 0;
+    }
+}
+
+// MOBILE
+@media all and (max-width: 868px) {
+    .directory-card-container {
+        width: calc(33% - 9.5px);
+        * {
+            font-size: 16px;
+        }
+
+        .label {
+            color: #ff8f40;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+    }
+    .directory-card-container:nth-child(6n) {
+        margin-right: 8px;
+    }
+    .directory-card-container:nth-child(6n + 1) {
+        margin-left: 8px;
+    }
+    .directory-card-container:nth-child(5n) {
+        margin-right: 8px;
+    }
+    .directory-card-container:nth-child(5n + 1) {
+        margin-left: 8px;
+    }
+    .directory-card-container:nth-child(4n) {
+        margin-right: 8px;
+    }
+    .directory-card-container:nth-child(4n + 1) {
+        margin-left: 8px;
+    }
+    .directory-card-container:nth-child(3n) {
+        margin-right: 0;
+    }
+    .directory-card-container:nth-child(3n + 1) {
+        margin-left: 0;
+    }
+}

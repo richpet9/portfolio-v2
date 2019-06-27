@@ -1,4 +1,5 @@
 const path = require('path');
+const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
 
 module.exports = {
     entry: path.join(__dirname, 'frontend/src/index.js'),
@@ -20,5 +21,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'frontend/public'),
         filename: 'bundle.js'
-    }
+    },
+    plugins: [new ErrorOverlayPlugin()],
+    devtool: 'cheap-module-source-map'
 };
