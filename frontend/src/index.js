@@ -1,32 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/Header/Header.js';
 import Card from './components/Card/Card.js';
+import Spinner from './components/Spinner/Spinner.js';
 import './index.css';
 
 const App = () => {
-    const res = [];
-    const person = {
-        fullName: 'Loremia Ipsumiott',
-        position: 'Senior Developer',
-        ext: 5555,
-        loc: '30-63D',
-        cell: 19084583002,
-        email: 'Email.Emelio@Viacommix.com'
-    };
+    const [error, setError] = useState(null);
+    const [people, setPeople] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    for (let i = 0; i < 16; i++) {
-        res.push(<Card key={i} person={person} />);
-    }
+    //Hooks!!
+    useEffect(() => {
+        fetch('/api/employees')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                setLoading(false);
+                setPeople(data);
+            })
+            .catch(err => {
+                setLoading(false);
+                setError(err);
+            });
+    }, []); //<-- that empty array is a paramter for useEffect() which locks it to only 1 loop
 
     return (
         <div id="app">
             <Header />
-            <div className="container" id="card-container">
-                {res}
-            </div>
+            {loading ? (
+                <Spinner />
+            ) : (
+                <div className="container" id="card-container">
+                    {error
+                        ? 'Error connecting to employee database!'
+                        : people.map(employee => {
+                              return <Card key={employee.ext} person={employee} />;
+                          })}
+                </div>
+            )}
         </div>
     );
 };
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('root'));

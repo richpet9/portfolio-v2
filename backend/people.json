@@ -1,0 +1,42 @@
+[
+    {
+        "fullName": "Loremia Ipsumiott",
+        "position": "Project Manager",
+        "ext": 4123,
+        "loc": "30-60",
+        "cell": 19184483889,
+        "email": "Loremia.Ipsumiott@Viacom.com"
+    },
+    {
+        "fullName": "Lawrence Realname",
+        "position": "Creative Director",
+        "ext": 1234,
+        "loc": "30-63A",
+        "cell": 12185613412,
+        "email": "Lawrence.Fakename@Viacom.com"
+    },
+    {
+        "fullName": "Richie Pastrami",
+        "position": "Digital Intern",
+        "ext": 1238,
+        "loc": "30-63D",
+        "cell": 19084583002,
+        "email": "Richard.Pastrami@Viacommix.com"
+    },
+    {
+        "fullName": "Rob McKidney",
+        "position": "Senior Developer",
+        "ext": 3346,
+        "loc": "30-64",
+        "cell": 12126641031,
+        "email": "Rob.McKidney@Viacom.com"
+    },
+    {
+        "fullName": "Testmane Ubereal",
+        "position": "Senior Real Employee",
+        "ext": 7781,
+        "loc": "30-54",
+        "cell": 19184183112,
+        "email": "Testmane.Ubereal@Viacommix.com"
+    }
+]

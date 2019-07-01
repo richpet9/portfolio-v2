@@ -12,3 +12,4 @@
 # Production files to exclude
 *.css
 /frontend/public/*.js
+/frontend/public/*.js.map
