@@ -11,20 +11,21 @@ const Card = props => {
 
     //Big function to format an int into a phone number string
     const formatPhone = number => {
-        if (number.toString().length < 10) {
-            console.log(number.toString());
-            return '## IMPROPER NUMBER FORMAT';
+        const nString = number.toString();
+        if (nString.length < 10 || nString.length > 11) {
+            console.log('ERROR:CARD.JS:15: Expected a 10 or 11 digit number and got: ', nString);
+            return '## IMPROPER NUMBER FORMAT SEE CONSOLE';
         }
-        if (number.toString().length === 11) {
-            const countryCode = Number(number.toString()[0]);
-            const areaCode = Number(number.toString().substring(1, 4));
-            const middleThree = Number(number.toString().substring(4, 7));
-            const lastFour = Number(number.toString().substring(7));
+        if (nString.length === 11) {
+            const countryCode = Number(nString[0]);
+            const areaCode = Number(nString.substring(1, 4));
+            const middleThree = Number(nString.substring(4, 7));
+            const lastFour = Number(nString.substring(7));
             return countryCode + ' (' + areaCode + ') ' + middleThree + '-' + lastFour;
         } else {
-            const areaCode = Number(number.toString().substring(0, 3));
-            const middleThree = Number(number.toString().substring(3, 6));
-            const lastFour = Number(number.toString().substring(6));
+            const areaCode = Number(nString.substring(0, 3));
+            const middleThree = Number(nString.substring(3, 6));
+            const lastFour = Number(nString.substring(6));
             return '(' + areaCode + ') ' + middleThree + '-' + lastFour;
         }
     };
