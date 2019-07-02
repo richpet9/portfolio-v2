@@ -1,0 +1,60 @@
+@import '../_defaults.scss';
+
+* {
+    font-family: $body;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+html,
+body {
+    background: $black;
+    text-align: center;
+}
+
+h6 {
+    font-weight: bolder;
+}
+
+a {
+    color: skyblue;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.container {
+    padding: 0 15%;
+}
+
+#card-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 16px;
+}
+
+// LARGE
+@media all and (max-width: 1690px) {
+    .container {
+        padding: 0 10%;
+    }
+}
+
+// MEDIUM
+@media all and (max-width: 1392px) {
+    .container {
+        padding: 0 6.7%;
+    }
+}
+
+// MOBILE
+@media all and (max-width: 868px) {
+    .container {
+        padding: 0 3.5%;
+    }
+}

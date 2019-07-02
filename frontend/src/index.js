@@ -1,60 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './components/Header/Header.js';
-import Card from './components/Card/Card.js';
-import Spinner from './components/Spinner/Spinner.js';
-import './index.css';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import App from './components/App.js';
+import Edit from './components/Edit.js';
 
-//Non destructive array searching
-let EmployeeList;
-
-const App = () => {
-    const [error, setError] = useState(null);
-    const [people, setPeople] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    //Hooks!!
-    useEffect(() => {
-        fetch('/api/employees')
-            .then(res => {
-                return res.json();
-            })
-            .then(data => {
-                setLoading(false);
-                EmployeeList = data;
-                setPeople(EmployeeList);
-            })
-            .catch(err => {
-                setLoading(false);
-                setError(err);
-            });
-    }, []); //<-- that empty array is a paramter for useEffect() which locks it to only 1 loop
-
-    //Handle searching stuff
-    const setSearchQuery = value => {
-        if (!loading) {
-            setLoading(true);
-            setPeople(EmployeeList.filter(employee => employee.fullName.toLowerCase().includes(value.toLowerCase())));
-            setLoading(false);
-        }
-    };
-
+const Routing = () => {
     return (
-        <div id="app">
-            <Header setSearchQuery={setSearchQuery} />
-            {loading ? (
-                <Spinner />
-            ) : (
-                <div className="container" id="card-container">
-                    {error
-                        ? 'Error connecting to employee database!'
-                        : people.map(employee => {
-                              return <Card key={employee.ext} person={employee} />;
-                          })}
-                </div>
-            )}
-        </div>
+        <Router>
+            <Switch>
+                <Route path="/" exact component={App} />
+                <Route path="/edit" component={Edit} />
+                <Route component={NoRoute} />
+            </Switch>
+        </Router>
     );
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const NoRoute = () => {
+    return <h1>404: That page was not found!</h1>;
+};
+
+ReactDOM.render(<Routing />, document.getElementById('root'));

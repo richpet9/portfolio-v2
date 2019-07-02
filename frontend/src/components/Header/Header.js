@@ -14,7 +14,7 @@ const Header = props => {
                 <input
                     type="text"
                     id="search-input"
-                    placeholder="Type a name, location, or number..."
+                    placeholder="Type a name, location, or cell..."
                     style={{ backgroundImage: "url('/img/search-icon.png')" }}
                     onChange={handleChange.bind(this)}
                 />
