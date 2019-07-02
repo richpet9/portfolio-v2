@@ -1,0 +1,36 @@
+@import '../../_defaults.scss';
+
+#edit-body-container {
+    padding-top: 16px;
+    text-align: left;
+
+    table {
+        width: 100%;
+
+        tr {
+            background: white;
+
+            th {
+                font-weight: bolder;
+            }
+
+            th,
+            td {
+                padding: 8px;
+                color: $black !important;
+            }
+        }
+
+        tr:nth-child(2n) {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        thead tr {
+            background: $highlight;
+        }
+    }
+}

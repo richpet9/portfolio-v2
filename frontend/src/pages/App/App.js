@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Header from './Header/Header.js';
-import Card from './Card/Card.js';
-import Spinner from './Spinner/Spinner.js';
+import Header from '../../components/Header/Header.js';
+import Card from '../../components/Card/Card.js';
+import Spinner from '../../components/Spinner/Spinner.js';
 import './App.css';
 
 //Non destructive array searching

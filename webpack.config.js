@@ -1,5 +1,4 @@
 const path = require('path');
-const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
 
 module.exports = {
     entry: path.join(__dirname, 'frontend/src/index.js'),

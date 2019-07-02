@@ -6,13 +6,16 @@
     text-align: left;
 
     #brand {
+        display: inline-block;
         font-size: 50px;
         font-family: 'A2 Beckett';
+        color: white;
+        text-decoration: none;
+        margin-bottom: 8px;
     }
 
     #search-container {
         background: $highlight;
-        margin-top: 8px;
 
         input {
             margin: 10px;
