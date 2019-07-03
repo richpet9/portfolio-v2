@@ -13,7 +13,15 @@ const Card = props => {
     const formatPhone = number => {
         const nString = number.toString();
         if (nString.length < 10 || nString.length > 11) {
-            console.log('ERROR:CARD.JS:15: Expected a 10 or 11 digit number and got: ', nString);
+            console.log(
+                'ERROR:CARD.JS:15:' +
+                    person.fullName.toUpperCase() +
+                    ': Expected a 10 or 11 digit number and got: ' +
+                    nString +
+                    ' (' +
+                    nString.length +
+                    ')'
+            );
             return '## IMPROPER NUMBER FORMAT SEE CONSOLE';
         }
         if (nString.length === 11) {

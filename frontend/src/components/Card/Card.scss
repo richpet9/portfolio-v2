@@ -152,9 +152,9 @@
 }
 
 // MOBILE
-@media all and (max-width: 868px) {
+@media all and (max-width: 501px) {
     .directory-card-container {
-        width: calc(33% - 9.5px);
+        width: calc(50% - 9.5px);
         * {
             font-size: 16px;
         }
@@ -173,10 +173,10 @@
     .directory-card-container:nth-child(4n + 1) {
         margin-right: 8px;
     }
-    .directory-card-container:nth-child(3n) {
+    .directory-card-container:nth-child(2n) {
         margin-right: 0;
     }
-    .directory-card-container:nth-child(3n + 1) {
+    .directory-card-container:nth-child(2n + 1) {
         margin-left: 0;
     }
 }

@@ -25,7 +25,7 @@ app.post('/api/update', (req, res) => {
             console.log('ERROR WRITING FILE: ', err);
             res.status(400).send({ message: 'There was an error writing the file' });
         } else {
-            res.status(200).send({ message: 'Successfully wrote database file.' });
+            res.status(200).sendFile(path.join(__dirname, 'people.json'));
         }
     });
 });

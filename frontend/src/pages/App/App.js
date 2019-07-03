@@ -1,33 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Header from '../../components/Header/Header.js';
 import Card from '../../components/Card/Card.js';
 import Spinner from '../../components/Spinner/Spinner.js';
 import './App.css';
 
-//Non destructive array searching
-let EmployeeList;
-
-const App = () => {
-    const [error, setError] = useState(null);
-    const [people, setPeople] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    //Hooks!!
-    useEffect(() => {
-        fetch('/api/employees')
-            .then(res => {
-                return res.json();
-            })
-            .then(data => {
-                EmployeeList = data;
-                setPeople(EmployeeList);
-                setLoading(false);
-            })
-            .catch(err => {
-                setError('Error connecting to employee database!');
-                setLoading(false);
-            });
-    }, []); //<-- that empty array is a paramter for useEffect() which locks it to only 1 loop
+const App = props => {
+    const { people, loading, error } = props;
 
     //Handle searching stuff
     const setSearchQuery = value => {
