@@ -16,6 +16,7 @@ const EditableCell = props => {
     const handleKeyPress = e => {
         if (e.key === 'Enter' && showInput) {
             setShowInput(false);
+            props.setActiveEdit(false);
             props.update();
         }
     };
@@ -28,6 +29,7 @@ const EditableCell = props => {
             }
             //Clicked outside the active input
             setShowInput(false);
+            props.setActiveEdit(false);
             props.update();
         }
     };
@@ -48,7 +50,7 @@ const EditableCell = props => {
 
     return (
         <td className={props.className} onClick={toggleInput} onKeyPress={handleKeyPress}>
-            {showInput ? <input type="text" autoFocus className="table-input" defaultValue={value} onChange={handleInputChange} ref={input} /> : ''}
+            {showInput && <input type="text" autoFocus className="table-input" defaultValue={value} onChange={handleInputChange} ref={input} />}
             {value}
         </td>
     );

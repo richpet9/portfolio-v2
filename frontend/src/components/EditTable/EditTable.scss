@@ -1,0 +1,76 @@
+@import '../../_defaults.scss';
+
+table {
+    text-align: left;
+    width: 100%;
+
+    tr {
+        background: white;
+        height: 36px;
+
+        th {
+            font-weight: bolder;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            color: $black !important;
+
+            .button {
+                display: inline-block;
+                background: $highlight;
+                color: white;
+                padding: 6px 8px;
+                outline: none;
+                border: none;
+                margin-right: 8px;
+                cursor: pointer;
+                width: calc(50% - 4px);
+                font-size: 14px;
+                text-align: center;
+
+                img {
+                    width: 100%;
+                    vertical-align: middle;
+                    position: relative;
+                    top: -2px;
+                }
+            }
+
+            .button:last-child {
+                margin-right: 0;
+            }
+
+            .button:hover {
+                background: $darkHighlight;
+            }
+
+            .file-input {
+                width: 0.1px;
+                height: 0.1px;
+                opacity: 0;
+                overflow: hidden;
+                position: absolute;
+                z-index: -1;
+            }
+        }
+
+        td.action-col {
+            width: 100px;
+        }
+    }
+
+    tr:nth-child(2n) {
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+    tbody tr:hover {
+        background: rgba(255, 255, 255, 0.85);
+    }
+
+    thead tr th {
+        color: white !important;
+        background: $black;
+    }
+}

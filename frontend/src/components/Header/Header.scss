@@ -1,22 +1,39 @@
 @import '../../_defaults.scss';
 
 #header {
-    padding-top: 8px;
-    background: $darkHighlight;
+    background: $black;
     text-align: left;
 
-    #brand {
-        display: inline-block;
-        font-size: 50px;
+    #brand-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100px;
         font-family: 'A2 Beckett';
         color: white;
         text-decoration: none;
-        margin-bottom: 8px;
+
+        #brand {
+            width: 25%;
+            display: inline-block;
+
+            #brand-vector {
+                height: 90%;
+            }
+        }
+
+        #sub-line {
+            display: block;
+            width: 75%;
+            text-align: center;
+            font-family: $body;
+            letter-spacing: -0.5px;
+            font-weight: bolder;
+            font-size: 38px;
+        }
     }
 
     #search-container {
-        background: $highlight;
-
         input {
             margin: 10px;
             margin-left: 0;
@@ -65,7 +82,6 @@
         text-align: center;
 
         #brand {
-            font-size: 64px;
         }
 
         #search-container {

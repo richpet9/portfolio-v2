@@ -9,9 +9,12 @@ const Header = props => {
 
     return (
         <div id="header">
-            <Link to="/" className="container" id="brand">
-                CATALYST DIRECTORY
-            </Link>
+            <div className="container" id="brand-container">
+                <Link to="/" id="brand">
+                    <img src="/img/wordmark.svg" alt="CATALYST" id="brand-vector" />
+                </Link>
+                <div id="sub-line">DIRECTORY</div>
+            </div>
 
             {props.setSearchQuery ? (
                 <div className="container" id="search-container">

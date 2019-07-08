@@ -3,34 +3,19 @@
 #edit-body-container {
     padding-top: 16px;
 
-    table {
-        text-align: left;
-        width: 100%;
-
-        tr {
-            background: white;
-
-            th {
-                font-weight: bolder;
-            }
-
-            th,
-            td {
-                padding: 8px;
-                color: $black !important;
-            }
-        }
-
-        tr:nth-child(2n) {
-            background: rgba(255, 255, 255, 0.8);
-        }
-
-        tbody tr:hover {
-            background: rgba(255, 255, 255, 0.7);
-        }
-
-        thead tr {
+    #controls {
+        button {
+            font-size: 18px;
+            padding: 8px 10px;
+            margin-top: 8px;
+            border: none;
             background: $highlight;
+            cursor: pointer;
+            outline: none;
+        }
+
+        button:hover {
+            background: rgba($color: $darkHighlight, $alpha: 0.85);
         }
     }
 }

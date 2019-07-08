@@ -14,7 +14,7 @@
     }
 
     .label {
-        color: #ff8f40;
+        color: $highlight;
         font-size: 10px;
         margin-bottom: 10px;
     }
@@ -87,11 +87,11 @@
     background: white;
 
     * {
-        color: #2a2a2a;
+        color: $black;
     }
 
     .label {
-        color: #ff8f40;
+        color: $highlight;
     }
 
     .directory-card-popup {
@@ -160,7 +160,6 @@
         }
 
         .label {
-            color: #ff8f40;
             font-size: 12px;
             margin-bottom: 10px;
         }

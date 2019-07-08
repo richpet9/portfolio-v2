@@ -40,7 +40,14 @@ const Card = props => {
 
     return (
         <div className="directory-card-container" onMouseEnter={() => setShowFull(true)} onMouseLeave={() => setShowFull(false)} style={style}>
-            <div className="directory-card-image" style={{ backgroundImage: "url('img/test-profile.gif')" }} />
+            <img
+                className="directory-card-image"
+                src={'/img/profile-images/' + person.id + '.jpg?' + Math.trunc(Math.random() * 123456)}
+                onError={e => {
+                    e.target.onerror = null;
+                    e.target.src = '/img/profile-images/default.gif';
+                }}
+            />
             <div className="directory-card-body">
                 <h6 className="name">{person.fullName}</h6>
                 <p className="label title">{person.position.toUpperCase()}</p>
