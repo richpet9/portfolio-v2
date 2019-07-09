@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { formatPhone } from '../../functions';
 import './Card.css';
 
 const Card = props => {
@@ -9,44 +10,11 @@ const Card = props => {
         zIndex: showFull ? 10 : 2
     };
 
-    //Big function to format an int into a phone number string
-    const formatPhone = number => {
-        const nString = number.toString();
-        if (nString.length < 10 || nString.length > 11) {
-            console.log(
-                'ERROR:CARD.JS:15:' +
-                    person.fullName.toUpperCase() +
-                    ': Expected a 10 or 11 digit number and got: ' +
-                    nString +
-                    ' (' +
-                    nString.length +
-                    ')'
-            );
-            return '## IMPROPER NUMBER FORMAT SEE CONSOLE';
-        }
-        if (nString.length === 11) {
-            const countryCode = Number(nString[0]);
-            const areaCode = Number(nString.substring(1, 4));
-            const middleThree = Number(nString.substring(4, 7));
-            const lastFour = Number(nString.substring(7));
-            return countryCode + ' (' + areaCode + ') ' + middleThree + '-' + lastFour;
-        } else {
-            const areaCode = Number(nString.substring(0, 3));
-            const middleThree = Number(nString.substring(3, 6));
-            const lastFour = Number(nString.substring(6));
-            return '(' + areaCode + ') ' + middleThree + '-' + lastFour;
-        }
-    };
-
     return (
         <div className="directory-card-container" onMouseEnter={() => setShowFull(true)} onMouseLeave={() => setShowFull(false)} style={style}>
-            <img
+            <div
                 className="directory-card-image"
-                src={'/img/profile-images/' + person.id + '.jpg?' + Math.trunc(Math.random() * 123456)}
-                onError={e => {
-                    e.target.onerror = null;
-                    e.target.src = '/img/profile-images/default.gif';
-                }}
+                style={{ backgroundImage: `url(/img/profile-images/${person.id}.jpg), url(/img/profile-images/default.gif)` }}
             />
             <div className="directory-card-body">
                 <h6 className="name">{person.fullName}</h6>

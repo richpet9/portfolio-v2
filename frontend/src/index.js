@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import { PeopleAPI, tryToGetError } from './functions';
 import AppPage from './pages/App/App.js';
 import EditPage from './pages/Edit/Edit.js';
 import Header from './components/Header/Header.js';
@@ -17,14 +18,7 @@ const RoutingContainer = () => {
 
     //Handle posting data to the server
     const postData = data => {
-        fetch('/api/update', {
-            method: 'POST',
-            credentials: 'same-origin',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
+        PeopleAPI.postData(data)
             .then(res => {
                 if (!res.ok) {
                     console.error('ERROR POSTING DATA:LINE 20');
@@ -42,12 +36,7 @@ const RoutingContainer = () => {
 
     //Function to upload prof images
     const uploadImage = (file, id) => {
-        let formData = new FormData();
-        formData.append('file', file);
-        fetch('/api/image-upload/' + id, {
-            method: 'POST',
-            body: formData
-        }).then(res => {
+        PeopleAPI.uploadImage(id, file).then(res => {
             if (!res.ok) {
                 console.error('ERROR UPLOADING IMAGE:LINE 46');
                 tryToGetError(err);
@@ -55,10 +44,9 @@ const RoutingContainer = () => {
         });
     };
 
+    //Function to delete an image from the directory
     const deleteImage = id => {
-        fetch('api/image-upload/' + id + '/remove', {
-            method: 'POST'
-        }).then(res => {
+        PeopleAPI.deleteImage(id).then(res => {
             if (!res.ok) {
                 console.error('ERROR DELETING IMAGE:LINE 57');
                 tryToGetError(res);
@@ -99,10 +87,14 @@ const RoutingContainer = () => {
     };
 
     useEffect(() => {
-        fetch('/api/employees')
+        PeopleAPI.getPeople()
             .then(res => {
-                if (!res.ok) throw new Error(res);
-                else return res.json();
+                if (!res.ok) {
+                    console.error('ERROR FETCHING DATA:LINE 90');
+                    tryToGetError(res);
+                } else {
+                    return res.json();
+                }
             })
             .then(data => {
                 EmployeeList = data;
@@ -117,18 +109,6 @@ const RoutingContainer = () => {
                 tryToGetError(err);
             });
     }, []);
-
-    const tryToGetError = res => {
-        try {
-            return res.json().then(err => console.error('Error occured on server side: ', err.message));
-        } catch (err) {
-            console.error(
-                'Unable to retrieve error message from server. It is likely this is just a 404 in a fetch() operation.\nCheck URLs in index.js and ensure the backend server.js is running.\n Error stack: '
-            );
-            console.log(err);
-            console.log(res);
-        }
-    };
 
     return (
         <Router>
