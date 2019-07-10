@@ -11,7 +11,7 @@ let EmployeeList;
 
 const RoutingContainer = () => {
     const [people, setPeople] = useState([]); //Container for our employee array
-    const [loading, setLoading] = useState(true); //Whether or not the application shoudl display loading
+    const [loading, setLoading] = useState(true); //Whether or not the application should display loading
     const [error, setError] = useState(null); //Whether or not to display error, and the message
 
     const status = { people: people, loading: loading, error: error }; //This variable just cleans up our components props
@@ -21,8 +21,8 @@ const RoutingContainer = () => {
         PeopleAPI.postData(data)
             .then(res => {
                 if (!res.ok) {
-                    console.error('ERROR POSTING DATA:LINE 20');
-                    tryToGetError(err);
+                    console.error('ERROR POSTING DATA:INDEX.JS');
+                    tryToGetError(res);
                 } else return res.json();
             })
             //We don't need to call setPeople() here because this function is only
@@ -32,26 +32,6 @@ const RoutingContainer = () => {
                 EmployeeList = data;
                 console.log('Data post successful, server res: ', data);
             });
-    };
-
-    //Function to upload prof images
-    const uploadImage = (file, id) => {
-        PeopleAPI.uploadImage(id, file).then(res => {
-            if (!res.ok) {
-                console.error('ERROR UPLOADING IMAGE:LINE 46');
-                tryToGetError(err);
-            }
-        });
-    };
-
-    //Function to delete an image from the directory
-    const deleteImage = id => {
-        PeopleAPI.deleteImage(id).then(res => {
-            if (!res.ok) {
-                console.error('ERROR DELETING IMAGE:LINE 57');
-                tryToGetError(res);
-            }
-        });
     };
 
     //Handle searching stuff
@@ -90,23 +70,18 @@ const RoutingContainer = () => {
         PeopleAPI.getPeople()
             .then(res => {
                 if (!res.ok) {
-                    console.error('ERROR FETCHING DATA:LINE 90');
+                    console.error('ERROR FETCHING DATA:INDEX.JS');
+                    setError(
+                        'Error occured when connecting to the database file, please refresh. Contact system administrator if this problem persists.'
+                    );
+                    setLoading(false);
                     tryToGetError(res);
-                } else {
-                    return res.json();
-                }
+                } else return res.json();
             })
             .then(data => {
                 EmployeeList = data;
                 setPeople(EmployeeList);
                 setLoading(false);
-            })
-            .catch(err => {
-                setError(
-                    'Error occured when connecting to the database file, please refresh. Contact system administrator if this problem persists.'
-                );
-                setLoading(false);
-                tryToGetError(err);
             });
     }, []);
 
@@ -114,19 +89,7 @@ const RoutingContainer = () => {
         <Router>
             <Switch>
                 <Route path="/" exact render={props => <AppPage {...props} status={status} setSearchQuery={setSearchQuery} />} />
-                <Route
-                    path="/edit"
-                    render={props => (
-                        <EditPage
-                            {...props}
-                            status={status}
-                            setPeople={setPeople}
-                            postData={postData}
-                            uploadImage={uploadImage}
-                            deleteImage={deleteImage}
-                        />
-                    )}
-                />
+                <Route path="/edit" render={props => <EditPage {...props} status={status} setPeople={setPeople} postData={postData} />} />
                 <Route component={NoRoute} />
             </Switch>
         </Router>

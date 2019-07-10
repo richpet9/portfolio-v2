@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header.js';
 import Spinner from '../../components/Spinner/Spinner.js';
 import EditTable from '../../components/EditTable/EditTable.js';
+import { PeopleAPI, tryToGetError } from '../../functions';
 import './Edit.css';
 
 const Edit = props => {
-    const { status, setPeople, postData, uploadImage, deleteImage } = props;
+    const { status, setPeople, postData } = props;
     const { people } = status;
 
     //This function is going to update the server file, and is called whenever a value changes
@@ -71,8 +72,16 @@ const Edit = props => {
                     // there by removing that ID
                     const filteredPeople = people.filter(employee => employee.id !== id);
                     postData(filteredPeople);
-                    deleteImage(id);
                     setPeople(filteredPeople);
+                    PeopleAPI.deleteImage(id).then(res => {
+                        if (!res.ok) {
+                            if (res.status !== 309) {
+                                //309 is the code for file not found, which doesn't matter since we're deleting the entry anyway
+                                console.error('ERROR DELETING IMAGE:EDIT.JS');
+                                tryToGetError(res);
+                            }
+                        }
+                    });
                 }
             }
         }
@@ -85,9 +94,7 @@ const Edit = props => {
                 {status.loading ? (
                     <Spinner />
                 ) : (
-                    status.error || (
-                        <EditTable people={status.people} uploadImage={uploadImage} updateRecord={updateRecord} handleDelRow={handleDelRow} />
-                    )
+                    status.error || <EditTable people={status.people} updateRecord={updateRecord} handleDelRow={handleDelRow} />
                 )}
                 <div id="controls">
                     <button type="button" onClick={handleAddRow}>

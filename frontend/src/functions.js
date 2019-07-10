@@ -17,16 +17,7 @@ export function tryToGetError(res) {
 export function formatPhone(number) {
     const nString = number.toString();
     if (nString.length < 10 || nString.length > 11) {
-        console.log(
-            'ERROR:CARD.JS:15:' +
-                person.fullName.toUpperCase() +
-                ': Expected a 10 or 11 digit number and got: ' +
-                nString +
-                ' (' +
-                nString.length +
-                ')'
-        );
-        return '## IMPROPER NUMBER FORMAT SEE CONSOLE';
+        return false;
     }
     if (nString.length === 11) {
         const countryCode = Number(nString[0]);

@@ -51,26 +51,36 @@ app.post('/api/update', (req, res) => {
 //Update profile images using Multer middleware
 app.post('/api/image-upload/:id/:remove?', upload.single('file'), (req, res) => {
     if (!req.params.id) {
-        res.status(400).send({ message: 'Please provide a user ID for image.' });
+        res.status(409).send({ message: 'Attempted to upload an image without associated ID' });
     } else {
         if (req.params.remove) {
             //Remove the file
             fs.unlink(path.join(__dirname, '/../frontend/public/img/profile-images/' + req.params.id + '.jpg'), err => {
-                if (err && err.errno !== -2) {
-                    //errno -2 is file not found, which doesn't really matter that just means the user has default image
-                    console.log('ERROR deleting file: ', err);
-                    res.status(400).send({ message: err.toString() });
+                if (err) {
+                    if (err.errno === -2) {
+                        //errno -2 is file not found, which doesn't really matter that just means the user has default image
+                        //BUUUUT we should let the user know that nothing happened
+                        res.status(309).send({ message: 'No image exists for this user!' });
+                    } else {
+                        console.log('ERROR deleting file: ', err);
+                        res.status(500).send({ message: 'An unknown error occured when attempting to delete a file: ' + err });
+                    }
                 } else {
-                    res.status(200).send({ message: 'sucessfully removed the file' });
+                    res.status(200).send({ message: 'Deletion successful' });
                 }
             });
         } else {
-            res.status(200).send({ message: 'sucessfully uploaded' });
+            res.status(200).send({ message: 'File add successful' });
         }
     }
 });
 
-//This is a fix for URL routing through the frontend
+//Catch bad API requests
+app.get('/api/*', (req, res) => {
+    res.status(403).send({ message: 'Attempted to access unknown endpoint: ' + req.path });
+});
+
+//Catch everything else and forward to frontend, which will handle 404s
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/../frontend/public/index.html'));
 });

@@ -31,7 +31,7 @@ const Card = props => {
                     </div>
                 </div>
                 <div className="directory-card-popup">
-                    <p>{formatPhone(person.cell)}</p>
+                    <p>{formatPhone(person.cell) || console.error('IMPROPER NUMBER FORMAT: ' + person.fullName + ' ' + person.cell)}</p>
                     <p className="label">CELL PHONE</p>
                     <div className="email-container">
                         <a href={'mailto:' + person.email}>{person.email}</a>
