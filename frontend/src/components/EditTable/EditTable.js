@@ -11,6 +11,7 @@ const EditTable = props => {
     const handleImageUpload = (id, e) => {
         PeopleAPI.uploadImage(id, e.target.files[0]).then(res => {
             if (!res.ok) {
+                window.alert('Could not upload image to the server!');
                 console.error('ERROR UPLOADING IMAGE:EDITTABLE.JS');
                 tryToGetError(res);
             } else {
@@ -26,6 +27,7 @@ const EditTable = props => {
                     //309 is the code for file not found
                     res.json().then(err => window.alert(err.message));
                 } else {
+                    window.alert('Could not delete the image from the server.');
                     console.error('ERROR DELETING IMAGE:EDITTABLE.JS');
                     tryToGetError(res);
                 }
@@ -59,8 +61,9 @@ const EditTable = props => {
                             cells.push(
                                 <EditableCell
                                     key={property}
+                                    id={property + '-' + employee.id}
                                     update={updateRecord.bind(this, employee.id)}
-                                    value={employee[property]}
+                                    value={employee[property] || ' '}
                                     activeEdit={activeEdit}
                                     setActiveEdit={setActiveEdit}
                                 />

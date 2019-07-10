@@ -10,31 +10,34 @@ const Edit = props => {
     const { people } = status;
 
     //This function is going to update the server file, and is called whenever a value changes
-    //TODO: Add a conditional to check if anything actually changed
     const updateRecord = id => {
         let updated = false;
-        let tempArr = people;
+        let employee = people.filter(employee => employee.id === id)[0];
 
-        for (let i = 0; i < tempArr.length; i++) {
-            if (tempArr[i].id === id) {
-                const row = document.getElementById(id);
-                tempArr[i].fullName = row.children[0].innerText;
-                tempArr[i].position = row.children[1].innerText;
-                tempArr[i].ext = row.children[2].innerText;
-                tempArr[i].loc = row.children[3].innerText;
-                tempArr[i].cell = row.children[4].innerText;
-                tempArr[i].email = row.children[5].innerText;
-                updated = true;
-                break;
+        if (employee) {
+            for (let property in employee) {
+                //If it's the ID prop just skip it
+                if (property !== 'id') {
+                    //Get the value currently in the DOM (using textContent for support reasons)
+                    let dValue = document.getElementById(property + '-' + id).textContent.trim();
+                    //If the value is different, update it and mark a postData as needed
+                    if (employee[property] !== dValue) {
+                        employee[property] = dValue;
+                        updated = true;
+                    }
+                }
             }
+        } else {
+            //Oh no
+            window.alert('Could not locate employee by ID!\nThis is really bad.\nPlease see console and contact system administrator.');
+            console.error(
+                "ERROR:EDIT.JS:updateRecord(): Employee ID could not be matched. This means there's a discrepancy between the `people` state variable and the server datebase.\nThis is really bad and requires immediate attention. Ensure the correct ID is being bound to updateRecord() in EditTable.js.\nThis value needs to match the database or everything will break! It may be worth manually going into `people.json` and correcting employee IDs"
+            );
         }
 
         //If we found the employee, and updated their info, post it to the API
         if (updated) {
-            postData(tempArr);
-            setPeople(tempArr);
-        } else {
-            console.log('could not find... id: ' + id);
+            postData(people);
         }
     };
 
@@ -44,11 +47,9 @@ const Edit = props => {
     //That is, unless they were edited THEN made blank. Those stay.
     const handleAddRow = () => {
         let id = null;
-        if (people.length <= 0) {
-            id = 0;
-        } else {
-            id = people[people.length - 1].id + 1;
-        }
+        //Isn't this line both beautiful and just terrible at the same time?
+        people.length <= 0 ? (id = 0) : (id = people[people.length - 1].id + 1);
+
         setPeople(
             people.concat({
                 id: id,

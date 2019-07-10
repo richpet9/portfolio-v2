@@ -29,8 +29,8 @@ const Button = ({ className, styles, tooltip, action, labelFor }) => {
 
     return (
         <div className="button-container" onClick={action}>
-            {tooltipEl}
             {buttonEl}
+            {tooltipEl}
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import { withRouter, Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import { PeopleAPI, tryToGetError } from './functions';
 import AppPage from './pages/App/App.js';
 import EditPage from './pages/Edit/Edit.js';
@@ -9,7 +9,7 @@ import Header from './components/Header/Header.js';
 //Non destructive array searching
 let EmployeeList;
 
-const RoutingContainer = () => {
+const RoutingContainer = props => {
     const [people, setPeople] = useState([]); //Container for our employee array
     const [loading, setLoading] = useState(true); //Whether or not the application should display loading
     const [error, setError] = useState(null); //Whether or not to display error, and the message

@@ -49,7 +49,7 @@ const EditableCell = props => {
     });
 
     return (
-        <td className={props.className} onClick={toggleInput} onKeyPress={handleKeyPress}>
+        <td className={props.className} id={props.id} onClick={toggleInput} onKeyPress={handleKeyPress}>
             {showInput && <input type="text" autoFocus className="table-input" defaultValue={value} onChange={handleInputChange} ref={input} />}
             {value}
         </td>

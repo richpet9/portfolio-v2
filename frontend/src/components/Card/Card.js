@@ -10,6 +10,15 @@ const Card = props => {
         zIndex: showFull ? 10 : 2
     };
 
+    const cell = () => {
+        if (formatPhone(person.cell)) {
+            return formatPhone(person.cell);
+        } else {
+            console.error('IMPROPER NUMBER FORMAT FOR ' + (person.fullName + ':' || 'NO NAME INPUT') + ' ' + (person.cell || 'NO NUMBER'));
+            return 'IMPROPER CELL #';
+        }
+    };
+
     return (
         <div className="directory-card-container" onMouseEnter={() => setShowFull(true)} onMouseLeave={() => setShowFull(false)} style={style}>
             <div
@@ -17,24 +26,24 @@ const Card = props => {
                 style={{ backgroundImage: `url(/img/profile-images/${person.id}.jpg), url(/img/profile-images/default.gif)` }}
             />
             <div className="directory-card-body">
-                <h6 className="name">{person.fullName}</h6>
-                <p className="label title">{person.position.toUpperCase()}</p>
+                <h6 className="name">{person.fullName || 'NO NAME INPUT'}</h6>
+                <p className="label title">{person.position.toUpperCase() || 'UNKNOWN'}</p>
 
                 <div className="directory-card-row">
                     <div className="directory-card-ext">
-                        <p>x{person.ext}</p>
+                        <p>x{person.ext || '----'}</p>
                         <p className="label">EXTENSION</p>
                     </div>
                     <div className="directory-card-loc">
-                        <p>{person.loc}</p>
+                        <p>{person.loc || '----'}</p>
                         <p className="label">LOCATION</p>
                     </div>
                 </div>
                 <div className="directory-card-popup">
-                    <p>{formatPhone(person.cell) || console.error('IMPROPER NUMBER FORMAT: ' + person.fullName + ' ' + person.cell)}</p>
+                    <p>{cell()}</p>
                     <p className="label">CELL PHONE</p>
                     <div className="email-container">
-                        <a href={'mailto:' + person.email}>{person.email}</a>
+                        <a href={'mailto:' + person.email}>{person.email || 'NO EMAIL'}</a>
                         <p className="label">EMAIL</p>
                     </div>
                 </div>

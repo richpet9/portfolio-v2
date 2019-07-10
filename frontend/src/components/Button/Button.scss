@@ -27,6 +27,7 @@
         background: $darkHighlight;
         opacity: 0;
         cursor: pointer;
+        font-size: 14px;
         z-index: -1;
         transition: all 150ms ease-in;
     }
@@ -55,7 +56,7 @@
 
     .tooltip {
         opacity: 1;
-        top: -40px;
+        top: -36px;
         z-index: 1;
     }
 }
