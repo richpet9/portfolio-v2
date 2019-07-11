@@ -12,6 +12,28 @@ table {
             font-weight: bolder;
         }
 
+        th#name-col,
+        th#pos-col {
+            width: 18%;
+        }
+
+        th#ext-col,
+        th#loc-col {
+            width: 6%;
+        }
+
+        th#cell-col {
+            width: 12%;
+        }
+
+        th#email-col {
+            width: 26%;
+        }
+
+        th#action-col {
+            width: 12%;
+        }
+
         th,
         td {
             padding: 8px;
@@ -19,7 +41,6 @@ table {
         }
 
         td.action-col {
-            width: auto;
             display: flex;
             justify-content: space-around;
 

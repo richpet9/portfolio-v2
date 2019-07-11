@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { withRouter, Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import { PeopleAPI, tryToGetError } from './functions';
 import AppPage from './pages/App/App.js';
 import EditPage from './pages/Edit/Edit.js';

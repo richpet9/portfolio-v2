@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Header from '../../components/Header/Header.js';
 import Spinner from '../../components/Spinner/Spinner.js';
 import EditTable from '../../components/EditTable/EditTable.js';
+import Button from '../../components/Button/Button.js';
 import { PeopleAPI, tryToGetError } from '../../functions';
 import './Edit.css';
 
@@ -12,9 +13,12 @@ const Edit = props => {
     //This function is going to update the server file, and is called whenever a value changes
     const updateRecord = id => {
         let updated = false;
-        let employee = people.filter(employee => employee.id === id)[0];
+        let employee = people.filter(employee => employee.id === id);
 
-        if (employee) {
+        //Check if we successfully found the employee
+        if (employee && employee.length !== 0) {
+            //We did! Set the employee to the only thing in the filtered array
+            employee = employee[0];
             for (let property in employee) {
                 //If it's the ID prop just skip it
                 if (property !== 'id') {
@@ -28,10 +32,14 @@ const Edit = props => {
                 }
             }
         } else {
-            //Oh no
+            //Oh no we didn't
             window.alert('Could not locate employee by ID!\nThis is really bad.\nPlease see console and contact system administrator.');
             console.error(
-                "ERROR:EDIT.JS:updateRecord(): Employee ID could not be matched. This means there's a discrepancy between the `people` state variable and the server datebase.\nThis is really bad and requires immediate attention. Ensure the correct ID is being bound to updateRecord() in EditTable.js.\nThis value needs to match the database or everything will break! It may be worth manually going into `people.json` and correcting employee IDs"
+                "ERROR:EDIT.JS:updateRecord(): Employee ID could not be matched. This means there's a discrepancy between " +
+                    'the `people` state variable and the server datebase, or duplicate IDs.\nThis is really bad and requires ' +
+                    'immediate attention. Ensure the correct ID is being bound to updateRecord() in EditTable.js.\n' +
+                    'This value needs to match the database or everything will break! It may be worth manually going into `people.json` ' +
+                    'and correcting employee IDs'
             );
         }
 
@@ -98,9 +106,7 @@ const Edit = props => {
                     status.error || <EditTable people={status.people} updateRecord={updateRecord} handleDelRow={handleDelRow} />
                 )}
                 <div id="controls">
-                    <button type="button" onClick={handleAddRow}>
-                        Add Row
-                    </button>
+                    <Button action={handleAddRow} value="Add Row" />
                 </div>
             </div>
         </div>

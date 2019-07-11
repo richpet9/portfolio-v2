@@ -1,9 +1,10 @@
 import React from 'react';
 import './Button.css';
 
-const Button = ({ className, styles, tooltip, action, labelFor }) => {
+const Button = ({ classes, value, styles, tooltip, action, labelFor }) => {
     let tooltipEl;
     let buttonEl;
+    let className = classes ? classes + ' button' : 'button';
 
     if (tooltip) {
         tooltipEl = (
@@ -24,7 +25,11 @@ const Button = ({ className, styles, tooltip, action, labelFor }) => {
     if (labelFor) {
         buttonEl = <label htmlFor={labelFor} type="button" className={className} style={styles} title={tooltip} />;
     } else {
-        buttonEl = <input type="button" className={className} style={styles} title={tooltip} />;
+        buttonEl = (
+            <button type="button" className={className} style={styles} title={tooltip}>
+                {value}
+            </button>
+        );
     }
 
     return (

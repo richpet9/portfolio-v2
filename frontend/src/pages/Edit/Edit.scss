@@ -4,18 +4,14 @@
     padding-top: 16px;
 
     #controls {
-        button {
-            font-size: 18px;
-            padding: 8px 10px;
+        .button-container {
+            display: inline-block;
             margin-top: 8px;
-            border: none;
-            background: $highlight;
-            cursor: pointer;
-            outline: none;
-        }
 
-        button:hover {
-            background: rgba($color: $darkHighlight, $alpha: 0.85);
+            .button {
+                font-size: 18px;
+                padding: 8px 10px;
+            }
         }
     }
 }

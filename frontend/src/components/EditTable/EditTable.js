@@ -41,12 +41,12 @@ const EditTable = props => {
         <table>
             <thead>
                 <tr>
-                    <th>NAME</th>
-                    <th>POSITION</th>
-                    <th>EXT</th>
-                    <th>LOC</th>
-                    <th>CELL</th>
-                    <th>EMAIL</th>
+                    <th id="name-col">NAME</th>
+                    <th id="pos-col">POSITION</th>
+                    <th id="ext-col">EXT</th>
+                    <th id="loc-col">LOC</th>
+                    <th id="cell-col">CELL</th>
+                    <th id="email-col">EMAIL</th>
                     <th>ACTION</th>
                 </tr>
             </thead>
@@ -63,7 +63,7 @@ const EditTable = props => {
                                     key={property}
                                     id={property + '-' + employee.id}
                                     update={updateRecord.bind(this, employee.id)}
-                                    value={employee[property] || ' '}
+                                    value={employee[property] || ''}
                                     activeEdit={activeEdit}
                                     setActiveEdit={setActiveEdit}
                                 />
@@ -75,7 +75,6 @@ const EditTable = props => {
                     cells.push(
                         <td key={employee.id} className="action-col">
                             <Button
-                                className="button"
                                 action={handleDelRow.bind(this, employee.id)}
                                 styles={{ backgroundImage: 'url(/img/delete-icon.png)' }}
                                 tooltip="Remove row"
@@ -89,13 +88,11 @@ const EditTable = props => {
                                 accept="image/*"
                             />
                             <Button
-                                className="button"
                                 labelFor={'file-input-' + employee.id}
                                 styles={{ backgroundImage: 'url(/img/image-icon.png)' }}
                                 tooltip="Upload profile image"
                             />
                             <Button
-                                className="button"
                                 action={handleDelImage.bind(this, employee.id)}
                                 styles={{ backgroundImage: 'url(/img/image-del-icon.png)' }}
                                 tooltip="Remove profile image"
