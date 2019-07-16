@@ -73,26 +73,22 @@ const Edit = props => {
 
     //Function to handle deleting a row
     const handleDelRow = id => {
-        for (let i = 0; i < people.length; i++) {
-            if (people[i].id === id) {
-                //Make sure they want to do this
-                if (window.confirm('Are you sure you want to delete this entry?')) {
-                    //Filter for all the people who's ID does not equal the query ID
-                    // there by removing that ID
-                    const filteredPeople = people.filter(employee => employee.id !== id);
-                    postData(filteredPeople);
-                    setPeople(filteredPeople);
-                    PeopleAPI.deleteImage(id).then(res => {
-                        if (!res.ok) {
-                            if (res.status !== 309) {
-                                //309 is the code for file not found, which doesn't matter since we're deleting the entry anyway
-                                console.error('ERROR DELETING IMAGE:EDIT.JS');
-                                tryToGetError(res);
-                            }
-                        }
-                    });
+        //Make sure they want to do this
+        if (window.confirm('Are you sure you want to delete this entry?')) {
+            //Filter for all the people who's ID does not equal the query ID
+            // there by removing that ID
+            const filteredPeople = people.filter(employee => employee.id !== id);
+            postData(filteredPeople);
+            setPeople(filteredPeople);
+            PeopleAPI.deleteImage(id).then(res => {
+                if (!res.ok) {
+                    if (res.status !== 309) {
+                        //309 is the code for file not found, which doesn't matter since we're deleting the entry anyway
+                        console.error('ERROR DELETING IMAGE:EDIT.JS');
+                        tryToGetError(res);
+                    }
                 }
-            }
+            });
         }
     };
 
