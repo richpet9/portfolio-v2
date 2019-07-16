@@ -7,6 +7,7 @@ import './EditTable.css';
 const EditTable = props => {
     const { people, updateRecord, handleDelRow } = props;
     const [activeEdit, setActiveEdit] = useState(false);
+    const [sortMethod, setSortMethod] = useState('name');
 
     const handleImageUpload = (id, e) => {
         PeopleAPI.uploadImage(id, e.target.files[0]).then(res => {

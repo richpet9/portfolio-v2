@@ -17,6 +17,8 @@
         color: $highlight;
         font-size: 10px;
         margin-bottom: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .directory-card-image {
@@ -38,6 +40,10 @@
                 flex-grow: 1;
                 width: 50%;
             }
+        }
+
+        .label.title {
+            height: 26px;
         }
 
         .directory-card-popup {

@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
 const Header = props => {
-    const handleChange = param => {
-        props.setSearchQuery(param.target.value);
+    const searchInput = useRef();
+
+    const handleChange = e => {
+        props.setSearchQuery(e.target.value);
+    };
+
+    const clearSearch = () => {
+        if (props.setSearchQuery) {
+            props.setSearchQuery('');
+            searchInput.current.value = '';
+        }
     };
 
     return (
         <div id="header">
             <div className="container" id="brand-container">
-                <Link to="/" id="brand">
+                <Link to="/" id="brand" onClick={clearSearch}>
                     <img src="/img/wordmark.svg" alt="CATALYST" id="brand-vector" />
                 </Link>
                 <div id="sub-line">DIRECTORY</div>
@@ -19,6 +28,7 @@ const Header = props => {
             {props.setSearchQuery ? (
                 <div className="container" id="search-container">
                     <input
+                        ref={searchInput}
                         type="text"
                         id="search-input"
                         placeholder="Type a name, location, or cell..."
