@@ -14,7 +14,7 @@ const Card = props => {
         if (formatPhone(person.cell)) {
             return formatPhone(person.cell);
         } else {
-            console.error('IMPROPER NUMBER FORMAT FOR ' + (person.fullName + ':' || 'NO NAME INPUT') + ' ' + (person.cell || 'NO NUMBER'));
+            console.warn('IMPROPER NUMBER FORMAT FOR ' + (person.fullName + ':' || 'NO NAME INPUT') + ' ' + (person.cell || 'NO NUMBER'));
             return 'IMPROPER CELL #';
         }
     };

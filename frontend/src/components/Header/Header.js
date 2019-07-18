@@ -20,7 +20,7 @@ const Header = props => {
         <div id="header">
             <div className="container" id="brand-container">
                 <Link to="/" id="brand" onClick={clearSearch}>
-                    <img src="/img/wordmark.svg" alt="CATALYST" id="brand-vector" />
+                    <img src="/img/wordmark.png" alt="VIACOM CATALYST" id="brand-vector" />
                 </Link>
                 <div id="sub-line">DIRECTORY</div>
             </div>
