@@ -89,7 +89,12 @@ const RoutingContainer = props => {
         <Router>
             <Switch>
                 <Route path="/" exact render={props => <AppPage {...props} status={status} setSearchQuery={setSearchQuery} />} />
-                <Route path="/edit" render={props => <EditPage {...props} status={status} setPeople={setPeople} postData={postData} />} />
+                <Route
+                    path="/edit"
+                    render={props => (
+                        <EditPage {...props} status={status} setPeople={setPeople} postData={postData} setSearchQuery={setSearchQuery} />
+                    )}
+                />
                 <Route component={NoRoute} />
             </Switch>
         </Router>

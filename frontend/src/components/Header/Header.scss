@@ -14,6 +14,7 @@
         text-decoration: none;
 
         #brand {
+            padding-top: 16px;
             width: 25%;
             display: inline-block;
 
@@ -26,7 +27,7 @@
             display: block;
             width: 75%;
             text-align: center;
-            font-family: 'Gilroy';
+            font-family: $body;
             letter-spacing: 0.5px;
             font-weight: bolder;
             font-size: 38px;
@@ -80,6 +81,12 @@
 @media all and (max-width: 501px) {
     #header {
         text-align: center;
+
+        #brand-container {
+            #brand {
+                width: 50%;
+            }
+        }
 
         #search-container {
             input {

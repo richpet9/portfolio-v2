@@ -13,20 +13,25 @@ const Edit = props => {
     //This function is going to update the server file, and is called whenever a value changes
     const updateRecord = id => {
         let updated = false;
-        let employee = people.filter(employee => employee.id === id);
+        let target = people.filter(employee => employee.id === id);
 
         //Check if we successfully found the employee
-        if (employee && employee.length !== 0) {
-            //We did! Set the employee to the only thing in the filtered array
-            employee = employee[0];
-            for (let property in employee) {
+        if (target && target.length !== 0) {
+            //We did! Set the target to the only thing in the filtered array
+            target = target[0];
+            for (let property in target) {
                 //If it's the ID prop just skip it
                 if (property !== 'id') {
                     //Get the value currently in the DOM (using textContent for support reasons)
                     let dValue = document.getElementById(property + '-' + id).textContent.trim();
                     //If the value is different, update it and mark a postData as needed
-                    if (employee[property] !== dValue) {
-                        employee[property] = dValue;
+                    if (target[property] !== dValue) {
+                        //If this is the cell number, remove any non-digit character
+                        if (dValue && property === 'cell') {
+                            //REGEX!
+                            dValue = dValue.replace(/\D/g, '');
+                        }
+                        target[property] = dValue;
                         updated = true;
                     }
                 }
@@ -36,9 +41,9 @@ const Edit = props => {
             window.alert('Could not locate employee by ID!\nThis is really bad.\nPlease see console and contact system administrator.');
             console.error(
                 "ERROR:EDIT.JS:updateRecord(): Employee ID could not be matched. This means there's a discrepancy between " +
-                    'the `people` state variable and the server datebase, or duplicate IDs.\nThis is really bad and requires ' +
-                    'immediate attention. Ensure the correct ID is being bound to updateRecord() in EditTable.js.\n' +
-                    'This value needs to match the database or everything will break! It may be worth manually going into `people.json` ' +
+                    'the `people` state variable and the server datebase, or duplicate IDs. This is really bad and requires\n' +
+                    'attention. Ensure the correct ID is being bound to updateRecord() in EditTable.js.\n' +
+                    'This value needs to match the database or everything will break! It may be worth manually going into `people.json`\n' +
                     'and correcting employee IDs'
             );
         }
@@ -94,7 +99,7 @@ const Edit = props => {
 
     return (
         <div id="edit-container">
-            <Header />
+            <Header setSearchQuery={props.setSearchQuery} />
             <div className="container" id="edit-body-container">
                 {status.loading ? (
                     <Spinner />
