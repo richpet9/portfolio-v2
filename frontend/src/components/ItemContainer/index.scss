@@ -1,0 +1,47 @@
+#item-container {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+
+  .item {
+    width: 33.2%;
+    height: 14vw;
+    background: grey;
+    position: relative;
+    overflow: hidden;
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .item-link {
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      color: black;
+      text-decoration: none;
+    }
+
+    .item-meta {
+      position: relative;
+      top: 105%;
+      opacity: 0;
+      transition: all 0.2s ease-in;
+      padding: 0 18px;
+
+      .item-name {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .item:hover {
+    .item-meta {
+      top: 70%;
+      opacity: 1;
+    }
+  }
+}

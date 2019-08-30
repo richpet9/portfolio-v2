@@ -1,0 +1,38 @@
+@import '../../_defaults.scss';
+
+#header {
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+
+  #full-name {
+    font-size: 48px;
+    letter-spacing: 10px;
+    font-weight: 600;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+
+    li {
+      display: inline-block;
+      width: 25%;
+      text-align: center;
+
+      a {
+        display: inline-block;
+        text-decoration: none;
+        color: black;
+        padding: 0 2px;
+      }
+
+      a:hover {
+        background: black;
+        color: white;
+      }
+    }
+  }
+}
