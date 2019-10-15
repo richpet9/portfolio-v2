@@ -3,3 +3,8 @@
 * {
   font-family: $font;
 }
+
+#app-container {
+  display: flex;
+  padding: 18px;
+}

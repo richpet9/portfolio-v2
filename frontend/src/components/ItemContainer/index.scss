@@ -1,11 +1,15 @@
 #item-container {
   width: 75%;
+  padding-right: 100px;
+  flex-grow: 1;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 
   .item {
     width: 33.2%;
     height: 14vw;
+    margin-top: 3px;
     background: grey;
     position: relative;
     overflow: hidden;
@@ -27,20 +31,25 @@
 
     .item-meta {
       position: relative;
-      top: 105%;
+      top: 70%;
+      height: 100%;
       opacity: 0;
-      transition: all 0.2s ease-in;
-      padding: 0 18px;
+      transition: all 0.15s ease-in;
+      padding: 6px 18px;
+      padding-top: 8px;
+      color: white;
+      background: rgb(0, 0, 0);
+      background: linear-gradient(0deg, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 0) 100%);
 
       .item-name {
-        font-size: 24px;
+        font-size: 22px;
+        font-weight: 600;
       }
     }
   }
 
   .item:hover {
     .item-meta {
-      top: 70%;
       opacity: 1;
     }
   }

@@ -6,7 +6,10 @@ const Header = () => {
   const navItems = ['Home', 'About', 'Contact', 'Photos'];
   return (
     <div id="header">
-      <h1 id="full-name">RICHARD PETROSINO</h1>
+      <NavLink to="/" id="header-link">
+        <h1 id="full-name">RICHARD PETROSINO</h1>
+        <h4 id="subhead">DESIGN+DEV</h4>
+      </NavLink>
       <nav>
         <ul>
           {navItems.map(nav => (

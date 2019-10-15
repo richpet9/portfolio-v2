@@ -1,24 +1,18 @@
 const express = require('express');
-const mysql = require('mysql');
+const path = require('path');
+const { Pool } = require('pg');
 
-const db = mysql.createConnection({
-  host: 'localhost',
+//Postgres DB
+const pool = new Pool({
   user: 'richie',
+  host: 'localhost',
+  database: 'portfolio',
   password: '=nx&3Mmn^$jC+/]V',
-  database: 'portfolio'
+  port: 5432
 });
 
-db.connect(err => {
-  if (err) console.error('[mysql] error while connecting: ' + err);
-});
-
-//db.query('SELECT * FROM projects', (err, res, fields) => {
-//   if (!err) {
-//     for (row of res) {
-//       console.log(row.name);
-//     }
-//   }
-// });
+//Connect to DB
+pool.connect();
 
 //Middleware
 const bodyParser = require('body-parser');
@@ -31,14 +25,19 @@ const PORT = 8080;
 app.use(bodyParser.json());
 
 //Frontend
-app.use(express.static('frontend/public'));
+app.use(express.static(path.join(__dirname, '../frontend/public')));
 
 //Get the recent posts
 app.get('/api/posts/:limit?', (req, res) => {
-  db.query('SELECT * FROM projects ORDER BY id DESC' + (req.params.limit ? ' LIMIT ' + req.params.limit : ''), (err, rows) => {
+  pool.query('SELECT * FROM projects ORDER BY id DESC' + (req.params.limit ? ' LIMIT ' + req.params.limit : ''), (err, response) => {
     if (err) console.error('[mysql] error query: ' + err);
-    res.send(rows);
+    res.send(response.rows);
   });
+});
+
+//Catch all other requests and forward to frontend
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/public/index.html'));
 });
 
 app.listen(PORT, () => {

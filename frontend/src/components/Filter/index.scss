@@ -1,5 +1,6 @@
 #filter {
-  width: 25%;
+  flex-shrink: 1;
+  min-width: 200px;
   padding-left: 18px;
 
   .filter-group {
@@ -8,7 +9,7 @@
 
     .filter-label {
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 400;
       color: #9e9e9e;
       letter-spacing: 2px;
       margin-bottom: 6px;
