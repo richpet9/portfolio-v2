@@ -8,13 +8,13 @@ const Header = () => {
     <div id="header">
       <NavLink to="/" id="header-link">
         <h1 id="full-name">RICHARD PETROSINO</h1>
-        <h4 id="subhead">DESIGN+DEV</h4>
       </NavLink>
+      <h4 id="subhead">DESIGN + DEVELOPMENT</h4>
       <nav>
         <ul>
           {navItems.map(nav => (
             <li key={nav}>
-              <NavLink to={'/' + nav.toLowerCase()}>{nav}</NavLink>
+              <NavLink to={'/' + nav.toLowerCase()}>{nav.toUpperCase()}</NavLink>
             </li>
           ))}
         </ul>

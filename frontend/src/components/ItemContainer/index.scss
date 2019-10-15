@@ -1,6 +1,9 @@
+@import '../../_defaults.scss';
+
 #item-container {
   width: 75%;
   padding-right: 100px;
+  padding-bottom: 50px;
   flex-grow: 1;
   display: flex;
   justify-content: space-between;
@@ -25,7 +28,7 @@
       width: 100%;
       position: absolute;
       top: 0;
-      color: black;
+      color: $black;
       text-decoration: none;
     }
 

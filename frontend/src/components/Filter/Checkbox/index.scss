@@ -1,3 +1,5 @@
+@import '../../../_defaults.scss';
+
 .checkbox-label {
   position: relative;
   height: 24px;
@@ -33,7 +35,7 @@
     left: 0;
     height: 17px;
     width: 17px;
-    background-color: black;
+    background-color: $black;
   }
 
   .checkbox-box:after {

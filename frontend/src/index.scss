@@ -2,9 +2,15 @@
 
 * {
   font-family: $font;
+  margin: 0;
+  padding: 0;
 }
 
 #app-container {
   display: flex;
   padding: 18px;
+}
+
+.italic {
+  font-style: italic;
 }

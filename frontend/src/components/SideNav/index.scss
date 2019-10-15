@@ -1,0 +1,25 @@
+@import '../../_defaults.scss';
+
+.side-nav-container {
+  flex-shrink: 1;
+  min-width: 200px;
+  padding: 18px;
+  font-size: 18px;
+
+  ul {
+    list-style: none;
+    li {
+      a {
+        color: $black;
+        display: block;
+        text-decoration: none;
+        margin-bottom: 6px;
+        letter-spacing: 0.5px;
+
+        :last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
