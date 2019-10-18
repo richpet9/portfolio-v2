@@ -4,10 +4,10 @@ import ItemContainer from '../components/ItemContainer';
 
 const Home = () => {
   return (
-    <div id="app-container">
+    <main id="app-container">
       <Filter />
       <ItemContainer numItems={10} />
-    </div>
+    </main>
   );
 };
 

@@ -5,7 +5,7 @@ import './index.css';
 const Header = () => {
   const navItems = ['Home', 'About', 'Contact', 'Photos'];
   return (
-    <div id="header">
+    <header id="header">
       <NavLink to="/" id="header-link">
         <h1 id="full-name">RICHARD PETROSINO</h1>
       </NavLink>
@@ -19,7 +19,7 @@ const Header = () => {
           ))}
         </ul>
       </nav>
-    </div>
+    </header>
   );
 };
 

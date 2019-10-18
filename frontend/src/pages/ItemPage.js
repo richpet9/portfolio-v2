@@ -3,10 +3,14 @@ import { Route, withRouter } from 'react-router-dom';
 
 const ItemPage = props => {
   return (
-    <div id="item-page-container">
-      <Route path="/post" component={() => '/post'}></Route>
-      <Route path="/post/:id/:name?" component={() => '/post/:id/:name?'}></Route>
-    </div>
+    <main id="item-page-container">
+      {
+        //FIX THIS MESSAGE
+      }
+      <Route exact path="/post" render={() => 'Invalid URL, please navigate to a specific post.'}></Route>
+
+      <Route path="/post/:id/:name?" render={({ match }) => match.params.id}></Route>
+    </main>
   );
 };
 
