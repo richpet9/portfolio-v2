@@ -7,14 +7,15 @@ const Footer = () => {
     <footer>
       <ul>
         <li>
-          <a href="https://www.github.com/richpet9">Github</a>
+          <a href="https://github.com/richpet9/portfolio-v2">Github</a>
         </li>
-
         <li>
           <a href="mailto:richpet9@gmail.com">richpet9@gmail.com</a>
         </li>
+        <li>
+          <p id="footer-copyright">&copy; 2019 Richard Petrosino</p>
+        </li>
       </ul>
-      <p id="footer-copyright">&copy; 2019 Richard Petrosino</p>
     </footer>
   );
 };

@@ -4,4 +4,40 @@ footer {
   padding: 18px;
   color: $black;
   text-align: center;
+
+  ul {
+    list-style: none;
+
+    li {
+      display: inline-block;
+      padding-right: 16px;
+
+      a {
+        color: $black;
+      }
+
+      a:hover {
+        color: $highlight;
+      }
+    }
+
+    li::after {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 12px;
+      position: relative;
+      top: 1px;
+      border-right: 1px solid black;
+      padding-left: 16px;
+    }
+
+    li:last-child::after {
+      display: none;
+    }
+
+    li:last-child {
+      padding-right: 0;
+    }
+  }
 }
