@@ -8,7 +8,7 @@ let pool = new Pool({
     host: 'localhost',
     database: 'portfolio',
     password: '=nx&3Mmn^$jC+/]V',
-    port: 3306
+    port: 5432
 });
 
 //Connect to DB
@@ -40,7 +40,7 @@ app.get('/api/posts/:limit?', (req, res) => {
     const query = 'SELECT * FROM projects ORDER BY id DESC' + (req.params.limit ? ' LIMIT ' + req.params.limit : '');
 
     pool.query(query, (err, response) => {
-        if (err) console.error('[mysql] error query: ' + err);
+        if (err) console.error('[postgres] error query: ' + err);
         res.send(response.rows);
     });
 });
