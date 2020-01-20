@@ -1,36 +1,39 @@
 @import '../../_defaults.scss';
 
 #resume-container {
-  font-size: 16px;
-  color: $black;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 50px;
-  width: 55%;
-
-  .resume-header {
-    margin-bottom: 2px;
     font-size: 20px;
-    font-weight: 5 00;
-    letter-spacing: 0.5px;
-  }
+    color: $black;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    width: 50%;
+    max-width: 680px;
 
-  .resume-subhead {
-    font-weight: 500;
-    letter-spacing: 0.5px;
-  }
-
-  .resume-body {
-    margin-bottom: 18px;
-    font-weight: 300;
-
-    .resume-list {
-      margin-left: 18px;
-      margin-bottom: 8px;
-
-      :last-child {
-        margin-bottom: 0;
-      }
+    .resume-header {
+        margin-top: 16px;
+        font-size: 28px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
     }
-  }
+
+    .resume-subhead {
+        font-weight: 500;
+        letter-spacing: 0.2px;
+        margin-top: 16px;
+    }
+
+    .resume-body {
+        margin-bottom: 18px;
+        font-weight: 400;
+        letter-spacing: 0.2px;
+
+        .resume-list {
+            margin-left: 18px;
+            margin-bottom: 8px;
+
+            :last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
 }
