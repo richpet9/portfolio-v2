@@ -41,7 +41,7 @@ app.get('/api/posts/:limit?', (req, res) => {
 
     pool.query(query, (err, response) => {
         if (err) console.error('[postgres] error query: ' + err);
-        res.send(response.rows);
+	else res.send(response.rows);
     });
 });
 
@@ -52,4 +52,4 @@ app.get('/*', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`[server] listening on port ${PORT}`);
-});
+})
