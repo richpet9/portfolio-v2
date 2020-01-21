@@ -30,8 +30,8 @@ app.use(bodyParser.json());
 //Frontend
 app.use(express.static(path.join(__dirname, '../frontend/public')));
 
-//Get the recent posts
-app.get('/api/posts/:limit?', (req, res) => {
+//Get the recent project posts
+app.get('/api/projects/:limit?', (req, res) => {
     if (!pool) {
         res.redirect('/');
         return;
@@ -41,7 +41,22 @@ app.get('/api/posts/:limit?', (req, res) => {
 
     pool.query(query, (err, response) => {
         if (err) console.error('[postgres] error query: ' + err);
-	else res.send(response.rows);
+        else res.send(response.rows);
+    });
+});
+
+//Get the recent blog posts
+app.get('/api/blog/posts/:limit?', (req, res) => {
+    if (!pool) {
+        res.redirect('/');
+        return;
+    }
+
+    const query = 'SELECT * FROM blog_posts ORDER BY id DESC' + (req.params.limit ? ' LIMIT ' + req.params.limit : '');
+
+    pool.query(query, (err, response) => {
+        if (err) console.error('[postgres] error query: ' + err);
+        else res.send(response.rows);
     });
 });
 
@@ -52,4 +67,4 @@ app.get('/*', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`[server] listening on port ${PORT}`);
-})
+});

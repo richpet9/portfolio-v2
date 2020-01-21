@@ -1,0 +1,49 @@
+@import '../../defaults.scss';
+
+.blog-post {
+    width: 33.33%;
+    padding: 16px;
+    position: relative;
+    margin-bottom: 16px;
+
+    .blog-post-img {
+        width: 100%;
+        height: 200px;
+        background: lightgray;
+    }
+
+    .blog-post-text {
+        padding: 0 8px;
+
+        .blog-post-name {
+            margin: 10px 0;
+            margin-bottom: 4px;
+            margin-left: -4px;
+            display: inline-block;
+            padding: 0px 4px;
+            color: $black;
+        }
+
+        .blog-post-meta {
+            font-weight: 500;
+            letter-spacing: 0.25px;
+            display: flex;
+            color: $black;
+        }
+
+        .blog-post-short-body {
+            margin-top: 6px;
+        }
+    }
+
+    a.wrapper-link:hover,
+    a.wrapper-link:hover ~ .blog-post-text {
+        .blog-post-name {
+            background: $highlight;
+            color: white;
+        }
+        .blog-post-meta {
+            text-decoration: underline !important;
+        }
+    }
+}
