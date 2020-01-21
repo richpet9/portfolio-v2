@@ -15,7 +15,7 @@ let db = new Pool({
     user: process.env.DB_USER || 'none',
     host: process.env.DB_HOST || 'none',
     database: process.env.DB_NAME || 'none',
-    password: process.env.DB_PASS || 'none',
+    password: '=nx&3Mmn^$jC+/]V',
     port: 5432
 });
 
