@@ -3,9 +3,6 @@ const path = require('path');
 const { Pool } = require('pg');
 const bodyParser = require('body-parser');
 
-//Load the env variables
-require('dotenv').config();
-
 //App config
 const app = express();
 const PORT = 8080;
