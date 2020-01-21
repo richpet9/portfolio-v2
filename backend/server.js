@@ -21,7 +21,7 @@ let db = new Pool({
 
 //Connect to DB
 db.connect().catch(err => {
-    console.error('[mysql] Error connecting to mysql server: ' + err);
+    console.error('[postgres] Error connecting to db server: ' + err);
     db = null;
 });
 
