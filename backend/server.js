@@ -1,45 +1,47 @@
 const express = require('express');
 const path = require('path');
 const { Pool } = require('pg');
-
-//Postgres DB
-let pool = new Pool({
-    user: 'richie',
-    host: 'localhost',
-    database: 'portfolio',
-    password: '=nx&3Mmn^$jC+/]V',
-    port: 5432
-});
-
-//Connect to DB
-pool.connect().catch(err => {
-    console.error('[mysql] Error connecting to mysql server: ' + err);
-    pool = null;
-});
-
-//Middleware
 const bodyParser = require('body-parser');
+
+//Load the env variables
+require('dotenv').config();
 
 //App config
 const app = express();
 const PORT = 8080;
 
+//Postgres DB set up
+let db = new Pool({
+    user: process.env.DB_USER || 'none',
+    host: process.env.DB_HOST || 'none',
+    database: process.env.DB_NAME || 'none',
+    password: process.env.DB_PASS || 'none',
+    port: 5432
+});
+
+//Connect to DB
+db.connect().catch(err => {
+    console.error('[mysql] Error connecting to mysql server: ' + err);
+    db = null;
+});
+
 //Middleware
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 //Frontend
 app.use(express.static(path.join(__dirname, '../frontend/public')));
 
 //Get the recent project posts
 app.get('/api/projects/:limit?', (req, res) => {
-    if (!pool) {
+    if (!db) {
         res.redirect('/');
         return;
     }
 
     const query = 'SELECT * FROM projects ORDER BY id DESC' + (req.params.limit ? ' LIMIT ' + req.params.limit : '');
 
-    pool.query(query, (err, response) => {
+    db.query(query, (err, response) => {
         if (err) console.error('[postgres] error query: ' + err);
         else res.send(response.rows);
     });
@@ -47,14 +49,14 @@ app.get('/api/projects/:limit?', (req, res) => {
 
 //Get the recent blog posts
 app.get('/api/blog/posts/:limit?', (req, res) => {
-    if (!pool) {
+    if (!db) {
         res.redirect('/');
         return;
     }
 
     const query = 'SELECT * FROM blog_posts ORDER BY id DESC' + (req.params.limit ? ' LIMIT ' + req.params.limit : '');
 
-    pool.query(query, (err, response) => {
+    db.query(query, (err, response) => {
         if (err) console.error('[postgres] error query: ' + err);
         else res.send(response.rows);
     });
@@ -65,6 +67,7 @@ app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/public/index.html'));
 });
 
+//Listen on PORT
 app.listen(PORT, () => {
     console.log(`[server] listening on port ${PORT}`);
 });
