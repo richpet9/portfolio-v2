@@ -11,13 +11,7 @@ const app = express();
 const PORT = 8080;
 
 //Postgres DB set up
-let db = new Pool({
-    user: process.env.DB_USER || 'none',
-    host: process.env.DB_HOST || 'none',
-    database: process.env.DB_NAME || 'none',
-    password: '=nx&3Mmn^$jC+/]V',
-    port: 5432
-});
+let db = new Pool();
 
 //Connect to DB
 db.connect().catch(err => {
