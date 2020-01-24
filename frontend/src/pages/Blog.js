@@ -87,24 +87,28 @@ const Blog = ({ match }) => {
                 <p>SHOWING POSTS FROM</p>
                 <SlidingButton activeButton={subBlogKey} options={['BOTH', 'MOBILE DESIGN', 'SENIOR PORTFOLIO']} urls={['', 'mobile-design', 'senior-portfolio']} />
             </div>
-            {posts.length > 0 && postId ? (
-                <SingleBlogPost post={posts[0]} />
-            ) : (
-                <div id="blog-posts-container">
-                    {posts.map(post => {
-                        const shortBody = truncateString(post.body, 200);
-                        const postInfo = {
-                            id: post.id,
-                            name: post.name,
-                            date: dateFormat(post.date),
-                            shortBody: shortBody,
-                            longBody: post.body,
-                            category: post.category
-                        };
+            {posts.length > 0 ? (
+                postId ? (
+                    <SingleBlogPost post={posts[0]} />
+                ) : (
+                    <div id="blog-posts-container">
+                        {posts.map(post => {
+                            const shortBody = truncateString(post.body, 200);
+                            const postInfo = {
+                                id: post.id,
+                                name: post.name,
+                                date: dateFormat(post.date),
+                                shortBody: shortBody,
+                                longBody: post.body,
+                                category: post.category
+                            };
 
-                        return <BlogPost post={postInfo} key={post.id} />;
-                    })}
-                </div>
+                            return <BlogPost post={postInfo} key={post.id} />;
+                        })}
+                    </div>
+                )
+            ) : (
+                <p style={{ fontSize: 24, marginTop: 28 }}>No posts to display.</p>
             )}
         </main>
     );
