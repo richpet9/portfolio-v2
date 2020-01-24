@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import SlidingButton from '../components/SlidingButton';
 import BlogPost from '../components/BlogPost';
+import SingleBlogPost from '../components/SingleBlogPost';
 
 const subBlogs = [
     {
@@ -35,7 +36,7 @@ const truncateString = (str, length) => {
     return str.slice(0, length - 2) + '...';
 };
 
-const dateFormat = date => {
+export const dateFormat = date => {
     if (typeof date !== Date) {
         date = new Date(date);
     }
@@ -51,9 +52,10 @@ const dateFormat = date => {
 const Blog = ({ match }) => {
     const [subBlogKey, setSubBlogKey] = useState(matchUrlToKey(match.params.subblog));
     const [posts, setPosts] = useState([]);
+    const [postId, setPostId] = useState(null);
 
-    const fetchPosts = limit => {
-        return fetch('/api/blog/posts/' + (limit ? limit : ''), {
+    const fetchPosts = id => {
+        return fetch('/api/blog-posts/' + (id ? id : ''), {
             method: 'get'
         })
             .then(res => res.json())
@@ -66,10 +68,15 @@ const Blog = ({ match }) => {
     useEffect(() => {
         if (match.params.subblog) {
             setSubBlogKey(matchUrlToKey(match.params.subblog));
+
+            if (match.params.id) setPostId(match.params.id);
+            else setPostId(null);
         } else {
             setSubBlogKey(0);
+            setPostId(null);
         }
-        fetchPosts().then(res => {
+
+        fetchPosts(match.params.id).then(res => {
             setPosts(res);
         });
     }, [match.params]);
@@ -80,21 +87,25 @@ const Blog = ({ match }) => {
                 <p>SHOWING POSTS FROM</p>
                 <SlidingButton activeButton={subBlogKey} options={['BOTH', 'MOBILE DESIGN', 'SENIOR PORTFOLIO']} urls={['', 'mobile-design', 'senior-portfolio']} />
             </div>
-            <div id="blog-posts-container">
-                {posts.map(post => {
-                    const shortBody = truncateString(post.body, 200);
-                    const postInfo = {
-                        id: post.id,
-                        name: post.name,
-                        date: dateFormat(post.date),
-                        shortBody: shortBody,
-                        longBody: post.body,
-                        category: post.category
-                    };
+            {posts.length > 0 && postId ? (
+                <SingleBlogPost post={posts[0]} />
+            ) : (
+                <div id="blog-posts-container">
+                    {posts.map(post => {
+                        const shortBody = truncateString(post.body, 200);
+                        const postInfo = {
+                            id: post.id,
+                            name: post.name,
+                            date: dateFormat(post.date),
+                            shortBody: shortBody,
+                            longBody: post.body,
+                            category: post.category
+                        };
 
-                    return <BlogPost post={postInfo} key={post.id} />;
-                })}
-            </div>
+                        return <BlogPost post={postInfo} key={post.id} />;
+                    })}
+                </div>
+            )}
         </main>
     );
 };

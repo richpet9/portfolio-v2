@@ -10,6 +10,7 @@
         width: 100%;
         height: 200px;
         background: lightgray;
+        margin-bottom: 8px;
     }
 
     .blog-post-text {
@@ -17,11 +18,15 @@
 
         .blog-post-name {
             margin: 10px 0;
-            margin-bottom: 4px;
-            margin-left: -4px;
-            display: inline-block;
-            padding: 0px 4px;
+            display: inline;
             color: $black;
+            padding: 0px 4px;
+            padding-left: 0;
+            padding-right: 0;
+            -webkit-box-decoration-break: clone;
+            -ms-box-decoration-break: clone;
+            -o-box-decoration-break: clone;
+            box-decoration-break: clone;
         }
 
         .blog-post-meta {
@@ -41,6 +46,7 @@
         .blog-post-name {
             background: $highlight;
             color: white;
+            box-shadow: 5px 0 0 $highlight, -5px 0 0 $highlight;
         }
         .blog-post-meta {
             text-decoration: underline !important;

@@ -39,13 +39,13 @@ app.get('/api/projects/:limit?', (req, res) => {
 });
 
 //Get the recent blog posts
-app.get('/api/blog/posts/:limit?', (req, res) => {
+app.get('/api/blog-posts/:id?', (req, res) => {
     if (!db) {
         res.redirect('/');
         return;
     }
 
-    const query = 'SELECT * FROM blog_posts ORDER BY id DESC' + (req.params.limit ? ' LIMIT ' + req.params.limit : '');
+    const query = 'SELECT * FROM blog_posts ' + (req.params.id ? 'WHERE id = ' + req.params.id : '') + ' ORDER BY id DESC';
 
     db.query(query, (err, response) => {
         if (err) console.error('[postgres] error query: ' + err);
