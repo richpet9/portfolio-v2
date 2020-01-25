@@ -15,9 +15,13 @@ const BlogPost = ({ post }) => {
                     <h2 className="blog-post-name">{post.name}</h2>
                     <div className="blog-post-meta">
                         <div className="blog-post-cat">
-                            {post.category.split('-').map(side => {
-                                return side[0].toUpperCase() + side.slice(1) + ' ';
-                            })}
+                            {post.category
+                                ? post.category.includes('-')
+                                    ? post.category.split('-').map(side => {
+                                          return side[0].toUpperCase() + side.slice(1) + ' ';
+                                      })
+                                    : post.category
+                                : 'No Category'}
                         </div>
                         <span className="vline"></span>
                         <div className="blog-post-date">{post.date}</div>

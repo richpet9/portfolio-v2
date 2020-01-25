@@ -27,7 +27,7 @@ const matchUrlToKey = url => {
 };
 
 const truncateString = (str, length) => {
-    if (str.length <= length) return str;
+    if (!str || str.length <= length) return str;
 
     while (str[length + 1] !== ' ') {
         length--;
@@ -87,7 +87,7 @@ const Blog = ({ match }) => {
                 <p>SHOWING POSTS FROM</p>
                 <SlidingButton activeButton={subBlogKey} options={['BOTH', 'MOBILE DESIGN', 'SENIOR PORTFOLIO']} urls={['', 'mobile-design', 'senior-portfolio']} />
             </div>
-            {posts.length > 0 ? (
+            {posts && posts.length > 0 ? (
                 postId ? (
                     <SingleBlogPost post={posts[0]} />
                 ) : (
