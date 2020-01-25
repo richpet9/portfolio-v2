@@ -54,8 +54,9 @@ const Blog = ({ match }) => {
     const [posts, setPosts] = useState([]);
     const [postId, setPostId] = useState(null);
 
-    const fetchPosts = id => {
-        return fetch('/api/blog-posts/' + (id ? id : ''), {
+    const fetchPosts = (category, id) => {
+        const url = '/api/blog-posts/' + (category ? (id ? category + '/' + id : category) : '');
+        return fetch(url, {
             method: 'get'
         })
             .then(res => res.json())
@@ -76,7 +77,7 @@ const Blog = ({ match }) => {
             setPostId(null);
         }
 
-        fetchPosts(match.params.id).then(res => {
+        fetchPosts(match.params.subblog, match.params.id).then(res => {
             setPosts(res);
         });
     }, [match.params]);
@@ -94,13 +95,16 @@ const Blog = ({ match }) => {
                     <div id="blog-posts-container">
                         {posts.map(post => {
                             const shortBody = truncateString(post.body, 200);
+                            console.log(post);
+
                             const postInfo = {
                                 id: post.id,
                                 name: post.name,
                                 date: dateFormat(post.date),
                                 shortBody: shortBody,
                                 longBody: post.body,
-                                category: post.category
+                                category: post.category,
+                                imgUrl: post.img_url
                             };
 
                             return <BlogPost post={postInfo} key={post.id} />;

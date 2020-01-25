@@ -39,13 +39,22 @@ app.get('/api/projects/:limit?', (req, res) => {
 });
 
 //Get the recent blog posts
-app.get('/api/blog-posts/:id?', (req, res) => {
+app.get('/api/blog-posts/:category?/:id?', (req, res) => {
     if (!db) {
         res.redirect('/');
         return;
     }
 
-    const query = 'SELECT * FROM blog_posts ' + (req.params.id ? 'WHERE id = ' + req.params.id : '') + ' ORDER BY id DESC';
+    const { category, id } = req.params;
+    let query = 'SELECT * FROM blog_posts ';
+
+    if (category) {
+        query += "WHERE category LIKE '%" + category + "%' ";
+        if (id) {
+            query += 'AND id = ' + id + ' ';
+        }
+    }
+    query += 'ORDER BY date DESC';
 
     db.query(query, (err, response) => {
         if (err) console.error('[postgres] error query: ' + err);

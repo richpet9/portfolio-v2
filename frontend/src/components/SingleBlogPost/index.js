@@ -21,7 +21,7 @@ const SingleBlogPost = ({ post }) => {
                 <div className="blog-post-date">{dateFormat(post.date)}</div>
             </div>
             <hr />
-            <div className="blog-post-img"></div>
+            <div className="blog-post-img" style={{ backgroundImage: "url('" + post.img_url + "')" }}></div>
             <div className="blog-post-long-body">{post.body}</div>
         </div>
     );

@@ -8,7 +8,7 @@ const BlogPost = ({ post }) => {
     return (
         <div className="blog-post" id={'blog-post-' + post.id}>
             <Link className="wrapper-link" to={post.url}>
-                <div className="blog-post-img"></div>
+                <div className="blog-post-img" style={{ backgroundImage: "url('" + post.imgUrl + "')" }}></div>
             </Link>
             <div className="blog-post-text">
                 <Link className="wrapper-link" to={post.url}>
