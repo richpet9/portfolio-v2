@@ -1,10 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SanitizedHTML from 'react-sanitized-html';
 
 import './index.css';
 
+const urlSafeRegex = /[!,@,#,$,%,^,&,*,<,>,(,),\[,\],{,},\\,/,+,=,",',`,.,?,\,,:,;]/g;
+
 const BlogPost = ({ post }) => {
-    post.url = '/blog/' + post.category + '/' + post.id + '/' + post.name.toLowerCase().replace(/ /g, '-');
+    post.url =
+        '/blog/' +
+        post.category +
+        '/' +
+        post.id +
+        '/' +
+        post.name
+            .toLowerCase()
+            .replace(/ /g, '-')
+            .replace(urlSafeRegex, '');
     return (
         <div className="blog-post" id={'blog-post-' + post.id}>
             <Link className="wrapper-link" to={post.url}>
@@ -27,7 +39,7 @@ const BlogPost = ({ post }) => {
                         <div className="blog-post-date">{post.date}</div>
                     </div>
                 </Link>
-                <div className="blog-post-short-body">{post.shortBody}</div>
+                <SanitizedHTML className="blog-post-short-body" html={post.shortBody} allowedTags={['p', 'strong', 'b', 'em', 'i']} />
             </div>
         </div>
     );

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
+import Marked from 'marked';
 import SlidingButton from '../components/SlidingButton';
 import BlogPost from '../components/BlogPost';
 import SingleBlogPost from '../components/SingleBlogPost';
@@ -29,11 +30,22 @@ const matchUrlToKey = url => {
 const truncateString = (str, length) => {
     if (!str || str.length <= length) return str;
 
+    if (str[0] === '#') {
+        let ps = str.split('\n');
+
+        for (let i = 0; i < ps.length; i++) {
+            if (ps[i].length > 0 && ps[i][0] !== '#') {
+                str = ps[i];
+                break;
+            }
+        }
+    }
+
     while (str[length + 1] !== ' ') {
         length--;
     }
 
-    return str.slice(0, length - 2) + '...';
+    return Marked(str.slice(0, length - 2) + '...');
 };
 
 export const dateFormat = date => {
@@ -94,9 +106,7 @@ const Blog = ({ match }) => {
                 ) : (
                     <div id="blog-posts-container">
                         {posts.map(post => {
-                            const shortBody = truncateString(post.body, 200);
-                            console.log(post);
-
+                            const shortBody = truncateString(post.body, 250);
                             const postInfo = {
                                 id: post.id,
                                 name: post.name,
