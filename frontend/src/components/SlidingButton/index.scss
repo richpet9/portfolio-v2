@@ -1,0 +1,137 @@
+@import '../../defaults.scss';
+
+$light_gray: rgb(228, 228, 228);
+$div_w: 27px;
+
+.sliding-button-container {
+    position: relative;
+    background-color: $light_gray;
+    overflow: hidden;
+
+    ul {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        overflow: hidden;
+
+        li {
+            display: inline-block;
+            text-align: center;
+            position: relative;
+
+            &:first-child {
+                padding-left: 8px;
+            }
+            &:last-child {
+                padding-right: 8px;
+            }
+
+            a {
+                color: $black;
+                display: inline-block;
+                padding: 8px 12px;
+                text-decoration: none;
+                font-size: 18px;
+                font-weight: 500;
+                letter-spacing: 0.5px;
+                position: relative;
+                transition: color 250ms $quarticOut;
+
+                &:hover {
+                    text-decoration: underline !important;
+                }
+            }
+
+            a.active {
+                color: white;
+            }
+
+            &.divider {
+                content: '';
+                position: relative;
+                width: $div_w;
+                height: 36px;
+
+                span {
+                    display: inline-block;
+                    position: relative;
+                    top: -20%;
+                    width: 2px;
+                    height: 140%;
+                    background: white;
+                    transform: rotate(35deg);
+                }
+            }
+        }
+    }
+
+    span.sliding-button-bg {
+        top: 0;
+        display: block;
+        position: absolute;
+        background: $highlight;
+        width: 100%;
+        display: block;
+        z-index: 1;
+        transition: all 150ms $quarticOut;
+
+        // Left subtractor
+        &::before {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            width: 8px;
+            height: 140%;
+            left: calc(0% - #{$div_w * 2});
+            top: -20%;
+            background: $light_gray;
+            transform: rotate(35deg);
+            z-index: 2;
+        }
+
+        //Right Subtractor
+        &::after {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            width: 8px;
+            height: 140%;
+            left: calc(100% + #{$div_w * 2});
+            top: -20%;
+            background: $light_gray;
+            transform: rotate(35deg);
+            z-index: 2;
+        }
+
+        //Background itself
+        span {
+            //Left extender
+            &::before {
+                content: '';
+                position: absolute;
+                display: inline-block;
+                width: $div_w;
+                height: 140%;
+                left: -#{($div_w / 2) + 2};
+                top: 0%;
+                background: $highlight;
+                transform: rotate(35deg);
+                z-index: 2;
+            }
+
+            //Right extender
+            &::after {
+                content: '';
+                position: absolute;
+                display: inline-block;
+                width: $div_w;
+                height: 140%;
+                left: calc(100% - #{$div_w / 2} + 2px);
+                top: -40%;
+                background: $highlight;
+                transform: rotate(35deg);
+                z-index: 2;
+            }
+        }
+    }
+}

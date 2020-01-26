@@ -1,65 +1,67 @@
 @import '../../../_defaults.scss';
 
 .checkbox-label {
-  position: relative;
-  height: 24px;
-  display: inline-block;
-  width: 100%;
-  padding-left: 26px;
-  margin-bottom: 5px;
-  letter-spacing: -0.5px;
-  cursor: pointer;
-  z-index: 1;
-
-  .checkbox-label-text {
     position: relative;
-    top: 2px;
-    letter-spacing: 0.5px;
-  }
+    height: 24px;
+    display: inline-block;
+    width: 100%;
+    padding-left: 26px;
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+    cursor: pointer;
+    z-index: 1;
 
-  .checkbox-label-text::selection {
-    background: none;
-  }
+    .checkbox-label-text {
+        position: relative;
+        top: 2px;
+        letter-spacing: 0.5px;
+    }
 
-  .checkbox-label-text::-moz-selection {
-    background: none;
-  }
+    .checkbox-label-text::selection {
+        background: none;
+    }
 
-  .checkbox-input {
-    display: none;
-  }
+    .checkbox-label-text::-moz-selection {
+        background: none;
+    }
 
-  .checkbox-box {
-    position: absolute;
-    top: 3.5px;
-    left: 0;
-    height: 17px;
-    width: 17px;
-    background-color: $black;
-  }
+    .checkbox-input {
+        display: none;
+    }
 
-  .checkbox-box:after {
-    display: none;
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: 5px;
-    width: 8px;
-    height: 18px;
-    border: solid white;
-    border-width: 0 5px 5px 0;
-    border-radius: 1px;
-    transform: rotate(45deg);
-    z-index: 10;
-  }
+    .checkbox-box {
+        position: absolute;
+        top: 3.5px;
+        left: 0;
+        height: 17px;
+        width: 17px;
+        background-color: $black;
+    }
 
-  .checkbox-input:checked ~ .checkbox-box:after {
-    display: block;
-  }
+    .checkbox-box:after {
+        display: none;
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: 5px;
+        width: 8px;
+        height: 18px;
+        border: solid white;
+        border-width: 0 5px 5px 0;
+        border-radius: 1px;
+        transform: rotate(45deg);
+        z-index: 10;
+    }
+
+    .checkbox-input:checked ~ .checkbox-box:after {
+        display: block;
+    }
 }
 
-.checkbox-label:hover {
-  .checkbox-box {
-    background: #333333;
-  }
+.checkbox-label:hover,
+.checkbox-label.active {
+    color: $highlight;
+    .checkbox-box {
+        background: $highlight;
+    }
 }

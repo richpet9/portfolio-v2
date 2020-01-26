@@ -13,5 +13,6 @@
 *.css
 /frontend/public/*.js
 /frontend/public/*.js.map
-/frontend/public/img/profile-images/*.jpg
-/backend/people.json
+
+# Security
+*.env

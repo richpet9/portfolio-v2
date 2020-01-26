@@ -1,62 +1,62 @@
 @import '../../_defaults.scss';
 
 #header {
-  text-align: center;
-  width: 70%;
-  margin: 0 auto;
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
 
-  #header-link {
-    color: black;
-    text-decoration: none;
-    display: inline-block;
-
-    #full-name {
-      font-size: 56px;
-      letter-spacing: 4px;
-      font-weight: 600;
-      margin: 0;
-      margin-top: 30px;
-    }
-  }
-
-  #subhead {
-    font-size: 28px;
-    font-weight: 300;
-    color: $highlight;
-    margin-bottom: 30px;
-    letter-spacing: 1px;
-  }
-
-  nav {
-    width: 72%;
-    display: inline-block;
-
-    ul {
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      font-size: 16px;
-      margin-bottom: 30px;
-
-      li {
+    #header-link {
+        color: black;
+        text-decoration: none;
         display: inline-block;
-        width: 25%;
-        text-align: center;
-        font-weight: 300;
-        letter-spacing: 1px;
 
-        a {
-          display: inline-block;
-          text-decoration: none;
-          color: black;
-          padding: 0 2px;
+        #full-name {
+            font-size: 56px;
+            letter-spacing: 4px;
+            font-weight: 600;
+            margin: 0;
+            margin-top: 30px;
         }
-
-        a:hover {
-          background: $highlight;
-          color: white;
-        }
-      }
     }
-  }
+
+    #subhead {
+        font-size: 28px;
+        font-weight: 300;
+        color: $highlight;
+        margin-bottom: 30px;
+        letter-spacing: 1px;
+    }
+
+    nav {
+        width: 72%;
+        display: inline-block;
+
+        ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            margin-bottom: 30px;
+
+            li {
+                display: inline-block;
+                width: 25%;
+                text-align: center;
+                font-weight: 400;
+                letter-spacing: 1px;
+
+                a {
+                    display: inline-block;
+                    text-decoration: none;
+                    color: black;
+                    padding: 0 4px;
+                }
+
+                a:hover {
+                    background: $highlight;
+                    color: white;
+                }
+            }
+        }
+    }
 }
