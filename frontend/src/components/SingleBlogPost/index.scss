@@ -8,33 +8,36 @@
     .blog-post-title {
         letter-spacing: 0.8px;
         font-size: 42px;
-        margin-bottom: 12px;
+        margin-bottom: 18px;
         color: $black;
         line-height: 100%;
     }
 
     .blog-post-meta {
         font-weight: 500;
+        font-size: 20px;
         letter-spacing: 0.25px;
         display: flex;
         color: $black;
+        margin-bottom: 32px;
+
+        .vline {
+            height: 18px;
+            top: 4px;
+            margin: 0 16px;
+        }
     }
 
     .blog-post-img {
         position: relative;
         display: block;
-        width: 136%;
-        height: 500px;
-        left: -18%;
+        width: 130%;
+        height: 550px;
+        left: -15%;
         background: lightgray;
         margin-bottom: 24px;
         background-position: center;
         background-size: cover;
-    }
-
-    hr {
-        margin: 24px 0;
-        color: $black;
     }
 
     .blog-post-long-body {
@@ -64,6 +67,7 @@
         p {
             margin: 16px 0;
             font-size: 20px;
+            letter-spacing: 0.25px;
 
             &:first-child {
                 margin-top: 0;

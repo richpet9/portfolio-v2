@@ -25,7 +25,6 @@ const SingleBlogPost = ({ post }) => {
                 <span className="vline"></span>
                 <div className="blog-post-date">{dateFormat(post.date)}</div>
             </div>
-            <hr />
             <div className="blog-post-img" style={{ backgroundImage: "url('" + post.img_url + "')" }}></div>
             <SanitizedHTML className="blog-post-long-body" html={Marked(post.body)} allowedTags={sanitizeAllowTags} />
         </div>
