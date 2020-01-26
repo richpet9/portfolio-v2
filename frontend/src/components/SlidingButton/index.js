@@ -20,17 +20,35 @@ const SlidingButton = ({ activeButton, options, urls }) => {
     const [transition, setTransition] = useState('none');
     const optionContainer = useRef();
 
-    useEffect(() => {
+    const setProportions = () => {
         setWidth(optionContainer.current.children[activeButton * (options.length - 1)].offsetWidth);
         setHeight(optionContainer.current.offsetHeight);
         setLeft(computeLeft(activeButton));
+    };
 
-        // First time render only, makes sure the bar doesnt appear when getting into position
-        if (opacity === 0 && transition === 'none') {
-            setTimeout(() => {
-                setOpacity(1);
-                setTransition('all 300ms cubic-bezier(0.165, 0.84, 0.44, 1)');
-            }, 50);
+    useEffect(() => {
+        // Make sure fonts are loaded before rendering/catch
+        // fonts API doesn't work in every browser though, so wrap in try
+        try {
+            document.fonts.ready.then(() => {
+                setProportions();
+                // First time render only, makes sure the bar doesnt appear when getting into position
+                if (opacity === 0 && transition === 'none') {
+                    setTimeout(() => {
+                        setOpacity(1);
+                        setTransition('all 300ms cubic-bezier(0.165, 0.84, 0.44, 1)');
+                    }, 50);
+                }
+            });
+        } catch (e) {
+            setProportions();
+            // First time render only, makes sure the bar doesnt appear when getting into position
+            if (opacity === 0 && transition === 'none') {
+                setTimeout(() => {
+                    setOpacity(1);
+                    setTransition('all 300ms cubic-bezier(0.165, 0.84, 0.44, 1)');
+                }, 50);
+            }
         }
     }, [activeButton]);
 
