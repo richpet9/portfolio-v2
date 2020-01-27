@@ -47,13 +47,13 @@
         h4,
         h5,
         h6 {
-            font-weight: 400;
+            font-weight: 600;
             margin: 16px 0;
-            margin-top: 20px;
+            margin-top: 32px;
             letter-spacing: 1px;
 
             &:first-of-type {
-                margin-top: 0;
+                margin-top: 24px;
             }
         }
 
@@ -65,9 +65,28 @@
         }
 
         p {
-            margin: 16px 0;
-            font-size: 20px;
-            letter-spacing: 0.25px;
+            &,
+            * {
+                margin: 16px 0;
+                letter-spacing: 0.35px;
+                line-height: 160%;
+                font-size: 20px;
+                font-family: $body;
+                font-weight: 400;
+            }
+
+            a {
+                display: inline;
+                color: $highlight;
+                border-bottom: 1.5px solid $highlight;
+                text-decoration: none;
+
+                &:focus,
+                &:hover {
+                    background: $highlight;
+                    color: white;
+                }
+            }
 
             &:first-child {
                 margin-top: 0;

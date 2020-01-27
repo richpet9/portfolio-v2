@@ -4,6 +4,7 @@ import SanitizedHTML from 'react-sanitized-html';
 
 import './index.css';
 
+//There's a better way to do this right?
 const urlSafeRegex = /[!,@,#,$,%,^,&,*,<,>,(,),\[,\],{,},\\,/,+,=,",',`,.,?,\,,:,;]/g;
 
 const BlogPost = ({ post }) => {
