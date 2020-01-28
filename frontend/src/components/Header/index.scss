@@ -60,3 +60,13 @@
         }
     }
 }
+
+@media screen and (max-width: 832px) {
+    #header {
+        width: 100%;
+
+        #full-name {
+            font-size: 118px;
+        }
+    }
+}
