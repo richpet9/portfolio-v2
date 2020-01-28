@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import Marked from 'marked';
 import SlidingButton from '../components/SlidingButton';
-import BlogPost from '../components/BlogPost';
+import BlogPostThumbnail from '../components/BlogPostThumbnail';
 import SingleBlogPost from '../components/SingleBlogPost';
 
 const subBlogs = [
@@ -117,7 +117,7 @@ const Blog = ({ match }) => {
                                 imgUrl: post.img_url
                             };
 
-                            return <BlogPost post={postInfo} key={post.id} />;
+                            return <BlogPostThumbnail post={postInfo} key={post.id} />;
                         })}
                     </div>
                 )

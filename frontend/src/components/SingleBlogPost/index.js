@@ -6,7 +6,7 @@ import { dateFormat } from '../../pages/Blog';
 
 import './index.css';
 
-const sanitizeAllowTags = ['a', 'h1', 'h2', 'h3', 'p', 'i', 'em', 'b', 'strong'];
+const sanitizeAllowTags = ['a', 'h1', 'h2', 'h3', 'p', 'i', 'em', 'b', 'strong', 'blockquote'];
 
 const SingleBlogPost = ({ post }) => {
     const [bgWidth, setBgWidth] = useState(window.innerWidth);

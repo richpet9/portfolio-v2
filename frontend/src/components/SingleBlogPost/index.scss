@@ -45,6 +45,7 @@
 
     .blog-post-long-body {
         position: relative;
+        padding-top: 32px;
 
         h1,
         h2,
@@ -75,7 +76,7 @@
             * {
                 margin: 16px 0;
                 letter-spacing: 0.35px;
-                line-height: 160%;
+                line-height: 155%;
                 font-size: 20px;
                 font-family: $body;
                 font-weight: 400;
@@ -99,6 +100,18 @@
             }
             &:last-child {
                 margin-bottom: 0;
+            }
+        }
+
+        blockquote {
+            margin: 32px 64px;
+            margin-right: 84px;
+            padding-left: 24px;
+            color: transparentize($color: $darkHighlight, $amount: 0.2);
+            border-left: 4px solid transparentize($color: $darkHighlight, $amount: 0.55);
+
+            p {
+                line-height: 135%;
             }
         }
 
