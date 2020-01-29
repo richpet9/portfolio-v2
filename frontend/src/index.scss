@@ -54,3 +54,9 @@ span.vline {
     border-right: 1.5px solid lightgrey;
     margin: 0 8px;
 }
+
+@media screen and (max-width: 832px) {
+    #blog-filter-container {
+        display: none;
+    }
+}

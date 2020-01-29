@@ -2,11 +2,11 @@
 
 #header {
     text-align: center;
-    width: 70%;
+    width: calc(100% - 36px);
     margin: 0 auto;
 
     #header-link {
-        color: black;
+        color: $black;
         text-decoration: none;
         display: inline-block;
 
@@ -63,10 +63,41 @@
 
 @media screen and (max-width: 832px) {
     #header {
-        width: 100%;
+        #header-link {
+            #full-name {
+                font-size: 52px;
+                line-height: 100%;
+            }
+        }
 
-        #full-name {
-            font-size: 118px;
+        #subhead {
+            font-size: 26px;
+        }
+
+        nav {
+            width: 85%;
+        }
+    }
+}
+
+@media screen and (max-width: 414px) {
+    #header {
+        text-align: left;
+
+        nav {
+            width: 100%;
+
+            ul {
+                flex-wrap: wrap;
+                li {
+                    width: 100%;
+                    a {
+                        font-size: 24px;
+                        padding: 8px 0;
+                        width: 100%;
+                    }
+                }
+            }
         }
     }
 }

@@ -64,3 +64,24 @@
         }
     }
 }
+
+@media screen and (max-width: 1300px) {
+    .blog-post {
+        width: 50%;
+
+        .blog-post-img {
+            height: 22vw;
+        }
+    }
+}
+
+@media screen and (max-width: 832px) {
+    .blog-post {
+        width: 100%;
+        padding: 0;
+
+        .blog-post-img {
+            height: 45vw;
+        }
+    }
+}
