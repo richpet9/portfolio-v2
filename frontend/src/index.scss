@@ -7,10 +7,6 @@
     box-sizing: border-box;
 }
 
-#app-container {
-    padding: 18px;
-}
-
 .italic {
     font-style: italic;
 }
@@ -53,4 +49,10 @@ span.vline {
     top: 0px;
     border-right: 1.5px solid lightgrey;
     margin: 0 8px;
+}
+
+@media screen and (max-width: 832px) {
+    #blog-filter-container {
+        display: none;
+    }
 }

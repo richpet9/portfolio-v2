@@ -36,6 +36,7 @@ $div_w: 27px;
                 letter-spacing: 0.5px;
                 position: relative;
                 transition: color 250ms $quarticOut;
+                white-space: nowrap;
 
                 &:hover {
                     text-decoration: underline !important;

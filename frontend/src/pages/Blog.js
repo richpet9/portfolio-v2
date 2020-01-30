@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import Marked from 'marked';
 import SlidingButton from '../components/SlidingButton';
-import BlogPost from '../components/BlogPost';
+import BlogPostThumbnail from '../components/BlogPostThumbnail';
 import SingleBlogPost from '../components/SingleBlogPost';
+import { dateFormat, truncateString } from '../util';
 
 const subBlogs = [
     {
@@ -25,40 +26,6 @@ const matchUrlToKey = url => {
         }
     }
     return 0;
-};
-
-const truncateString = (str, length) => {
-    if (!str || str.length <= length) return str;
-
-    if (str[0] === '#') {
-        let ps = str.split('\n');
-
-        for (let i = 0; i < ps.length; i++) {
-            if (ps[i].length > 0 && ps[i][0] !== '#') {
-                str = ps[i];
-                break;
-            }
-        }
-    }
-
-    while (str[length + 1] !== ' ') {
-        length--;
-    }
-
-    return Marked(str.slice(0, length - 2) + '...');
-};
-
-export const dateFormat = date => {
-    if (typeof date !== Date) {
-        date = new Date(date);
-    }
-
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    const day = date.getUTCDate();
-    const month = date.getUTCMonth();
-    const year = date.getUTCFullYear();
-
-    return months[month] + ' ' + day + ', ' + year;
 };
 
 const Blog = ({ match }) => {
@@ -106,7 +73,7 @@ const Blog = ({ match }) => {
                 ) : (
                     <div id="blog-posts-container">
                         {posts.map(post => {
-                            const shortBody = truncateString(post.body, 250);
+                            const shortBody = Marked(truncateString(post.body, 250));
                             const postInfo = {
                                 id: post.id,
                                 name: post.name,
@@ -117,7 +84,7 @@ const Blog = ({ match }) => {
                                 imgUrl: post.img_url
                             };
 
-                            return <BlogPost post={postInfo} key={post.id} />;
+                            return <BlogPostThumbnail post={postInfo} key={post.id} />;
                         })}
                     </div>
                 )
