@@ -1,43 +1,42 @@
 @import '../../_defaults.scss';
 
 footer {
-  padding: 18px;
-  color: $black;
-  text-align: center;
+    padding: 18px;
+    color: $black;
+    text-align: center;
 
-  ul {
-    list-style: none;
+    ul {
+        list-style: none;
 
-    li {
-      display: inline-block;
-      padding-right: 16px;
+        li {
+            display: inline-block;
+            padding-right: 16px;
 
-      a {
-        color: $black;
-      }
+            a {
+                color: $black;
+            }
 
-      a:hover {
-        color: $highlight;
-      }
+            a:hover {
+                color: $highlight;
+            }
+        }
+
+        li:last-child {
+            padding-right: 0;
+        }
     }
+}
 
-    li::after {
-      content: '';
-      display: inline-block;
-      width: 0;
-      height: 12px;
-      position: relative;
-      top: 1px;
-      border-right: 1px solid black;
-      padding-left: 16px;
-    }
+@media screen and (max-width: 414px) {
+    footer {
+        width: 100%;
+        text-align: left;
 
-    li:last-child::after {
-      display: none;
+        ul {
+            li {
+                display: block;
+                line-height: 200%;
+            }
+        }
     }
-
-    li:last-child {
-      padding-right: 0;
-    }
-  }
 }

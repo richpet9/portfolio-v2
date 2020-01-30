@@ -9,13 +9,6 @@ import './index.css';
 const sanitizeAllowTags = ['a', 'h1', 'h2', 'h3', 'p', 'i', 'em', 'b', 'strong', 'blockquote'];
 
 const SingleBlogPost = ({ post }) => {
-    const [bgWidth, setBgWidth] = useState(window.innerWidth);
-
-    const handleResize = () => {
-        setBgWidth(window.innerWidth);
-    };
-    window.onresize = handleResize;
-
     return (
         <div className="single-blog-post">
             <div className="container">
@@ -35,7 +28,7 @@ const SingleBlogPost = ({ post }) => {
                 </div>
             </div>
 
-            <div className="blog-post-img" style={{ backgroundImage: "url('" + post.img_url + "')", width: bgWidth }}></div>
+            <div className="blog-post-img" style={{ backgroundImage: "url('" + post.img_url + "')" }}></div>
 
             <SanitizedHTML className="blog-post-long-body container" html={Marked(post.body, { renderer: Renderer })} allowedTags={sanitizeAllowTags} />
         </div>
