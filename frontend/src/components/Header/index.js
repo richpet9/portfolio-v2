@@ -1,9 +1,8 @@
 import React from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink, withRouter, Link } from 'react-router-dom';
 import './index.css';
 
 const Header = () => {
-    const navItems = ['Home', 'About', 'Blog', 'Contact', 'Photos'];
     return (
         <header id="header">
             <NavLink to="/" id="header-link">
@@ -12,11 +11,53 @@ const Header = () => {
             <h4 id="subhead">DESIGN + DEVELOPMENT</h4>
             <nav>
                 <ul>
-                    {navItems.map(nav => (
-                        <li key={nav}>
-                            <NavLink to={'/' + nav.toLowerCase()}>{nav.toUpperCase()}</NavLink>
-                        </li>
-                    ))}
+                    <li>
+                        <NavLink to="/home">HOME</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/about">ABOUT</NavLink>
+                    </li>
+                    <li>
+                        <a href="/blog">BLOG</a>
+                    </li>
+                    <li>
+                        <NavLink to="/contact">CONTACT</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/photos">PHOTOS</NavLink>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    );
+};
+
+export const BlogHeader = () => {
+    // Blog header is the same as above except uses `a` tags instead of react routing
+    // this is because we are techinically exiting the code bundle when we leave the blog
+    return (
+        <header id="header">
+            <a href="/" id="header-link">
+                <h1 id="full-name">RICHARD PETROSINO</h1>
+            </a>
+            <h4 id="subhead">DESIGN + DEVELOPMENT</h4>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/home">HOME</a>
+                    </li>
+                    <li>
+                        <a href="/about">ABOUT</a>
+                    </li>
+                    <li>
+                        <NavLink to="/blog">BLOG</NavLink>
+                    </li>
+                    <li>
+                        <a href="/contact">CONTACT</a>
+                    </li>
+                    <li>
+                        <a href="/photos">PHOTOS</a>
+                    </li>
                 </ul>
             </nav>
         </header>
