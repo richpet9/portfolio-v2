@@ -33,8 +33,9 @@ const Blog = ({ match }) => {
     const [posts, setPosts] = useState([]);
     const [postId, setPostId] = useState(null);
 
-    const fetchPosts = (category, id) => {
-        const url = '/api/blog-posts/' + (category ? (id ? category + '/' + id : category) : '');
+    const fetchPosts = (subblog, id) => {
+        const url = '/api/blog-posts/' + (subblog ? (id ? subblog + '/' + id : subblog) : '');
+
         return fetch(url, {
             method: 'get'
         })
