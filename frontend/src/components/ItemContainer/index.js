@@ -16,7 +16,10 @@ const ItemContainer = ({ numItems }) => {
 
     return (
         <div id="item-container">
-            {posts && posts.map(post => <Item key={post.id} id={post.id} name={post.name} tags={post.tags} url={'/post/' + post.name.trim().replace(' ', '-')} />)}
+            {posts &&
+                posts.map(post => (
+                    <Item key={post.id} id={post.id} name={post.name} tags={post.tags} url={'/project/' + post.id + '/' + post.name.trim().replace(' ', '-')} />
+                ))}
         </div>
     );
 };

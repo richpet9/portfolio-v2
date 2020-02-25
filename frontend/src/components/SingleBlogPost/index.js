@@ -6,7 +6,7 @@ import Renderer from '../../util/renderer';
 
 import './index.css';
 
-const sanitizeAllowTags = ['a', 'h1', 'h2', 'h3', 'p', 'i', 'em', 'b', 'strong', 'blockquote'];
+const sanitizeAllowTags = ['a', 'h1', 'h2', 'h3', 'p', 'i', 'em', 'b', 'strong', 'blockquote', 'ul', 'ol', 'li'];
 
 const SingleBlogPost = ({ post }) => {
     return (

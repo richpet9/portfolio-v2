@@ -4,7 +4,7 @@ import { Route, withRouter } from 'react-router-dom';
 const ItemPage = props => {
     return (
         <main id="item-page-container">
-            <Route path="/post/:id/:name?" render={({ match }) => match.params.id}></Route>
+            <Route path="/project/:id/:name?" render={({ match }) => match.params.id}></Route>
         </main>
     );
 };

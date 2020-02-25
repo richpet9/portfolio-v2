@@ -73,7 +73,9 @@
             font-size: 38px;
         }
 
-        p {
+        p,
+        ol,
+        ul {
             &,
             * {
                 margin: 16px 0;
@@ -107,7 +109,9 @@
             }
         }
 
-        blockquote {
+        blockquote,
+        ul,
+        ol {
             margin: 32px 64px;
             margin-right: 84px;
             padding-left: 24px;
@@ -116,6 +120,18 @@
 
             p {
                 line-height: 135%;
+            }
+        }
+
+        ul,
+        ol {
+            border: none;
+            color: $black;
+
+            li {
+                line-height: 100%;
+                margin: 0;
+                padding: 0;
             }
         }
 
