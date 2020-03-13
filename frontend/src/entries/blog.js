@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
-import Blog from '../pages/Blog';
 import { BlogHeader } from '../components/Header';
+import Blog from '../pages/Blog';
 import Footer from '../components/Footer';
 
 import '../index.css';

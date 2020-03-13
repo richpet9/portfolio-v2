@@ -31,3 +31,25 @@ export const dateFormat = date => {
 
     return months[month] + ' ' + day + ', ' + year;
 };
+
+export const makeUrl = str => {
+    let res = '';
+    //There's a better way to do this right?
+    const urlSafeRegex = /[!,@,#,$,%,^,&,*,<,>,(,),\[,\],{,},\\,/,+,=,",',`,.,?,\,,:,;,\ ]/g;
+    res = str.toLowerCase().replace(urlSafeRegex, '-');
+    for (let i = 0; i < res.length; i++) {
+        const chr = res.charAt(i);
+        //Check if this char is in the regex
+        if (chr === '-') {
+            // Check if prev character is a hyphen
+            if (res.charAt(i - 1) == '-') {
+                res = [res.slice(0, i), res.slice(i + 1)].join('');
+            }
+            // Check if this hyphen is at the end of the string, and omit it if so
+            if (i === res.length - 1) {
+                res = res.slice(0, i);
+            }
+        }
+    }
+    return res;
+};

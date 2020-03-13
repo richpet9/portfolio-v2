@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Marked from 'marked';
-import SanitizedHTML from 'react-sanitized-html';
 import { dateFormat } from '../../util';
+import SanitizedHTML from 'react-sanitized-html';
 import Renderer from '../../util/renderer';
 
 import './index.css';

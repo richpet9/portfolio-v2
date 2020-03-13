@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Item from './Item';
+import { makeUrl } from '../../util';
 
 import './index.css';
 
@@ -17,9 +18,10 @@ const ItemContainer = ({ numItems }) => {
     return (
         <div id="item-container">
             {posts &&
-                posts.map(post => (
-                    <Item key={post.id} id={post.id} name={post.name} tags={post.tags} url={'/project/' + post.id + '/' + post.name.trim().replace(' ', '-')} />
-                ))}
+                posts.map(post => {
+                    const url = '/project/' + post.id + '/' + makeUrl(post.name);
+                    return <Item key={post.id} id={post.id} name={post.name} tags={post.tags} url={url} />;
+                })}
         </div>
     );
 };

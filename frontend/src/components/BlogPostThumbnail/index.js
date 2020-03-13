@@ -1,23 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SanitizedHTML from 'react-sanitized-html';
+import { makeUrl } from '../../util';
 
 import './index.css';
 
-//There's a better way to do this right?
-const urlSafeRegex = /[!,@,#,$,%,^,&,*,<,>,(,),\[,\],{,},\\,/,+,=,",',`,.,?,\,,:,;]/g;
-
 const BlogPost = ({ post }) => {
-    post.url =
-        '/blog/' +
-        post.category +
-        '/' +
-        post.id +
-        '/' +
-        post.name
-            .toLowerCase()
-            .replace(/ /g, '-')
-            .replace(urlSafeRegex, '');
+    post.url = '/blog/' + post.category + '/' + post.id + '/' + makeUrl(post.name);
     return (
         <div className="blog-post" id={'blog-post-' + post.id}>
             <Link className="wrapper-link" to={post.url}>
