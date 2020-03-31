@@ -1,14 +1,12 @@
 import React from 'react';
 import Marked from 'marked';
-import { dateFormat } from '../../util';
 import SanitizedHTML from 'react-sanitized-html';
 import Renderer from '../../util/renderer';
+import { dateFormat, sanitizedAllowTags } from '../../util';
 
 import './index.css';
 
-const sanitizeAllowTags = ['a', 'h1', 'h2', 'h3', 'p', 'i', 'em', 'b', 'strong', 'blockquote', 'ul', 'ol', 'li'];
-
-const SingleBlogPost = ({ post }) => {
+const BlogPost = ({ post }) => {
     return (
         <div className="single-blog-post">
             <div className="container">
@@ -30,8 +28,8 @@ const SingleBlogPost = ({ post }) => {
 
             <div className="blog-post-img" style={{ backgroundImage: "url('" + post.img_url + "')" }}></div>
 
-            <SanitizedHTML className="blog-post-long-body container" html={Marked(post.body, { renderer: Renderer })} allowedTags={sanitizeAllowTags} />
+            <SanitizedHTML className="blog-post-long-body container" html={Marked(post.body, { renderer: Renderer })} allowedTags={sanitizedAllowTags} />
         </div>
     );
 };
-export default SingleBlogPost;
+export default BlogPost;

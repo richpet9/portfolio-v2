@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Item from './Item';
+import Item from './ProjectThumbnail';
 import { makeUrl } from '../../util';
 
 import './index.css';
 
-const ItemContainer = ({ items }) => {
+const ProjectThumbnail = ({ items }) => {
     return (
-        <div id="item-container">
+        <div className="project-container">
             {items &&
                 items.map(item => {
                     const url = '/project/' + item.id + '/' + makeUrl(item.name);
@@ -16,4 +16,4 @@ const ItemContainer = ({ items }) => {
     );
 };
 
-export default ItemContainer;
+export default ProjectThumbnail;

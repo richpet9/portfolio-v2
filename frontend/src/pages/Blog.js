@@ -74,18 +74,12 @@ const Blog = ({ match }) => {
                 posts.length > 1 ? (
                     <div id="blog-posts-container">
                         {posts.map(post => {
-                            const shortBody = Marked(truncateString(post.body, 250));
-                            const postInfo = {
-                                id: post.id,
-                                name: post.name,
-                                date: dateFormat(post.date),
-                                shortBody: shortBody,
-                                longBody: post.body,
-                                category: post.category,
-                                imgUrl: post.img_url
-                            };
+                            post.date = dateFormat(post.date);
+                            post.shortBody = Marked(truncateString(post.body, 250));
+                            post.longBody = post.body;
+                            post.imgUrl = post.img_url;
 
-                            return <BlogPostThumbnail post={postInfo} key={post.id} />;
+                            return <BlogPostThumbnail post={post} key={post.id} />;
                         })}
                     </div>
                 ) : (

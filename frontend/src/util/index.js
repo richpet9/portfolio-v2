@@ -53,3 +53,5 @@ export const makeUrl = str => {
     }
     return res;
 };
+
+export const sanitizedAllowTags = ['a', 'h1', 'h2', 'h3', 'p', 'i', 'em', 'b', 'strong', 'blockquote', 'ul', 'ol', 'li'];
