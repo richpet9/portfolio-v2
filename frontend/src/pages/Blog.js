@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import Marked from 'marked';
 import SlidingButton from '../components/SlidingButton';
 import BlogPostThumbnail from '../components/BlogPostThumbnail';
-import SingleBlogPost from '../components/SingleBlogPost';
+import BlogPost from '../components/BlogPost';
 import { dateFormat, truncateString } from '../util';
 
 const subBlogs = [
@@ -83,7 +83,7 @@ const Blog = ({ match }) => {
                         })}
                     </div>
                 ) : (
-                    <SingleBlogPost post={posts[0]} />
+                    <BlogPost post={posts[0]} />
                 )
             ) : (
                 <p style={{ fontSize: 24, marginTop: 28 }}>No posts to display.</p>

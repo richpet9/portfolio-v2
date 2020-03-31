@@ -1,0 +1,31 @@
+@import '../../../defaults.scss';
+
+.project-meta-container {
+    width: 33.33%;
+    display: flex;
+    padding-top: 16px;
+    padding-left: 32px;
+
+    .project-meta-col {
+        margin-right: 32px;
+        width: 50%;
+
+        .project-meta-entry {
+            margin-bottom: 32px;
+
+            .project-meta-label {
+                position: relative;
+                display: inline-block;
+                margin-bottom: 8px;
+                font-size: 18px;
+                line-height: 100%;
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
+
+            .project-meta-value {
+                font-size: 18px;
+            }
+        }
+    }
+}

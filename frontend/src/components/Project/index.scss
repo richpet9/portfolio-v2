@@ -1,0 +1,10 @@
+@import '../../defaults.scss';
+
+.project-container {
+    width: 100%;
+    display: flex;
+
+    .project-body-container {
+        width: 66.66%;
+    }
+}
