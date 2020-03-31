@@ -12,13 +12,18 @@ db.connect().catch(err => {
 });
 
 //Get the recent project posts
-router.get('/api/projects/:limit?', (req, res) => {
+router.get('/api/projects/:id?', (req, res) => {
     if (!db) {
         res.redirect('/');
         return;
     }
+    let query;
 
-    const query = 'SELECT * FROM projects ORDER BY id DESC' + (req.params.limit ? ' LIMIT ' + req.params.limit : '');
+    if (req.params.id) {
+        query = 'SELECT * FROM projects WHERE id = ' + req.params.id + ' ORDER BY id DESC';
+    } else {
+        query = 'SELECT * FROM projects ORDER BY id DESC LIMIT 10';
+    }
 
     db.query(query, (err, response) => {
         if (err) console.error('[postgres] error query: ' + err);

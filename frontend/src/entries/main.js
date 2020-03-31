@@ -4,7 +4,6 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import Header from '../components/Header';
 import Home from '../pages/Home.js';
 import About from '../pages/About.js';
-import ProjectPage from '../pages/ProjectPage.js';
 import Footer from '../components/Footer';
 
 import '../index.css';
@@ -19,7 +18,7 @@ const App = () => {
                 <Route path="/about" component={About} />
                 <Route path="/contact" component={() => 'contact'} />
                 <Route path="/photos" component={() => 'photos'} />
-                <Route path="/project" component={ProjectPage} />
+                <Route path="/project/:id" component={Home} />
             </Switch>
             <Footer />
         </Router>

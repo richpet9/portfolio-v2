@@ -1,12 +1,10 @@
 import React from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-const ItemPage = props => {
-    return (
-        <main id="item-page-container">
-            <Route path="/project/:id/:name?" render={({ match }) => match.params.id}></Route>
-        </main>
-    );
+const ProjectPage = props => {
+    console.log(props);
+
+    return <main id="item-page-container"></main>;
 };
 
-export default withRouter(ItemPage);
+export default withRouter(ProjectPage);

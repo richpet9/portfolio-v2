@@ -31,7 +31,6 @@ const matchUrlToKey = url => {
 const Blog = ({ match }) => {
     const [subBlogKey, setSubBlogKey] = useState(matchUrlToKey(match.params.subblog));
     const [posts, setPosts] = useState([]);
-    const [postId, setPostId] = useState(null);
 
     const fetchPosts = (subblog, id) => {
         const url = '/api/blog-posts/' + (subblog ? (id ? subblog + '/' + id : subblog) : '');
@@ -39,6 +38,13 @@ const Blog = ({ match }) => {
         return fetch(url, {
             method: 'get'
         })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(res.statusText + url);
+                } else {
+                    return res;
+                }
+            })
             .then(res => res.json())
             .catch(err => {
                 console.error('Error fetching blog posts: ' + err);
@@ -49,12 +55,8 @@ const Blog = ({ match }) => {
     useEffect(() => {
         if (match.params.subblog) {
             setSubBlogKey(matchUrlToKey(match.params.subblog));
-
-            if (match.params.id) setPostId(match.params.id);
-            else setPostId(null);
         } else {
             setSubBlogKey(0);
-            setPostId(null);
         }
 
         fetchPosts(match.params.subblog, match.params.id).then(res => {
@@ -68,10 +70,8 @@ const Blog = ({ match }) => {
                 <p>SHOWING POSTS FROM</p>
                 <SlidingButton activeButton={subBlogKey} options={['BOTH', 'MOBILE DESIGN', 'SENIOR PORTFOLIO']} urls={['', 'mobile-design', 'senior-portfolio']} />
             </div>
-            {posts && posts.length > 0 ? (
-                postId ? (
-                    <SingleBlogPost post={posts[0]} />
-                ) : (
+            {posts.length > 0 ? (
+                posts.length > 1 ? (
                     <div id="blog-posts-container">
                         {posts.map(post => {
                             const shortBody = Marked(truncateString(post.body, 250));
@@ -88,6 +88,8 @@ const Blog = ({ match }) => {
                             return <BlogPostThumbnail post={postInfo} key={post.id} />;
                         })}
                     </div>
+                ) : (
+                    <SingleBlogPost post={posts[0]} />
                 )
             ) : (
                 <p style={{ fontSize: 24, marginTop: 28 }}>No posts to display.</p>

@@ -4,23 +4,13 @@ import { makeUrl } from '../../util';
 
 import './index.css';
 
-const ItemContainer = ({ numItems }) => {
-    const [posts, setPosts] = useState(null);
-
-    useEffect(() => {
-        fetch('/api/projects/' + numItems)
-            .then(res => res.json())
-            .then(res => {
-                setPosts(res);
-            });
-    }, []);
-
+const ItemContainer = ({ items }) => {
     return (
         <div id="item-container">
-            {posts &&
-                posts.map(post => {
-                    const url = '/project/' + post.id + '/' + makeUrl(post.name);
-                    return <Item key={post.id} id={post.id} name={post.name} tags={post.tags} url={url} />;
+            {items &&
+                items.map(item => {
+                    const url = '/project/' + item.id + '/' + makeUrl(item.name);
+                    return <Item key={item.id} id={item.id} name={item.name} tags={item.tags} url={url} />;
                 })}
         </div>
     );
