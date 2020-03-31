@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Filter from '../components/Filter';
 import ProjectContainer from '../components/ProjectGrid';
-import ProjectPage from '../pages/ProjectPage';
+import Project from '../components/Project';
 
 const Home = ({ match }) => {
     const [projects, setProjects] = useState(null);
@@ -35,7 +35,7 @@ const Home = ({ match }) => {
     return (
         <main id="app-container" style={{ display: 'flex' }}>
             {projects && projects.length > 1 ? <Filter /> : ''}
-            {projects ? projects.length > 1 ? <ProjectContainer items={projects} /> : <ProjectPage item={projects[0]} /> : 'Error retrieving projects.'}
+            {projects ? projects.length > 1 ? <ProjectContainer items={projects} /> : <Project item={projects[0]} /> : 'Error retrieving projects.'}
         </main>
     );
 };

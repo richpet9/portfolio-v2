@@ -6,7 +6,7 @@ import './index.css';
 
 const ProjectThumbnail = ({ items }) => {
     return (
-        <div className="project-container">
+        <div className="project-thumbnail-container">
             {items &&
                 items.map(item => {
                     const url = '/project/' + item.id + '/' + makeUrl(item.name);
