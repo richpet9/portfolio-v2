@@ -23,8 +23,16 @@ const ProjectMetaInfo = ({ info }) => {
                 </div>
                 <div className="project-meta-entry">
                     <div className="project-meta-label">LINKS</div>
-                    <div className="project-meta-value">Full-size PDF</div>
-                    <div className="project-meta-value">Process Book</div>
+                    <div className="project-meta-value">
+                        <a href="#" title="Full-size PDF">
+                            Full-size PDF
+                        </a>
+                    </div>
+                    <div className="project-meta-value">
+                        <a href="#" title="Process Book">
+                            Process Book
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

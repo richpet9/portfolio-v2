@@ -10,6 +10,10 @@
         margin-right: 32px;
         width: 50%;
 
+        &:last-child {
+            padding-right: 32px;
+        }
+
         .project-meta-entry {
             margin-bottom: 32px;
 
@@ -17,14 +21,14 @@
                 position: relative;
                 display: inline-block;
                 margin-bottom: 8px;
-                font-size: 18px;
+                font-size: 16px;
                 line-height: 100%;
                 font-weight: 600;
                 letter-spacing: 1px;
             }
 
             .project-meta-value {
-                font-size: 18px;
+                font-size: 16px;
             }
         }
     }

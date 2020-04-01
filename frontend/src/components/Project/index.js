@@ -10,13 +10,15 @@ import './index.css';
 
 const Project = ({ item }) => {
     return (
-        <div className="project-container">
-            <ProjectMetaInfo />
+        <div className="project-page-container">
+            <div className="project-img" style={{ backgroundImage: "url('" + item.img_url + "')" }}></div>
+            <div className="project-container">
+                <ProjectMetaInfo />
 
-            <div className="project-body-container container">
-                <h1 className="project-post-title">{item.name}</h1>
-                <div className="project-post-img" style={{ backgroundImage: "url('" + item.img_url + "')" }}></div>
-                <SanitizedHTML className="project-post-long-body container" html={Marked(item.desc || '', { renderer: Renderer })} allowedTags={sanitizedAllowTags} />
+                <div className="project-body-container container">
+                    <h1 className="project-title">{item.name}</h1>
+                    <SanitizedHTML className="project-long-body container" html={Marked(item.body || '', { renderer: Renderer })} allowedTags={sanitizedAllowTags} />
+                </div>
             </div>
         </div>
     );
