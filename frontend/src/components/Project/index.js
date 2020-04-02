@@ -13,7 +13,7 @@ const Project = ({ item }) => {
         <div className="project-page-container">
             <div className="project-img" style={{ backgroundImage: "url('" + item.img_url + "')" }}></div>
             <div className="project-container">
-                <ProjectMetaInfo />
+                <ProjectMetaInfo item={item} />
 
                 <div className="project-body-container container">
                     <h1 className="project-title">{item.name}</h1>
