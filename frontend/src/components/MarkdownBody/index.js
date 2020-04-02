@@ -7,6 +7,7 @@ import { sanitizedAllowTags } from '../../util';
 import './index.css';
 
 const MarkdownBody = ({ markdown }) => {
+    markdown = markdown || '';
     return <SanitizedHTML className="markdown-body container" html={Marked(markdown, { renderer: Renderer })} allowedTags={sanitizedAllowTags} />;
 };
 

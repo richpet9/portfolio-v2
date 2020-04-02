@@ -1,10 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import SanitizedHTML from 'react-sanitized-html';
-import Marked from 'marked';
+import MarkdownBody from '../MarkdownBody';
 import ProjectMetaInfo from './ProjectMetaInfo';
-import Renderer from '../../util/renderer';
-import { sanitizedAllowTags } from '../../util';
 
 import './index.css';
 
@@ -17,7 +14,7 @@ const Project = ({ item }) => {
 
                 <div className="project-body-container container">
                     <h1 className="project-title">{item.name}</h1>
-                    <SanitizedHTML className="project-long-body container" html={Marked(item.body || '', { renderer: Renderer })} allowedTags={sanitizedAllowTags} />
+                    <MarkdownBody markdown={item.body} />
                 </div>
             </div>
         </div>
