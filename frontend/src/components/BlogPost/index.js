@@ -1,8 +1,6 @@
 import React from 'react';
-import Marked from 'marked';
-import SanitizedHTML from 'react-sanitized-html';
-import Renderer from '../../util/renderer';
-import { dateFormat, sanitizedAllowTags } from '../../util';
+import MarkdownBody from '../MarkdownBody';
+import { dateFormat } from '../../util';
 
 import './index.css';
 
@@ -28,7 +26,7 @@ const BlogPost = ({ post }) => {
 
             <div className="blog-post-img" style={{ backgroundImage: "url('" + post.img_url + "')" }}></div>
 
-            <SanitizedHTML className="blog-post-long-body container" html={Marked(post.body, { renderer: Renderer })} allowedTags={sanitizedAllowTags} />
+            <MarkdownBody markdown={post.body} />
         </div>
     );
 };
