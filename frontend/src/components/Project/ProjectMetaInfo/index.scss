@@ -18,7 +18,6 @@
 
             .project-meta-label {
                 position: relative;
-                display: inline-block;
                 margin-bottom: 8px;
                 font-size: 16px;
                 line-height: 100%;
@@ -28,6 +27,10 @@
 
             .project-meta-value {
                 font-size: 16px;
+
+                &.tag {
+                    display: inline-block;
+                }
             }
         }
     }

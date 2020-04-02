@@ -5,9 +5,9 @@ import './index.css';
 
 const ProjectMetaInfo = ({ item }) => {
     let links = item.links ? item.links.split(',') : [];
+    let tags = item.tags ? item.tags.split(',') : [];
 
-    console.log(item.links);
-
+    // Style the array of links
     if (item && item.links) {
         for (let i = 0; i < links.length; i++) {
             let link = links[i];
@@ -25,8 +25,29 @@ const ProjectMetaInfo = ({ item }) => {
         }
     }
 
+    // Style the tags array
+    if (item && item.tags) {
+        for (let i = 0; i < tags.length; i++) {
+            let tag = tags[i];
+
+            tags[i] = (
+                <div className="project-meta-value tag">
+                    <a href={'/home?tags=' + tag} title="Process Book">
+                        {tag}
+                    </a>
+                    &nbsp;
+                </div>
+            );
+        }
+    }
+
+    // If no links, display that
     if (links.length == 0) {
         links = <div>None</div>;
+    }
+    // If not tags, display that too
+    if (tags.length == 0) {
+        tags = <div>None</div>;
     }
 
     return (
@@ -38,7 +59,7 @@ const ProjectMetaInfo = ({ item }) => {
                 </div>
                 <div className="project-meta-entry">
                     <div className="project-meta-label">CATEGORY</div>
-                    <div className="project-meta-value">{item && item.tags ? item.tags : 'None'}</div>
+                    {tags}
                 </div>
             </div>
             <div className="project-meta-col">
