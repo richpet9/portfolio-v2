@@ -25,7 +25,7 @@ const ProjectMetaInfo = ({ item }) => {
         }
     }
 
-    if (!links) {
+    if (links.length == 0) {
         links = <div>None</div>;
     }
 

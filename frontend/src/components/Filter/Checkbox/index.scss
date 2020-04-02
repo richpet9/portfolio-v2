@@ -13,7 +13,8 @@
 
     .checkbox-label-text {
         position: relative;
-        top: 2px;
+        top: 0px;
+        left: 2px;
         letter-spacing: 0.5px;
     }
 
@@ -35,19 +36,19 @@
         left: 0;
         height: 17px;
         width: 17px;
-        background-color: $black;
+        background: $black;
     }
 
     .checkbox-box:after {
         display: none;
         content: '';
         position: absolute;
-        top: -4px;
-        left: 5px;
+        top: -8px;
+        left: 3px;
         width: 8px;
         height: 18px;
-        border: solid white;
-        border-width: 0 5px 5px 0;
+        border: solid $highlight;
+        border-width: 0 7px 7px 0;
         border-radius: 1px;
         transform: rotate(45deg);
         z-index: 10;
@@ -60,8 +61,9 @@
 
 .checkbox-label:hover,
 .checkbox-label.active {
-    color: $highlight;
+    color: $darkHighlight;
+
     .checkbox-box {
-        background: $highlight;
+        background: $darkHighlight;
     }
 }
