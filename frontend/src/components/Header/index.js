@@ -7,8 +7,8 @@ const Header = () => {
         <header id="header">
             <NavLink to="/" id="header-link">
                 <h1 id="full-name">RICHARD PETROSINO</h1>
+                <h4 id="subhead">DESIGN + DEVELOPMENT</h4>
             </NavLink>
-            <h4 id="subhead">DESIGN + DEVELOPMENT</h4>
             <nav>
                 <ul>
                     <li>
@@ -39,8 +39,8 @@ export const BlogHeader = () => {
         <header id="header">
             <a href="/" id="header-link">
                 <h1 id="full-name">RICHARD PETROSINO</h1>
+                <h4 id="subhead">DESIGN + DEVELOPMENT</h4>
             </a>
-            <h4 id="subhead">DESIGN + DEVELOPMENT</h4>
             <nav>
                 <ul>
                     <li>
