@@ -28,11 +28,11 @@ const ProjectMetaInfo = ({ item }) => {
     // Style the tags array
     if (item && item.tags) {
         for (let i = 0; i < tags.length; i++) {
-            let tag = tags[i];
+            let tag = tags[i][0].toUpperCase() + tags[i].slice(1);
 
             tags[i] = (
-                <div className="project-meta-value tag">
-                    <a href={'/home?tags=' + tag} title="Process Book">
+                <div className="project-meta-value tag" key={tag}>
+                    <a href={'/home?tags=' + encodeURIComponent(tag.toLowerCase())} title="Process Book">
                         {tag}
                     </a>
                     &nbsp;
@@ -58,7 +58,7 @@ const ProjectMetaInfo = ({ item }) => {
                     <div className="project-meta-value">{dateFormat(item && item.date ? item.date : new Date(0))}</div>
                 </div>
                 <div className="project-meta-entry">
-                    <div className="project-meta-label">CATEGORY</div>
+                    <div className="project-meta-label">TAGS</div>
                     {tags}
                 </div>
             </div>
