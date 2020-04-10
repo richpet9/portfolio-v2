@@ -5,26 +5,36 @@ import './index.css';
 const Header = () => {
     return (
         <header id="header">
-            <NavLink to="/" id="header-link">
+            <NavLink to="/" id="header-link" title="Home">
                 <h1 id="full-name">RICHARD PETROSINO</h1>
                 <h4 id="subhead">DESIGN + DEVELOPMENT</h4>
             </NavLink>
             <nav>
                 <ul>
                     <li>
-                        <NavLink to="/home">HOME</NavLink>
+                        <NavLink to="/home" title="Home">
+                            HOME
+                        </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/about">ABOUT</NavLink>
+                        <NavLink to="/about" title="About">
+                            ABOUT
+                        </NavLink>
                     </li>
                     <li>
-                        <a href="/blog">BLOG</a>
+                        <a href="/blog" title="Blog">
+                            BLOG
+                        </a>
                     </li>
                     <li>
-                        <NavLink to="/contact">CONTACT</NavLink>
+                        <NavLink to="/contact" title="Contact">
+                            CONTACT
+                        </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/photos">PHOTOS</NavLink>
+                        <NavLink to="/photos" title="Photos">
+                            PHOTOS
+                        </NavLink>
                     </li>
                 </ul>
             </nav>
@@ -37,26 +47,36 @@ export const BlogHeader = () => {
     // this is because we are techinically exiting the code bundle when we leave the blog
     return (
         <header id="header">
-            <a href="/" id="header-link">
+            <a href="/" id="header-link" title="Home">
                 <h1 id="full-name">RICHARD PETROSINO</h1>
                 <h4 id="subhead">DESIGN + DEVELOPMENT</h4>
             </a>
             <nav>
                 <ul>
                     <li>
-                        <a href="/home">HOME</a>
+                        <a href="/home" title="Home">
+                            HOME
+                        </a>
                     </li>
                     <li>
-                        <a href="/about">ABOUT</a>
+                        <a href="/about" title="About">
+                            ABOUT
+                        </a>
                     </li>
                     <li>
-                        <NavLink to="/blog">BLOG</NavLink>
+                        <NavLink to="/blog" title="Blog">
+                            BLOG
+                        </NavLink>
                     </li>
                     <li>
-                        <a href="/contact">CONTACT</a>
+                        <a href="/contact" title="Contact">
+                            CONTACT
+                        </a>
                     </li>
                     <li>
-                        <a href="/photos">PHOTOS</a>
+                        <a href="/photos" title="Photos">
+                            PHOTOS
+                        </a>
                     </li>
                 </ul>
             </nav>
