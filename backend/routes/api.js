@@ -6,7 +6,7 @@ const { Pool } = require('pg');
 let db = new Pool();
 
 //Connect to DB
-db.connect().catch(err => {
+db.connect().catch((err) => {
     console.error('[postgres] Error connecting to db server: ' + err);
     db = null;
 });
@@ -17,15 +17,15 @@ router.get('/api/projects/:id?', (req, res) => {
         res.redirect('/');
         return;
     }
-    let query;
+    let queryStr;
 
     if (req.params.id) {
-        query = 'SELECT * FROM projects WHERE id = ' + req.params.id + ' ORDER BY id DESC';
+        queryStr = 'SELECT * FROM projects WHERE id = ' + req.params.id + ' ORDER BY id DESC';
     } else {
-        query = 'SELECT * FROM projects ORDER BY id DESC LIMIT 10';
+        queryStr = 'SELECT * FROM projects ORDER BY date';
     }
 
-    db.query(query, (err, response) => {
+    db.query(queryStr, (err, response) => {
         if (err) console.error('[postgres] error query: ' + err);
         else res.send(response.rows);
     });

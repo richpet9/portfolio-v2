@@ -1,7 +1,12 @@
 #filter {
-    flex-shrink: 1;
-    min-width: 200px;
+    width: 14%;
+    padding-top: 200px;
     padding-left: 32px;
+    position: fixed;
+    background-color: white;
+    height: 100%;
+    top: 0;
+    z-index: 10;
 
     .filter-group {
         padding: 16px 0;

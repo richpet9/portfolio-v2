@@ -19,6 +19,7 @@
         background-color: grey;
         background-position: center;
         background-size: cover;
+        transition: transform 400ms ease-in-out;
         z-index: -1;
     }
 
@@ -91,8 +92,14 @@
 }
 
 .item:hover {
+    box-shadow: $textShadow;
+
     &::after {
         opacity: 0.65;
+    }
+
+    .item-bg {
+        transform: scale(118%);
     }
 
     .item-meta {
@@ -100,10 +107,12 @@
 
         .item-name {
             top: 0;
+            text-shadow: $textShadow;
         }
 
         .item-tags {
             top: 0;
+            box-shadow: $textShadow;
         }
     }
 }
