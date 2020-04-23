@@ -5,7 +5,7 @@ import Checkbox from './Checkbox';
 import './index.css';
 
 const Filter = (props) => {
-    const tags = ['Print', 'PHP', 'Javascript', 'React', 'Brand', 'Logo', 'Typescript', 'Game'];
+    const tags = ['Print', 'PHP', 'Javascript', 'React', 'Brand', 'Logo', 'Python', 'Java', 'Game'];
     let { activeTags } = props;
 
     const updateTags = (tag) => {

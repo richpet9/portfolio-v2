@@ -20,9 +20,9 @@ router.get('/api/projects/:id?', (req, res) => {
     let queryStr;
 
     if (req.params.id) {
-        queryStr = 'SELECT * FROM projects WHERE id = ' + req.params.id + ' ORDER BY id DESC';
+        queryStr = 'SELECT * FROM projects WHERE id = ' + req.params.id;
     } else {
-        queryStr = 'SELECT * FROM projects ORDER BY date';
+        queryStr = 'SELECT * FROM projects ORDER BY date DESC';
     }
 
     db.query(queryStr, (err, response) => {

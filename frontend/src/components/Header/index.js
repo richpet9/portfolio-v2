@@ -1,8 +1,8 @@
 import React from 'react';
-import { NavLink, withRouter, Link } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import './index.css';
 
-const Header = () => {
+export const Header = () => {
     return (
         <header id="header">
             <NavLink to="/" id="header-link" title="Home">
@@ -29,11 +29,6 @@ const Header = () => {
                     <li>
                         <NavLink to="/contact" title="Contact">
                             CONTACT
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/photos" title="Photos">
-                            PHOTOS
                         </NavLink>
                     </li>
                 </ul>
@@ -71,11 +66,6 @@ export const BlogHeader = () => {
                     <li>
                         <a href="/contact" title="Contact">
                             CONTACT
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/photos" title="Photos">
-                            PHOTOS
                         </a>
                     </li>
                 </ul>
