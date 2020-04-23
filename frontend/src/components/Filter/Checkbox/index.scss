@@ -68,5 +68,10 @@
 
     &.active {
         font-weight: 600;
+        text-shadow: $textShadow;
+
+        .checkbox-box {
+            box-shadow: $textShadow;
+        }
     }
 }
