@@ -1,14 +1,18 @@
 import React from 'react';
 import Marked from 'marked';
-import SanitizedHTML from 'react-sanitized-html';
-import Renderer from '../../util/renderer';
-import { sanitizedAllowTags } from '../../util';
 
 import './index.css';
 
+// Make a renderer for marked
+const renderer = new Marked.Renderer();
+
+renderer.link = (href, title, text) => {
+    return `<a target="_blank" href="${href}" title="${title}">${text}` + '</a>';
+};
+
 const MarkdownBody = ({ markdown }) => {
     markdown = markdown || '';
-    return <SanitizedHTML className="markdown-body container" html={Marked(markdown, { renderer: Renderer })} allowedTags={sanitizedAllowTags} />;
+    return <div className="markdown-body container" dangerouslySetInnerHTML={{ __html: Marked(markdown, { renderer: renderer }) }} />;
 };
 
 export default MarkdownBody;

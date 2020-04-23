@@ -67,5 +67,3 @@ export const getQueryParams = (queryString) => {
     }
     return hashParams;
 };
-
-export const sanitizedAllowTags = ['a', 'h1', 'h2', 'h3', 'p', 'i', 'em', 'b', 'strong', 'blockquote', 'ul', 'ol', 'li'];

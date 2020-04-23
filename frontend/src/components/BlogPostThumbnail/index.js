@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SanitizedHTML from 'react-sanitized-html';
 import { makeUrl } from '../../util';
 
 import './index.css';
@@ -19,7 +18,7 @@ const BlogPost = ({ post }) => {
                         <div className="blog-post-cat">
                             {post.category
                                 ? post.category.includes('-')
-                                    ? post.category.split('-').map(side => {
+                                    ? post.category.split('-').map((side) => {
                                           return side[0].toUpperCase() + side.slice(1) + ' ';
                                       })
                                     : post.category
@@ -29,7 +28,7 @@ const BlogPost = ({ post }) => {
                         <div className="blog-post-date">{post.date}</div>
                     </div>
                 </Link>
-                <SanitizedHTML className="blog-post-short-body" html={post.shortBody} allowedTags={['p', 'strong', 'b', 'em', 'i']} />
+                <div className="blog-post-short-body" dangerouslySetInnerHTML={{ __html: post.shortBody }} />
             </div>
         </div>
     );

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
-import Marked from 'marked';
 import SlidingButton from '../components/SlidingButton';
 import BlogPostThumbnail from '../components/BlogPostThumbnail';
 import BlogPost from '../components/BlogPost';
@@ -10,16 +9,16 @@ const subBlogs = [
     {
         name: 'MOBILE DESIGN',
         url: 'mobile-design',
-        key: 1
+        key: 1,
     },
     {
         name: 'SENIOR PORTFOLIO',
         url: 'senior-portfolio',
-        key: 2
-    }
+        key: 2,
+    },
 ];
 
-const matchUrlToKey = url => {
+const matchUrlToKey = (url) => {
     for (const blog of subBlogs) {
         if (blog.url === url) {
             return blog.key;
@@ -36,17 +35,17 @@ const Blog = ({ match }) => {
         const url = '/api/blog-posts/' + (subblog ? (id ? subblog + '/' + id : subblog) : '');
 
         return fetch(url, {
-            method: 'get'
+            method: 'get',
         })
-            .then(res => {
+            .then((res) => {
                 if (!res.ok) {
                     throw new Error(res.statusText + url);
                 } else {
                     return res;
                 }
             })
-            .then(res => res.json())
-            .catch(err => {
+            .then((res) => res.json())
+            .catch((err) => {
                 console.error('Error fetching blog posts: ' + err);
                 return [];
             });
@@ -59,7 +58,7 @@ const Blog = ({ match }) => {
             setSubBlogKey(0);
         }
 
-        fetchPosts(match.params.subblog, match.params.id).then(res => {
+        fetchPosts(match.params.subblog, match.params.id).then((res) => {
             setPosts(res);
         });
     }, [match.params]);
@@ -73,9 +72,9 @@ const Blog = ({ match }) => {
             {posts.length > 0 ? (
                 posts.length > 1 ? (
                     <div id="blog-posts-container">
-                        {posts.map(post => {
+                        {posts.map((post) => {
                             post.date = dateFormat(post.date);
-                            post.shortBody = Marked(truncateString(post.body, 250));
+                            post.shortBody = truncateString(post.body, 250);
                             post.longBody = post.body;
                             post.imgUrl = post.img_url;
 
