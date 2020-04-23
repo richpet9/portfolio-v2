@@ -8,6 +8,7 @@ const Home = ({ match, location }) => {
     const [projects, setProjects] = useState(null);
     const [sortedProjects, setSortedProjects] = useState(null);
     const [activeTags, setActiveTags] = useState([]);
+    const [error, setError] = useState(null);
 
     const fetchProjects = (id) => {
         const url = '/api/projects' + (id ? `/${id}` : '') + '?limit=' + 10;
@@ -21,7 +22,12 @@ const Home = ({ match, location }) => {
             })
             .then((res) => res.json())
             .catch((err) => {
-                console.error(err);
+                setError(
+                    <h1 className="error">
+                        Unable to connect to project database. <br />
+                        Please refresh or contact me!
+                    </h1>
+                );
             });
     };
 
@@ -67,7 +73,9 @@ const Home = ({ match, location }) => {
     return (
         <main id="app-container" style={{ display: 'flex' }}>
             {!match.params.id ? <Filter activeTags={activeTags} setActiveTags={setActiveTags} /> : ''}
-            {sortedProjects && sortedProjects.length > 0 ? (
+            {error ? (
+                error
+            ) : sortedProjects && sortedProjects.length > 0 ? (
                 match.params.id ? (
                     <Project item={sortedProjects[0]} />
                 ) : (
