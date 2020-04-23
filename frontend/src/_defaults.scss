@@ -3,6 +3,7 @@
 /* * * COLORS * * */
 $highlight: rgb(36, 132, 198);
 $darkHighlight: rgb(11, 66, 104);
+$grey: rgb(75, 75, 75);
 $black: rgb(50, 50, 50);
 
 /* * * FONTS * * */
@@ -11,5 +12,6 @@ $body: lato, 'Lato', 'Roboto', sans-serif;
 
 /* * * TransitionS * * */
 $quarticOut: cubic-bezier(0.165, 0.84, 0.44, 1);
+$textShadow: 0px 1px 5px rgba(0, 0, 0, 0.12);
 
 /* 300, 400, 500, 600 */

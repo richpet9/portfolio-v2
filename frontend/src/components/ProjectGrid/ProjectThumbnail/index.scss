@@ -16,7 +16,10 @@
         height: 100%;
         display: block;
         position: absolute;
-        background: grey;
+        background-color: grey;
+        background-position: center;
+        background-size: cover;
+        transition: transform 400ms ease-in-out;
         z-index: -1;
     }
 
@@ -34,47 +37,90 @@
         content: '';
         display: block;
         position: absolute;
-        top: 100%;
+        top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         background-color: black;
-        opacity: 0.5;
+        opacity: 0;
         z-index: -1;
-        transition: top 200ms ease-in-out;
+        transition: opacity 150ms ease-in-out;
     }
 
     .item-meta {
         position: relative;
-        padding: 6px 18px;
-        padding-top: 8px;
+        padding: 24px;
+        padding-top: 18px;
         opacity: 0;
         color: white;
-        transition: opacity 150ms ease-in-out;
+        transition: opacity 200ms ease-in-out;
         z-index: 2;
 
         .item-name {
-            font-size: 22px;
-            font-weight: 500;
+            position: relative;
+            top: 11px;
+            font-size: 28px;
+            font-weight: 600;
             letter-spacing: 0.3px;
+            line-height: 100%;
+            margin-bottom: 16px;
+            transition: top 250ms ease-in-out;
+        }
+
+        .item-tags {
+            position: relative;
+            top: 11px;
+            transition: top, 275ms ease-in-out;
+
+            .tag {
+                padding: 3px 5px;
+                margin: 4px;
+                border: 2px solid white;
+                border-radius: 5px;
+                font-weight: 600;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
         }
     }
 }
 
 .item:hover {
+    box-shadow: $textShadow;
+
     &::after {
-        top: 0%;
+        opacity: 0.65;
+    }
+
+    .item-bg {
+        transform: scale(118%);
     }
 
     .item-meta {
         opacity: 1;
+
+        .item-name {
+            top: 0;
+            text-shadow: $textShadow;
+        }
+
+        .item-tags {
+            top: 0;
+            box-shadow: $textShadow;
+        }
     }
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1440px) {
     .item {
         width: 50% !important;
-        height: 18vw;
+        height: 20vw;
     }
 }
 

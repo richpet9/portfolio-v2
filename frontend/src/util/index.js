@@ -19,7 +19,7 @@ export const truncateString = (str, length) => {
     return str.slice(0, length - 2) + '...';
 };
 
-export const dateFormat = date => {
+export const dateFormat = (date) => {
     if (typeof date !== Date) {
         date = new Date(date);
     }
@@ -32,7 +32,7 @@ export const dateFormat = date => {
     return months[month] + ' ' + day + ', ' + year;
 };
 
-export const makeUrl = str => {
+export const makeUrl = (str) => {
     let res = '';
     //There's a better way to do this right?
     const urlSafeRegex = /[!,@,#,$,%,^,&,*,<,>,(,),\[,\],{,},\\,/,+,=,",',`,.,?,\,,:,;,\ ]/g;
@@ -52,6 +52,20 @@ export const makeUrl = str => {
         }
     }
     return res;
+};
+
+// This one is courtesy of GitHub
+export const getQueryParams = (queryString) => {
+    var hashParams = {};
+    var e,
+        r = /([^?&;=]+)=?([^&;]*)/g,
+        q = queryString;
+    e = r.exec(q);
+    while (e) {
+        hashParams[e[1]] = decodeURIComponent(e[2]);
+        e = r.exec(q);
+    }
+    return hashParams;
 };
 
 export const sanitizedAllowTags = ['a', 'h1', 'h2', 'h3', 'p', 'i', 'em', 'b', 'strong', 'blockquote', 'ul', 'ol', 'li'];

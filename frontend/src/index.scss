@@ -51,6 +51,15 @@ span.vline {
     margin: 0 8px;
 }
 
+h1.error {
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: $black;
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
 @media screen and (max-width: 832px) {
     #blog-filter-container {
         display: none;
