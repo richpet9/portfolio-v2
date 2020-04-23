@@ -7,42 +7,12 @@ import './index.css';
 
 const Filter = (props) => {
     const tags = ['Print', 'PHP', 'Javascript', 'React', 'Brand', 'Logo', 'Typescript', 'Game'];
-    const queryParams = getQueryParams(props.location.search);
-
-    let activeCategory = [];
-    let activeTags = [];
-
-    if (queryParams.category) {
-        activeCategory = queryParams.category.split(',');
-    }
-    if (queryParams.tags) {
-        activeTags = queryParams.tags.split(',');
-    }
-
-    const updateCategory = (category) => {
-        category = category.toLowerCase();
-        // Check if any categories are currently active
-        if (activeCategory.length > 0) {
-            // Check if the active category includes this category
-            if (activeCategory.includes(category)) {
-                // If it does, remove this category (we unchecked a box)
-                activeCategory = activeCategory.filter((item) => item !== category);
-            } else {
-                // If it doesnt, add this category (we checked a box)
-                activeCategory.push(category);
-            }
-        } else {
-            // If there are no active categories, make this the active only active category
-            activeCategory = [category];
-        }
-
-        // Update hash params here
-        updateHashParams(activeCategory, activeTags);
-    };
+    let { activeTags } = props;
 
     const updateTags = (tag) => {
         tag = tag.toLowerCase();
         // Check if any categories are currently active
+
         if (activeTags.length > 0) {
             // Check if the active category includes this category
             if (activeTags.includes(tag)) {
@@ -58,20 +28,25 @@ const Filter = (props) => {
         }
 
         // Update hash params here
-        updateHashParams(activeCategory, activeTags);
+        updateHashParams(activeTags);
     };
 
-    const updateHashParams = (activeCategory, activeTags) => {
+    const updateHashParams = (activeTags) => {
         let queryStr = '/?',
             tagStr,
             catStr;
 
-        if (activeCategory && activeCategory.length > 0) {
-            catStr = 'category=' + activeCategory.join(',');
-        }
-
         if (activeTags && activeTags.length > 0) {
-            tagStr = 'tags=' + activeTags.join(',');
+            let categoryScrape = activeTags.filter((tag) => tag === 'code' || tag === 'design');
+
+            if (categoryScrape.length > 0) {
+                catStr = 'category=' + (categoryScrape.length > 1 ? categoryScrape.join(',') : categoryScrape[0]);
+                activeTags = activeTags.filter((tag) => !categoryScrape.includes(tag));
+            }
+
+            if (activeTags.length > 0) {
+                tagStr = 'tags=' + activeTags.join(',');
+            }
         }
 
         if (catStr && tagStr) {
@@ -86,9 +61,6 @@ const Filter = (props) => {
 
         // Update the browser's URL
         props.history.push(queryStr);
-
-        // Tell the root of the page to update the projects
-        props.updateFilter(activeCategory, activeTags);
     };
 
     return (
@@ -96,17 +68,17 @@ const Filter = (props) => {
             <ul className="filter-group">
                 <li className="filter-label">CATEGORIES</li>
                 <li className="filter-checkbox">
-                    <Checkbox value={'Code'} preChecked={activeCategory.includes('code')} onToggle={updateCategory.bind(this, 'code')} />
+                    <Checkbox value={'Code'} onToggle={updateTags.bind(this, 'code')} />
                 </li>
                 <li className="filter-checkbox">
-                    <Checkbox value={'Design'} preChecked={activeCategory.includes('design')} onToggle={updateCategory.bind(this, 'design')} />
+                    <Checkbox value={'Design'} onToggle={updateTags.bind(this, 'design')} />
                 </li>
             </ul>
             <ul className="filter-group">
                 <li className="filter-label">TAGS</li>
                 {tags.map((tag) => (
                     <li key={tag} className="filter-checkbox">
-                        <Checkbox value={tag} preChecked={activeTags.includes(tag.toLowerCase())} onToggle={updateTags.bind(this, tag)} />
+                        <Checkbox value={tag} onToggle={updateTags.bind(this, tag)} />
                     </li>
                 ))}
             </ul>
