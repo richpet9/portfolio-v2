@@ -42,15 +42,12 @@
     .checkbox-box:after {
         display: none;
         content: '';
-        position: absolute;
-        top: -8px;
-        left: 3px;
-        width: 8px;
-        height: 18px;
-        border: solid $highlight;
-        border-width: 0 7px 7px 0;
-        border-radius: 1px;
-        transform: rotate(45deg);
+        position: relative;
+        top: 4px;
+        left: 4px;
+        width: 9px;
+        height: 9px;
+        background: white;
         z-index: 10;
     }
 
@@ -60,10 +57,11 @@
 }
 
 .checkbox-label:hover,
+.checkbox-lavel:focus,
 .checkbox-label.active {
-    color: $darkHighlight;
+    color: $highlight;
 
     .checkbox-box {
-        background: $darkHighlight;
+        background: $highlight;
     }
 }
