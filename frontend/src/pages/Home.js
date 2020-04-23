@@ -39,7 +39,6 @@ const Home = ({ match, location }) => {
                     return true;
                 }
             });
-            console.log(newProjects);
 
             setSortedProjects(newProjects.length > 0 ? newProjects : null);
         }

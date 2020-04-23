@@ -37,6 +37,7 @@
         height: 17px;
         width: 17px;
         background: $black;
+        border-radius: 2px;
     }
 
     .checkbox-box:after {
@@ -48,20 +49,24 @@
         width: 9px;
         height: 9px;
         background: white;
+        border-radius: 1px;
         z-index: 10;
     }
 
     .checkbox-input:checked ~ .checkbox-box:after {
         display: block;
     }
-}
 
-.checkbox-label:hover,
-.checkbox-lavel:focus,
-.checkbox-label.active {
-    color: $highlight;
+    &:hover,
+    &:focus {
+        color: $grey;
 
-    .checkbox-box {
-        background: $highlight;
+        .checkbox-box {
+            background: $grey;
+        }
+    }
+
+    &.active {
+        font-weight: 600;
     }
 }
