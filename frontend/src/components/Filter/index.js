@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Checkbox from './Checkbox';
-import { getQueryParams } from '../../util';
 
 import './index.css';
 
@@ -68,17 +67,17 @@ const Filter = (props) => {
             <ul className="filter-group">
                 <li className="filter-label">CATEGORIES</li>
                 <li className="filter-checkbox">
-                    <Checkbox value={'Code'} onToggle={updateTags.bind(this, 'code')} />
+                    <Checkbox value={'Code'} preChecked={activeTags.includes('code')} onToggle={updateTags.bind(this, 'code')} />
                 </li>
                 <li className="filter-checkbox">
-                    <Checkbox value={'Design'} onToggle={updateTags.bind(this, 'design')} />
+                    <Checkbox value={'Design'} preChecked={activeTags.includes('design')} onToggle={updateTags.bind(this, 'design')} />
                 </li>
             </ul>
             <ul className="filter-group">
                 <li className="filter-label">TAGS</li>
                 {tags.map((tag) => (
                     <li key={tag} className="filter-checkbox">
-                        <Checkbox value={tag} onToggle={updateTags.bind(this, tag)} />
+                        <Checkbox value={tag} preChecked={activeTags.includes(tag.toLowerCase())} onToggle={updateTags.bind(this, tag)} />
                     </li>
                 ))}
             </ul>

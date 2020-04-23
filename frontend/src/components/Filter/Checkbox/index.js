@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.css';
 
 const Checkbox = ({ value, preChecked, onToggle }) => {
@@ -13,6 +13,10 @@ const Checkbox = ({ value, preChecked, onToggle }) => {
         }
         onToggle();
     };
+
+    useEffect(() => {
+        setActive(preChecked);
+    }, [preChecked]);
 
     return (
         <label htmlFor={id} className={'checkbox-label' + (active ? ' active' : '')}>
