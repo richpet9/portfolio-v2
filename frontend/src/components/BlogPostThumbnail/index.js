@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { makeUrl } from '../../util';
+import MarkdownBody from '../MarkdownBody';
 
 import './index.css';
 
@@ -28,7 +29,7 @@ const BlogPost = ({ post }) => {
                         <div className="blog-post-date">{post.date}</div>
                     </div>
                 </Link>
-                <div className="blog-post-short-body" dangerouslySetInnerHTML={{ __html: post.shortBody }} />
+                <MarkdownBody className="blog-post-short-body" markdown={post.shortBody} />
             </div>
         </div>
     );
