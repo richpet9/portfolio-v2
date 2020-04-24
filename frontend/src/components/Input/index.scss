@@ -1,0 +1,40 @@
+@import '../../defaults.scss';
+
+.input-container {
+    flex-grow: 1;
+    margin-bottom: 16px;
+
+    .input-label {
+        display: block;
+        margin-top: 16px;
+        margin-bottom: 6px;
+        font-size: 16px;
+    }
+
+    .input-label:first-child {
+        margin-top: 0;
+    }
+
+    .input-text {
+        width: 100%;
+        display: block;
+        font-size: 16px;
+        padding: 6px 8px;
+        border-radius: 5px;
+        border: 2px solid rgb(216, 216, 216);
+        transition: border-color 150ms $quarticOut;
+
+        &:focus {
+            border-color: $highlight;
+        }
+    }
+
+    textarea.input-text {
+        resize: none;
+        height: 250px;
+    }
+
+    &:first-child {
+        margin-right: 16px;
+    }
+}

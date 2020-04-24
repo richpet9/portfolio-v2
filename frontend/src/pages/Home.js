@@ -84,7 +84,7 @@ const Home = ({ match, location }) => {
                     <ProjectContainer items={sortedProjects} />
                 )
             ) : (
-                <h1 className="error">No posts found with that filter!</h1>
+                <h1 className="header center">No posts found with that filter!</h1>
             )}
         </main>
     );
