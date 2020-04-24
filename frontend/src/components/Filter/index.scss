@@ -3,7 +3,6 @@
     padding-top: 200px;
     padding-left: 32px;
     position: fixed;
-    background-color: white;
     height: 100%;
     top: 0;
     z-index: 10;
@@ -21,6 +20,12 @@
         }
         .filter-checkbox {
             font-size: 18px;
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+        & {
+            display: none;
         }
     }
 }

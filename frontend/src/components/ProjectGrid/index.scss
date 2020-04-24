@@ -1,10 +1,22 @@
 @import '../../_defaults.scss';
 
 .project-thumbnail-container {
-    width: 75%;
+    width: 100%;
     margin-right: 64px;
     margin-left: 14%;
     margin-bottom: 50px;
     display: flex;
     flex-wrap: wrap;
+
+    @media screen and (max-width: 1200px) {
+        & {
+            margin-left: 64px;
+        }
+    }
+
+    @media screen and (max-width: 414px) {
+        & {
+            margin: 0 16px;
+        }
+    }
 }

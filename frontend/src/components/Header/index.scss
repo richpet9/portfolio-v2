@@ -18,14 +18,13 @@
             margin-top: 30px;
             text-shadow: $textShadow;
         }
-    }
-
-    #subhead {
-        font-size: 28px;
-        font-weight: 300;
-        color: $highlight;
-        margin-bottom: 30px;
-        letter-spacing: 1px;
+        #subhead {
+            font-size: 28px;
+            font-weight: 300;
+            color: $highlight;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
     }
 
     nav {
@@ -70,10 +69,9 @@
                 font-size: 52px;
                 line-height: 100%;
             }
-        }
-
-        #subhead {
-            font-size: 26px;
+            #subhead {
+                font-size: 26px;
+            }
         }
 
         nav {
@@ -86,17 +84,31 @@
     #header {
         text-align: left;
 
+        #header-link {
+            #full-name {
+                margin-top: 16px;
+            }
+
+            #subhead {
+                margin-bottom: 16px;
+            }
+        }
+
         nav {
             width: 100%;
 
             ul {
                 flex-wrap: wrap;
                 li {
-                    width: 100%;
                     a {
-                        font-size: 24px;
+                        font-size: 14px;
                         padding: 8px 0;
                         width: 100%;
+
+                        &.active {
+                            background: $highlight;
+                            color: white;
+                        }
                     }
                 }
             }

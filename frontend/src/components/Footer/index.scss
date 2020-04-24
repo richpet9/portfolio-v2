@@ -26,17 +26,18 @@ footer {
             padding-right: 0;
         }
     }
-}
 
-@media screen and (max-width: 414px) {
-    footer {
-        width: 100%;
-        text-align: left;
+    @media screen and (max-width: 414px) {
+        & {
+            width: 100%;
+            text-align: left;
+            padding-top: 16px;
 
-        ul {
-            li {
-                display: block;
-                line-height: 200%;
+            ul {
+                li {
+                    display: block;
+                    line-height: 200%;
+                }
             }
         }
     }
