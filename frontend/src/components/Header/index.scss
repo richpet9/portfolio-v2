@@ -51,11 +51,12 @@
                     color: black;
                     padding: 4px 8px;
                     text-shadow: $textShadow;
-                }
+                    transition: all 100ms $quarticOut;
 
-                a:hover {
-                    background: $highlight;
-                    color: white;
+                    &:hover {
+                        background: $highlight;
+                        color: white;
+                    }
                 }
             }
         }
