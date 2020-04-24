@@ -10,9 +10,9 @@ renderer.link = (href, title, text) => {
     return `<a target="_blank" href="${href}" title="${title}">${text}` + '</a>';
 };
 
-const MarkdownBody = ({ markdown }) => {
+const MarkdownBody = ({ markdown, className, id }) => {
     markdown = markdown || '';
-    return <div className="markdown-body container" dangerouslySetInnerHTML={{ __html: Marked(markdown, { renderer: renderer }) }} />;
+    return <div className={'markdown-body container ' + className} id={id} dangerouslySetInnerHTML={{ __html: Marked(markdown, { renderer: renderer }) }} />;
 };
 
 export default MarkdownBody;
