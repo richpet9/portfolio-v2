@@ -5,6 +5,8 @@ import Project from '../components/Project';
 import { getQueryParams } from '../util';
 
 const Home = ({ match, location }) => {
+    document.title = 'Richard Petrosino';
+
     const [projects, setProjects] = useState(null);
     const [sortedProjects, setSortedProjects] = useState(null);
     const [activeTags, setActiveTags] = useState([]);
