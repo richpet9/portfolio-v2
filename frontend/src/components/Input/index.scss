@@ -26,7 +26,7 @@
         transition: border-color 150ms $quarticOut;
 
         &:focus {
-            border-color: $highlight;
+            border-color: $highlight !important;
         }
     }
 

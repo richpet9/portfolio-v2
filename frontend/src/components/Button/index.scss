@@ -1,0 +1,21 @@
+@import '../../defaults.scss';
+
+.button {
+    display: inline-block;
+    padding: 8px 10px;
+    background-color: $highlight;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover,
+    &:focus {
+        background: $darkHighlight;
+    }
+
+    &.disabled {
+        cursor: not-allowed;
+        background: darkgray;
+    }
+}
