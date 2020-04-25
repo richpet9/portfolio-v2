@@ -39,6 +39,19 @@ const Home = ({ match, location }) => {
             });
     };
 
+    const updateActiveTags = () => {
+        // Get query params from URL
+        if (!match.params.id) {
+            let queryParams = getQueryParams(location.search);
+            let tags = [];
+            Object.keys(queryParams).forEach((param) => {
+                tags = tags.concat(queryParams[param].toLowerCase().split(','));
+            });
+
+            setActiveTags(tags);
+        }
+    };
+
     // Whenever the active tags are changed
     useEffect(() => {
         if (projects) {
@@ -59,18 +72,9 @@ const Home = ({ match, location }) => {
         }
     }, [activeTags]);
 
-    // Whenever the Query params int he URL Change
+    // Whenever the Query params in the URL Change
     useEffect(() => {
-        // Get query params from URL
-        if (!match.params.id) {
-            let queryParams = getQueryParams(location.search);
-            let tags = [];
-            Object.keys(queryParams).forEach((param) => {
-                tags = tags.concat(queryParams[param].toLowerCase().split(','));
-            });
-
-            setActiveTags(tags);
-        }
+        updateActiveTags();
     }, [location.search]);
 
     // Whenever the main URL path changes
@@ -78,10 +82,9 @@ const Home = ({ match, location }) => {
         fetchProjects(match.params.id).then((res) => {
             setProjects(res);
             setSortedProjects(res);
+            updateActiveTags();
         });
     }, [match.params.id]);
-
-    console.log(error);
 
     return (
         <main id="app-container" style={{ display: 'flex' }}>
