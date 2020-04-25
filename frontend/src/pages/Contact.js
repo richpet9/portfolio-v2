@@ -24,7 +24,7 @@ const Contact = () => {
         setAttempts(attempts + 1);
 
         // Send the request
-        fetch('/api/mailsend', {
+        fetch('/api/mail/send', {
             method: 'POST',
             credentials: 'same-origin',
             headers: {
