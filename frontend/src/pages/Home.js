@@ -4,13 +4,20 @@ import ProjectContainer from '../components/ProjectGrid';
 import Project from '../components/Project';
 import { getQueryParams } from '../util';
 
+const connectError = (
+    <h1 className="header center">
+        Unable to connect to project database. <br />
+        Please refresh or contact me!
+    </h1>
+);
+
 const Home = ({ match, location }) => {
     document.title = 'Richard Petrosino';
 
     const [projects, setProjects] = useState(null);
     const [sortedProjects, setSortedProjects] = useState(null);
     const [activeTags, setActiveTags] = useState([]);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(connectError);
 
     const fetchProjects = (id) => {
         const url = '/api/projects' + (id ? `/${id}` : '') + '?limit=' + 10;
@@ -22,17 +29,30 @@ const Home = ({ match, location }) => {
                     return res;
                 }
             })
-            .then((res) => res.json())
+            .then((res) => {
+                setError(false);
+                return res.json();
+            })
             .catch((err) => {
-                setError(
-                    <h1 className="error">
-                        Unable to connect to project database. <br />
-                        Please refresh or contact me!
-                    </h1>
-                );
+                console.warn('DB: ' + err);
+                setError(connectError);
             });
     };
 
+    const updateActiveTags = () => {
+        // Get query params from URL
+        if (!match.params.id) {
+            let queryParams = getQueryParams(location.search);
+            let tags = [];
+            Object.keys(queryParams).forEach((param) => {
+                tags = tags.concat(queryParams[param].toLowerCase().split(','));
+            });
+
+            setActiveTags(tags);
+        }
+    };
+
+    // Whenever the active tags are changed
     useEffect(() => {
         if (projects) {
             let newProjects = projects.filter((project) => {
@@ -52,23 +72,17 @@ const Home = ({ match, location }) => {
         }
     }, [activeTags]);
 
+    // Whenever the Query params in the URL Change
     useEffect(() => {
-        // Get query params from URL
-        if (!match.params.id) {
-            let queryParams = getQueryParams(location.search);
-            let tags = [];
-            Object.keys(queryParams).forEach((param) => {
-                tags = tags.concat(queryParams[param].toLowerCase().split(','));
-            });
-
-            setActiveTags(tags);
-        }
+        updateActiveTags();
     }, [location.search]);
 
+    // Whenever the main URL path changes
     useEffect(() => {
         fetchProjects(match.params.id).then((res) => {
             setProjects(res);
             setSortedProjects(res);
+            updateActiveTags();
         });
     }, [match.params.id]);
 
@@ -84,7 +98,7 @@ const Home = ({ match, location }) => {
                     <ProjectContainer items={sortedProjects} />
                 )
             ) : (
-                <h1 className="error">No posts found with that filter!</h1>
+                <h1 className="header center">No posts found with that filter!</h1>
             )}
         </main>
     );

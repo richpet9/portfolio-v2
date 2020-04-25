@@ -11,6 +11,26 @@
     font-style: italic;
 }
 
+.flex {
+    display: flex;
+
+    &.space-between {
+        justify-content: space-between;
+    }
+}
+
+.header {
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: $black;
+    display: block;
+    width: 100%;
+}
+
+.center {
+    text-align: center;
+}
+
 #blog-filter-container {
     text-align: center;
     display: inline-block;
@@ -51,13 +71,9 @@ span.vline {
     margin: 0 8px;
 }
 
-h1.error {
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: $black;
-    display: block;
-    text-align: center;
-    width: 100%;
+#contact-container {
+    margin: 0 auto;
+    width: 57%;
 }
 
 @media screen and (max-width: 832px) {
