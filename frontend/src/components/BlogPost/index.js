@@ -5,6 +5,8 @@ import { dateFormat } from '../../util';
 import './index.css';
 
 const BlogPost = ({ post }) => {
+    window.scrollTo(0, 0);
+
     return (
         <div className="single-blog-post">
             <div className="container">

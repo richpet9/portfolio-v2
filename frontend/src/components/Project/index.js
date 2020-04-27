@@ -6,6 +6,8 @@ import ProjectMetaInfo from './ProjectMetaInfo';
 import './index.css';
 
 const Project = ({ item }) => {
+    window.scrollTo(0, 0);
+
     let imgUrls = item.img_url ? item.img_url.split(',') : [];
     return (
         <div className="project-page-container">
