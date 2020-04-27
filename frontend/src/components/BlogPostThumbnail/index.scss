@@ -65,7 +65,7 @@
     }
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: $tablet) {
     .blog-post {
         width: 50%;
 
@@ -75,7 +75,7 @@
     }
 }
 
-@media screen and (max-width: 832px) {
+@media screen and (max-width: $landscape) {
     .blog-post {
         width: 100%;
         padding: 0;

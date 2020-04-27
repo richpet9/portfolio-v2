@@ -47,7 +47,7 @@
     }
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: $tablet) {
     .single-blog-post {
         .container {
             width: 75%;
@@ -55,7 +55,7 @@
     }
 }
 
-@media screen and (max-width: 832px) {
+@media screen and (max-width: $landscape) {
     .single-blog-post {
         margin: 0;
 

@@ -76,7 +76,7 @@ span.vline {
     width: 57%;
 }
 
-@media screen and (max-width: 832px) {
+@media screen and (max-width: $landscape) {
     #blog-filter-container {
         display: none;
     }

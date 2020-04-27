@@ -63,7 +63,7 @@
     }
 }
 
-@media screen and (max-width: 832px) {
+@media screen and (max-width: $landscape) {
     #header {
         #header-link {
             #full-name {
@@ -81,7 +81,7 @@
     }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: $phone) {
     #header {
         text-align: left;
 

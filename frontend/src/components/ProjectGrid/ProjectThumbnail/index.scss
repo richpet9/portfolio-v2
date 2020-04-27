@@ -90,14 +90,14 @@
         }
     }
 
-    @media screen and (max-width: 1440px) {
+    @media screen and (max-width: $laptop) {
         & {
             width: 50% !important;
             height: 20vw;
         }
     }
 
-    @media screen and (max-width: 832px) {
+    @media screen and (max-width: $landscape) {
         & {
             width: 100% !important;
             height: 45vw;
