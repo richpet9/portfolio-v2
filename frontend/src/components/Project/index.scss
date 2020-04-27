@@ -2,28 +2,14 @@
 
 .project-page-container {
     width: 100%;
-    margin: 0 48px;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-
-    .project-title {
-        width: 100%;
-        letter-spacing: 0.8px;
-        font-size: 42px;
-        margin-bottom: 16px;
-        color: $black;
-        line-height: 100%;
-    }
+    padding-bottom: 48px;
 
     .project-img-container {
-        width: 60%;
-        min-height: 650px;
+        width: 66.66%;
         position: relative;
-        display: inline-block;
-        background: lightgray;
-        background-position: center;
-        background-size: cover;
 
         .project-img {
             width: 100%;
@@ -31,9 +17,20 @@
         }
     }
 
-    .project-container {
-        width: 40%;
-        padding-left: 48px;
+    .project-info-container {
+        width: 33.33%;
+        padding: 48px;
+        padding-top: 16px;
+        background: white;
+
+        .project-title {
+            width: 100%;
+            letter-spacing: 0.8px;
+            font-size: 42px;
+            margin-bottom: 16px;
+            color: $black;
+            line-height: 100%;
+        }
 
         a {
             display: inline-block;
@@ -78,7 +75,7 @@
                 margin-bottom: 16px;
                 min-height: 200px;
             }
-            .project-container {
+            .project-info-container {
                 width: 100%;
                 padding-left: 16px;
 
