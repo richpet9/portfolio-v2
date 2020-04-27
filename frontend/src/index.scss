@@ -46,9 +46,8 @@
 }
 
 #blog-posts-container {
-    width: 95%;
     text-align: left;
-    margin: 0 auto;
+    margin: 0 2.5%;
     display: flex;
     flex-wrap: wrap;
     margin-top: 24px;
@@ -77,6 +76,10 @@ span.vline {
 }
 
 @media screen and (max-width: $landscape) {
+    #blog-posts-container {
+        margin: 0 16px;
+    }
+
     #blog-filter-container {
         display: none;
     }
