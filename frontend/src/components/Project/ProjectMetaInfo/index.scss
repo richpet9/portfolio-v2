@@ -1,9 +1,9 @@
 @import '../../../defaults.scss';
 
 .project-meta-container {
-    width: 33.33%;
+    width: 100%;
     display: flex;
-    padding-top: 16px;
+    padding-top: 6px;
 
     .project-meta-col {
         margin-right: 32px;
@@ -31,6 +31,10 @@
                 &.tag {
                     display: inline-block;
                 }
+            }
+
+            &:last-child {
+                margin-bottom: 16px;
             }
         }
     }

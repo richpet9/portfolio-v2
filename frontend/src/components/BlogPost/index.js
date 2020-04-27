@@ -13,7 +13,7 @@ const BlogPost = ({ post }) => {
                     <div className="blog-post-cat">
                         {post.category
                             ? post.category.includes('-')
-                                ? post.category.split('-').map(side => {
+                                ? post.category.split('-').map((side) => {
                                       return side[0].toUpperCase() + side.slice(1) + ' ';
                                   })
                                 : post.category
@@ -26,7 +26,7 @@ const BlogPost = ({ post }) => {
 
             <div className="blog-post-img" style={{ backgroundImage: "url('" + post.img_url + "')" }}></div>
 
-            <MarkdownBody markdown={post.body} />
+            <MarkdownBody markdown={post.body} className={'blog-post-long-body'} />
         </div>
     );
 };

@@ -27,7 +27,7 @@ footer {
         }
     }
 
-    @media screen and (max-width: 414px) {
+    @media screen and (max-width: $phone) {
         & {
             width: 100%;
             text-align: left;

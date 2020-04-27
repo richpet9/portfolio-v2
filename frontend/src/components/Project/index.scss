@@ -1,28 +1,39 @@
 @import '../../defaults.scss';
 
 .project-page-container {
-    width: 90%;
-    margin: 0 5%;
-    margin-top: 16px;
+    width: 100%;
+    margin: 0 48px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
 
-    .project-img {
-        position: relative;
-        display: block;
+    .project-title {
         width: 100%;
-        flex-grow: 1;
-        height: 47vw;
-        max-width: 1300px;
-        max-height: 650px;
+        letter-spacing: 0.8px;
+        font-size: 42px;
+        margin-bottom: 16px;
+        color: $black;
+        line-height: 100%;
+    }
+
+    .project-img-container {
+        width: 60%;
+        min-height: 650px;
+        position: relative;
+        display: inline-block;
         background: lightgray;
-        margin: 0 auto;
-        margin-bottom: 24px;
         background-position: center;
         background-size: cover;
+
+        .project-img {
+            width: 100%;
+            display: block;
+        }
     }
 
     .project-container {
-        display: flex;
-        flex-flow: wrap;
+        width: 40%;
+        padding-left: 48px;
 
         a {
             display: inline-block;
@@ -42,15 +53,46 @@
         }
 
         .project-body-container {
-            width: 66.66%;
-            padding-left: 32px;
+            .project-body * {
+                font-size: 16px;
+            }
+        }
+    }
+
+    @media screen and (max-width: $tablet) {
+        & {
+            margin: 0 32px;
 
             .project-title {
-                letter-spacing: 0.8px;
-                font-size: 42px;
-                margin-bottom: 18px;
-                color: $black;
-                line-height: 100%;
+                font-size: 32px;
+            }
+        }
+    }
+
+    @media screen and (max-width: $landscape) {
+        & {
+            margin: 0 16px;
+
+            .project-img-container {
+                width: 100%;
+                margin-bottom: 16px;
+                min-height: 200px;
+            }
+            .project-container {
+                width: 100%;
+                padding-left: 16px;
+
+                .project-title {
+                    font-size: 32px;
+                }
+
+                .project-meta-container {
+                    width: 100%;
+                }
+
+                .project-body-container {
+                    width: 100%;
+                }
             }
         }
     }

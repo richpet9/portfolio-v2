@@ -8,13 +8,19 @@
     display: flex;
     flex-wrap: wrap;
 
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: $tablet) {
         & {
             margin-left: 64px;
         }
     }
 
-    @media screen and (max-width: 414px) {
+    @media screen and (max-width: $landscape) {
+        & {
+            margin: 0 32px;
+        }
+    }
+
+    @media screen and (max-width: $phone) {
         & {
             margin: 0 16px;
         }

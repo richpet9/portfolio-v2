@@ -65,23 +65,31 @@
     }
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: $tablet) {
     .blog-post {
         width: 50%;
 
         .blog-post-img {
             height: 22vw;
         }
+
+        .blog-post-text {
+            .blog-post-short-body {
+                margin-top: 0;
+            }
+        }
     }
 }
 
-@media screen and (max-width: 832px) {
+@media screen and (max-width: $landscape) {
     .blog-post {
         width: 100%;
         padding: 0;
+        margin-bottom: 24px;
 
         .blog-post-img {
             height: 45vw;
+            margin-bottom: 4px;
         }
     }
 }

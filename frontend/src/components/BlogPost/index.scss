@@ -47,7 +47,7 @@
     }
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: $tablet) {
     .single-blog-post {
         .container {
             width: 75%;
@@ -55,7 +55,7 @@
     }
 }
 
-@media screen and (max-width: 832px) {
+@media screen and (max-width: $landscape) {
     .single-blog-post {
         margin: 0;
 
@@ -73,8 +73,76 @@
         }
 
         .blog-post-long-body {
-            blockquote {
-                margin: 24px 12px;
+            * {
+                font-size: 18px;
+            }
+
+            h1,
+            h2,
+            h3 {
+                font-size: 32px;
+            }
+
+            h4,
+            h5,
+            h6 {
+                font-size: 28px;
+            }
+
+            blockquote,
+            ol,
+            ul {
+                margin: 16px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $phone) {
+    .single-blog-post {
+        .blog-post-title {
+            font-size: 28px;
+        }
+
+        .blog-post-meta {
+            font-size: 16px;
+            margin-bottom: 0px;
+
+            .vline {
+                height: 16px;
+                top: 3px;
+                margin: 0 16px;
+            }
+        }
+
+        .container {
+            width: 100%;
+            padding: 16px;
+        }
+
+        .blog-post-long-body {
+            padding-top: 0;
+
+            * {
+                font-size: 18px;
+            }
+
+            h1,
+            h2,
+            h3 {
+                font-size: 32px;
+            }
+
+            h4,
+            h5,
+            h6 {
+                font-size: 28px;
+            }
+
+            blockquote,
+            ol,
+            ul {
+                margin: 16px;
             }
         }
     }

@@ -14,4 +14,8 @@ $body: lato, 'Lato', 'Roboto', sans-serif;
 $quarticOut: cubic-bezier(0.165, 0.84, 0.44, 1);
 $textShadow: 0px 1px 5px rgba(0, 0, 0, 0.12);
 
-/* 300, 400, 500, 600 */
+/* * * Media Sizes * * */
+$laptop: 1440px;
+$tablet: 1200px;
+$landscape: 832px;
+$phone: 414px;

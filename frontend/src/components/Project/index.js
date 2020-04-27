@@ -6,15 +6,20 @@ import ProjectMetaInfo from './ProjectMetaInfo';
 import './index.css';
 
 const Project = ({ item }) => {
+    let imgUrls = item.img_url ? item.img_url.split(',') : [];
     return (
         <div className="project-page-container">
-            <div className="project-img" style={{ backgroundImage: "url('" + item.img_url + "')" }}></div>
+            <div className="project-img-container">
+                {imgUrls.map((url) => (
+                    <img className="project-img" src={url} />
+                ))}
+            </div>
             <div className="project-container">
+                <h1 className="project-title">{item.name}</h1>
                 <ProjectMetaInfo item={item} />
 
-                <div className="project-body-container container">
-                    <h1 className="project-title">{item.name}</h1>
-                    <MarkdownBody markdown={item.body} />
+                <div className="project-body-container">
+                    <MarkdownBody markdown={item.body} className={'project-body'} />
                 </div>
             </div>
         </div>
