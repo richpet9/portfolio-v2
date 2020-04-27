@@ -14,6 +14,12 @@
         }
     }
 
+    @media screen and (max-width: $landscape) {
+        & {
+            margin: 0 32px;
+        }
+    }
+
     @media screen and (max-width: $phone) {
         & {
             margin: 0 16px;

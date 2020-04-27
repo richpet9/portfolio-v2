@@ -58,4 +58,42 @@
             }
         }
     }
+
+    @media screen and (max-width: $tablet) {
+        & {
+            margin: 0 32px;
+
+            .project-title {
+                font-size: 32px;
+            }
+        }
+    }
+
+    @media screen and (max-width: $landscape) {
+        & {
+            margin: 0 16px;
+
+            .project-img-container {
+                width: 100%;
+                margin-bottom: 16px;
+                min-height: 200px;
+            }
+            .project-container {
+                width: 100%;
+                padding-left: 16px;
+
+                .project-title {
+                    font-size: 32px;
+                }
+
+                .project-meta-container {
+                    width: 100%;
+                }
+
+                .project-body-container {
+                    width: 100%;
+                }
+            }
+        }
+    }
 }
