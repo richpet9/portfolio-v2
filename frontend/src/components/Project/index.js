@@ -8,7 +8,7 @@ import './index.css';
 const Project = ({ item }) => {
     let imgUrls = item.img_url ? item.img_url.split(',') : [];
     return (
-        <div className="project-page-container" style={{ backgroundColor: '#094268' }}>
+        <div className="project-page-container">
             <div className="project-img-container">
                 {imgUrls.map((url) => (
                     <img className="project-img" src={url} />

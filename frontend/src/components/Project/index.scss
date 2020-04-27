@@ -3,13 +3,12 @@
 .project-page-container {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
     align-items: flex-start;
     padding-bottom: 48px;
 
     .project-img-container {
-        width: 66.66%;
         position: relative;
+        flex-shrink: 1;
 
         .project-img {
             width: 100%;
@@ -18,10 +17,11 @@
     }
 
     .project-info-container {
-        width: 33.33%;
         padding: 48px;
         padding-top: 16px;
         background: white;
+        flex-shrink: 2;
+        min-width: 460px;
 
         .project-title {
             width: 100%;
@@ -56,23 +56,38 @@
         }
     }
 
+    @media screen and (max-width: $laptop) {
+        & {
+            .project-info-container {
+                min-width: 420px;
+
+                .project-title {
+                    font-size: 36px;
+                }
+            }
+        }
+    }
+
     @media screen and (max-width: $tablet) {
         & {
-            margin: 0 32px;
+            .project-info-container {
+                padding: 32px;
+                padding-top: 16px;
 
-            .project-title {
-                font-size: 32px;
+                .project-title {
+                    font-size: 32px;
+                }
             }
         }
     }
 
     @media screen and (max-width: $landscape) {
         & {
-            margin: 0 16px;
+            flex-wrap: wrap;
 
             .project-img-container {
                 width: 100%;
-                margin-bottom: 16px;
+                margin-bottom: 8px;
                 min-height: 200px;
             }
             .project-info-container {
