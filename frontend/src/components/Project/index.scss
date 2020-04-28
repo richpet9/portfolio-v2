@@ -85,16 +85,16 @@
     @media screen and (max-width: $landscape) {
         & {
             flex-wrap: wrap;
+            padding: 0;
 
             .project-img-container {
                 width: 100%;
-                margin-bottom: 8px;
                 min-height: 200px;
             }
             .project-info-container {
-                width: 100%;
-                padding-left: 16px;
                 max-width: none;
+                min-width: 0;
+                padding: 16px;
 
                 .project-title {
                     font-size: 32px;

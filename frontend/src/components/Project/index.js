@@ -11,6 +11,11 @@ const Project = ({ item }) => {
     // Scroll to top
     useEffect(() => {
         window.scrollTo(0, 0);
+        // When we unmount, reset imgUrls so we don't see
+        // the wrong image on next load
+        return () => {
+            imgUrls = [];
+        };
     }, []);
 
     return (
