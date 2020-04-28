@@ -17,9 +17,8 @@ const Home = ({ match, location }) => {
     const [activeTags, setActiveTags] = useState([]);
     const [error, setError] = useState(connectError);
 
+    // This function fetches the posts from the database
     const fetchProjects = (id) => {
-        console.log('Fetching from Database.');
-
         const url = '/api/projects?limit=' + 10;
         return fetch(url)
             .then((res) => {
