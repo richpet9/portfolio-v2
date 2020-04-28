@@ -78,6 +78,10 @@
 
         nav {
             width: 100%;
+
+            ul {
+                margin-bottom: 16px;
+            }
         }
     }
 }
@@ -101,6 +105,8 @@
 
             ul {
                 flex-wrap: wrap;
+                margin-bottom: 16px;
+
                 li {
                     a {
                         font-size: 14px;
