@@ -13,7 +13,7 @@ const Project = ({ item }) => {
         <div className="project-page-container">
             <div className="project-img-container">
                 {imgUrls.map((url) => (
-                    <img className="project-img" src={url} />
+                    <img className="project-img" key={url} src={url} />
                 ))}
             </div>
             <div className="project-info-container">
