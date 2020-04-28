@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import MarkdownBody from '../MarkdownBody';
 import ProjectMetaInfo from './ProjectMetaInfo';
@@ -6,9 +6,13 @@ import ProjectMetaInfo from './ProjectMetaInfo';
 import './index.css';
 
 const Project = ({ item }) => {
-    window.scrollTo(0, 0);
-
     let imgUrls = item.img_url ? item.img_url.split(',') : [];
+
+    // Scroll to top
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div className="project-page-container">
             <div className="project-img-container">
