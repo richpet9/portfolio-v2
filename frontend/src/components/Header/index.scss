@@ -2,7 +2,7 @@
 
 #header {
     text-align: center;
-    width: calc(100% - 36px);
+    width: 100%;
     margin: 0 auto;
 
     #header-link {
@@ -12,7 +12,7 @@
 
         #full-name {
             font-size: 56px;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             font-weight: 600;
             margin: 0;
             margin-top: 30px;
@@ -23,12 +23,12 @@
             font-weight: 300;
             color: $highlight;
             margin-bottom: 30px;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
     }
 
     nav {
-        width: 72%;
+        width: 46%;
         display: inline-block;
 
         ul {
