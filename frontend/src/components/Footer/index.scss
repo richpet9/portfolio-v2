@@ -13,14 +13,6 @@ footer {
         li {
             display: inline-block;
             padding-right: 16px;
-
-            a {
-                color: $black;
-            }
-
-            a:hover {
-                color: $highlight;
-            }
         }
 
         li:last-child {

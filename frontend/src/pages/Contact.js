@@ -84,7 +84,7 @@ const Contact = () => {
         sendEmail(body);
     };
     return (
-        <main id="contact-container">
+        <main className="container" id="contact-container">
             <h1 className="header" style={{ marginBottom: '16px' }}>
                 Contact me
             </h1>
