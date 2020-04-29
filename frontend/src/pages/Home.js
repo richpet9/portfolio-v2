@@ -11,7 +11,9 @@ const connectError = (
     </h1>
 );
 
-const Home = ({ match, location }) => {
+const Home = ({ match }) => {
+    let location = window.location;
+
     const [projects, setProjects] = useState(null);
     const [sortedProjects, setSortedProjects] = useState(null);
     const [activeTags, setActiveTags] = useState([]);
@@ -67,7 +69,7 @@ const Home = ({ match, location }) => {
                 }
             });
 
-            setSortedProjects(newProjects.length > 0 ? newProjects : null);
+            setSortedProjects(newProjects);
         }
     }, [activeTags]);
 
@@ -76,7 +78,7 @@ const Home = ({ match, location }) => {
         updateActiveTags();
     }, [location.search]);
 
-    // Whenever the main URL path changes
+    // On first mount
     useEffect(() => {
         document.title = 'Richard Petrosino';
 
@@ -99,7 +101,7 @@ const Home = ({ match, location }) => {
                     ) : (
                         <ProjectContainer items={sortedProjects} />
                     )
-                ) : sortedProjects ? (
+                ) : sortedProjects && sortedProjects.length == 0 ? (
                     <h1 className="header center">No posts found with that filter!</h1>
                 ) : (
                     ''
