@@ -20,7 +20,7 @@ const Project = ({ item }) => {
 
     return (
         <div className="project-page-container">
-            <div className="project-img-container">
+            <div className="project-img-container" style={imgUrls.length > 0 ? {} : { height: '100%', width: '55%' }}>
                 {imgUrls.map((url) => (
                     <img className="project-img" key={url} src={url} />
                 ))}
