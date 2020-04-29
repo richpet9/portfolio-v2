@@ -65,13 +65,7 @@ const About = () => {
                 </div>
                 <div className="about-photo">
                     <img src="https://cdn.richardpetrosino.com/img/me/2.jpg" title="My photo, as taken by the boss while warming up for a shoot" />
-                    <span className="about-photo-cap">
-                        At the base of one of{' '}
-                        <a href="https://en.wikipedia.org/wiki/The_Three_Sisters_(Alberta)" title="Wikipedia article for The Three Sisters">
-                            The Three Sisters
-                        </a>
-                        , Canmore, AB.
-                    </span>
+                    <span className="about-photo-cap">The woods</span>
                 </div>
             </div>
         </main>
