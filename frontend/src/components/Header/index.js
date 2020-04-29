@@ -53,7 +53,7 @@ export const BlogHeader = () => {
             <nav>
                 <ul>
                     <li>
-                        <a href="/home" title="Home">
+                        <a href="/" title="Home">
                             HOME
                         </a>
                     </li>

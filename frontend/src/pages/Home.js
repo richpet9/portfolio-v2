@@ -15,7 +15,7 @@ const Home = ({ match, location }) => {
     const [projects, setProjects] = useState(null);
     const [sortedProjects, setSortedProjects] = useState(null);
     const [activeTags, setActiveTags] = useState([]);
-    const [error, setError] = useState(connectError);
+    const [error, setError] = useState('');
 
     // This function fetches the posts from the database
     const fetchProjects = (id) => {
@@ -87,22 +87,26 @@ const Home = ({ match, location }) => {
         });
     }, []);
 
-    return (
-        <main id="app-container" style={{ display: 'flex' }}>
-            {!match.params.id ? <Filter activeTags={activeTags} setActiveTags={setActiveTags} /> : ''}
-            {error ? (
-                error
-            ) : sortedProjects && sortedProjects.length > 0 ? (
-                match.params.id ? (
-                    <Project item={sortedProjects.filter((proj) => proj.id == match.params.id)[0]} />
+    if (error) {
+        return error;
+    } else {
+        return (
+            <main id="app-container" style={{ display: 'flex' }}>
+                {!match.params.id ? <Filter activeTags={activeTags} setActiveTags={setActiveTags} /> : ''}
+                {sortedProjects && sortedProjects.length > 0 ? (
+                    match.params.id ? (
+                        <Project item={sortedProjects.filter((proj) => proj.id == match.params.id)[0]} />
+                    ) : (
+                        <ProjectContainer items={sortedProjects} />
+                    )
+                ) : sortedProjects ? (
+                    <h1 className="header center">No posts found with that filter!</h1>
                 ) : (
-                    <ProjectContainer items={sortedProjects} />
-                )
-            ) : (
-                <h1 className="header center">No posts found with that filter!</h1>
-            )}
-        </main>
-    );
+                    ''
+                )}
+            </main>
+        );
+    }
 };
 
 export default Home;
