@@ -12,15 +12,14 @@ const connectError = (
 );
 
 const Home = ({ match, location }) => {
-    document.title = 'Richard Petrosino';
-
     const [projects, setProjects] = useState(null);
     const [sortedProjects, setSortedProjects] = useState(null);
     const [activeTags, setActiveTags] = useState([]);
-    const [error, setError] = useState(connectError);
+    const [error, setError] = useState('');
 
+    // This function fetches the posts from the database
     const fetchProjects = (id) => {
-        const url = '/api/projects' + (id ? `/${id}` : '') + '?limit=' + 10;
+        const url = '/api/projects?limit=' + 10;
         return fetch(url)
             .then((res) => {
                 if (!res.ok) {
@@ -79,29 +78,35 @@ const Home = ({ match, location }) => {
 
     // Whenever the main URL path changes
     useEffect(() => {
-        fetchProjects(match.params.id).then((res) => {
+        document.title = 'Richard Petrosino';
+
+        fetchProjects().then((res) => {
             setProjects(res);
             setSortedProjects(res);
             updateActiveTags();
         });
-    }, [match.params.id]);
+    }, []);
 
-    return (
-        <main id="app-container" style={{ display: 'flex' }}>
-            {!match.params.id ? <Filter activeTags={activeTags} setActiveTags={setActiveTags} /> : ''}
-            {error ? (
-                error
-            ) : sortedProjects && sortedProjects.length > 0 ? (
-                match.params.id ? (
-                    <Project item={sortedProjects[0]} />
+    if (error) {
+        return error;
+    } else {
+        return (
+            <main id="app-container" style={{ display: 'flex' }}>
+                {!match.params.id ? <Filter activeTags={activeTags} setActiveTags={setActiveTags} /> : ''}
+                {sortedProjects && sortedProjects.length > 0 ? (
+                    match.params.id ? (
+                        <Project item={sortedProjects.filter((proj) => proj.id == match.params.id)[0]} />
+                    ) : (
+                        <ProjectContainer items={sortedProjects} />
+                    )
+                ) : sortedProjects ? (
+                    <h1 className="header center">No posts found with that filter!</h1>
                 ) : (
-                    <ProjectContainer items={sortedProjects} />
-                )
-            ) : (
-                <h1 className="header center">No posts found with that filter!</h1>
-            )}
-        </main>
-    );
+                    ''
+                )}
+            </main>
+        );
+    }
 };
 
 export default Home;

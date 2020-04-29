@@ -9,6 +9,19 @@
     top: 0;
     z-index: 10;
 
+    .clear-button {
+        position: absolute;
+        color: rgb(240, 70, 70);
+        cursor: pointer;
+        display: inline-block;
+        letter-spacing: 1px;
+        font-size: 10px;
+
+        &:hover {
+            color: rgb(168, 63, 63);
+        }
+    }
+
     .filter-group {
         padding: 16px 0;
         list-style: none;

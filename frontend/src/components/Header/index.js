@@ -5,14 +5,16 @@ import './index.css';
 export const Header = () => {
     return (
         <header id="header">
-            <NavLink to="/" id="header-link" title="Home">
-                <h1 id="full-name">RICHARD PETROSINO</h1>
-                <h4 id="subhead">DESIGN + DEVELOPMENT</h4>
-            </NavLink>
+            <div id="name-container">
+                <NavLink to="/" id="header-link" title="Home">
+                    <h1 id="full-name">RICHARD PETROSINO</h1>
+                    <h4 id="subhead">DESIGN + DEVELOPMENT</h4>
+                </NavLink>
+            </div>
             <nav>
                 <ul>
                     <li>
-                        <NavLink to="/home" title="Home">
+                        <NavLink to="/" title="Home">
                             HOME
                         </NavLink>
                     </li>
@@ -42,14 +44,16 @@ export const BlogHeader = () => {
     // this is because we are techinically exiting the code bundle when we leave the blog
     return (
         <header id="header">
-            <a href="/" id="header-link" title="Home">
-                <h1 id="full-name">RICHARD PETROSINO</h1>
-                <h4 id="subhead">DESIGN + DEVELOPMENT</h4>
-            </a>
+            <div id="name-container">
+                <a href="/" id="header-link" title="Home">
+                    <h1 id="full-name">RICHARD PETROSINO</h1>
+                    <h4 id="subhead">DESIGN + DEVELOPMENT</h4>
+                </a>
+            </div>
             <nav>
                 <ul>
                     <li>
-                        <a href="/home" title="Home">
+                        <a href="/" title="Home">
                             HOME
                         </a>
                     </li>
