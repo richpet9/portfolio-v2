@@ -5,6 +5,7 @@ footer {
     padding-top: 64px;
     color: $black;
     text-align: center;
+    transition: opacity 300ms $quarticOut;
 
     ul {
         list-style: none;

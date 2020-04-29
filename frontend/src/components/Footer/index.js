@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './index.css';
+import { withRouter } from 'react-router-dom';
 
 const Footer = () => {
+    const [opacity, setOpacity] = useState(0);
+
+    // Fade in footer after a second so transitions dont look as wonky
+    useEffect(() => {
+        setOpacity(0);
+        let int = setInterval(() => {
+            setOpacity(1);
+            clearInterval(int);
+        }, 1000);
+    }, [window.location.pathname]);
+
     return (
-        <footer>
+        <footer style={{ opacity: opacity }}>
             <ul>
                 <li>
                     <a href="https://github.com/richpet9/portfolio-v2">Github</a>
@@ -20,4 +32,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default withRouter(Footer);
