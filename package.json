@@ -12,7 +12,7 @@
         "watch-files": "webpack --mode development --watch",
         "watch-css": "node-sass-chokidar ./frontend/src -o ./frontend/src --watch --recursive",
         "start": "nodemon -r dotenv/config backend/server.js",
-        "build": "node-sass-chokidar ./frontend/src -o ./frontend/src && webpack --mode production",
+        "build": "node-sass-chokidar ./frontend/src -o ./frontend/src && webpack --mode production && pm2 restart portfolio-v2",
         "dev": "concurrently \"npm run watch-css\" \"npm run watch\""
     },
     "author": "Richard Petrosino",
