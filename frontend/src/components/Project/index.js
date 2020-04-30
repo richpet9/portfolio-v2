@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import MarkdownBody from '../MarkdownBody';
 import ProjectMetaInfo from './ProjectMetaInfo';
@@ -6,6 +6,8 @@ import ProjectMetaInfo from './ProjectMetaInfo';
 import './index.css';
 
 const Project = ({ item }) => {
+    const [style, setStyle] = useState(true);
+
     let imgUrls = item.img_url ? item.img_url.split(',') : [];
 
     // Scroll to top
@@ -20,9 +22,9 @@ const Project = ({ item }) => {
 
     return (
         <div className="project-page-container">
-            <div className="project-img-container" style={imgUrls.length > 0 ? {} : { height: '100%', width: '55%' }}>
+            <div className="project-img-container" style={style ? { height: '600px', width: '55%' } : {}}>
                 {imgUrls.map((url) => (
-                    <img className="project-img" key={url} src={url} />
+                    <img className="project-img" key={url} src={url} onLoad={() => setStyle(false)} />
                 ))}
             </div>
             <div className="project-info-container">

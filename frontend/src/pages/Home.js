@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Filter from '../components/Filter';
 import ProjectContainer from '../components/ProjectGrid';
 import Project from '../components/Project';
+import { FadeInComponent } from '../util/transition-router';
 import { getQueryParams } from '../util';
 
 const connectError = (
@@ -17,27 +18,30 @@ const Home = ({ match }) => {
     const [projects, setProjects] = useState(null);
     const [sortedProjects, setSortedProjects] = useState(null);
     const [activeTags, setActiveTags] = useState([]);
-    const [error, setError] = useState('');
+    const [error, setError] = useState(false);
 
     // This function fetches the posts from the database
-    const fetchProjects = (id) => {
-        const url = '/api/projects?limit=' + 10;
-        return fetch(url)
-            .then((res) => {
-                if (!res.ok) {
-                    throw new Error(res.statusText + url);
-                } else {
-                    return res;
-                }
-            })
-            .then((res) => {
-                setError(false);
-                return res.json();
-            })
-            .catch((err) => {
-                console.warn('DB: ' + err);
-                setError(connectError);
-            });
+    const fetchProjects = () => {
+        return new Promise((resolve, reject) => {
+            const url = '/api/projects?limit=' + 10;
+
+            setTimeout(() => reject('TIMEOUT 2000ms'), 2000);
+
+            fetch(url)
+                .then((res) => {
+                    if (!res.ok) {
+                        throw new Error(res.statusText + url);
+                    } else {
+                        return res;
+                    }
+                })
+                .then((res) => {
+                    resolve(res.json());
+                })
+                .catch((err) => {
+                    reject(err);
+                });
+        });
     };
 
     const updateActiveTags = () => {
@@ -82,19 +86,26 @@ const Home = ({ match }) => {
     useEffect(() => {
         document.title = 'Richard Petrosino';
 
-        fetchProjects().then((res) => {
-            setProjects(res);
-            setSortedProjects(res);
-            updateActiveTags();
-        });
+        fetchProjects()
+            .then((res) => {
+                setError(false);
+                setProjects(res);
+                setSortedProjects(res);
+                updateActiveTags();
+            })
+            .catch((e) => {
+                console.warn('PDB: ', e);
+                setError(connectError);
+            });
     }, []);
 
-    if (error) {
-        return error;
-    } else {
-        return (
-            <main id="app-container" style={{ display: 'flex' }}>
-                {!match.params.id ? <Filter activeTags={activeTags} setActiveTags={setActiveTags} /> : ''}
+    return (
+        <main id="app-container">
+            <FadeInComponent show={error} timeout={200}>
+                {error}
+            </FadeInComponent>
+            {!match.params.id ? <Filter activeTags={activeTags} setActiveTags={setActiveTags} /> : ''}
+            <FadeInComponent show={sortedProjects} timeout={200}>
                 {sortedProjects && sortedProjects.length > 0 ? (
                     match.params.id ? (
                         <Project item={sortedProjects.filter((proj) => proj.id == match.params.id)[0]} />
@@ -106,9 +117,9 @@ const Home = ({ match }) => {
                 ) : (
                     ''
                 )}
-            </main>
-        );
-    }
+            </FadeInComponent>
+        </main>
+    );
 };
 
 export default Home;
