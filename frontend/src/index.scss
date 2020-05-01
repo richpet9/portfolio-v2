@@ -83,78 +83,9 @@ span.vline {
 }
 
 #about-container {
-    display: flex;
     width: 100%;
     margin: 0;
     padding: 0 48px;
-
-    .about-photos-container {
-        width: 50%;
-        display: inline-block;
-        margin-right: 32px;
-    }
-
-    .about-photo {
-        margin-bottom: 32px;
-        position: relative;
-        box-shadow: $textShadow;
-
-        img {
-            display: block;
-            width: 100%;
-        }
-
-        .about-photo-cap {
-            display: block;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 8px;
-            padding-left: 10px;
-            color: white;
-            font-family: $body;
-            font-size: 14px;
-            letter-spacing: 0.25px;
-
-            a {
-                color: white;
-                font-family: $body;
-                font-size: 14px;
-                letter-spacing: 0.25px;
-            }
-
-            a:hover {
-                color: $highlight;
-            }
-        }
-    }
-    .about-content-container {
-        width: 50%;
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            margin-bottom: 8px;
-        }
-
-        .about-content,
-        .about-content * {
-            font-family: $body;
-        }
-
-        p.about-content {
-            padding-right: 32px;
-            margin: 16px 0;
-
-            &:last-of-type {
-                margin-bottom: 32px;
-            }
-        }
-    }
 }
 
 @media screen and (max-width: $tablet) {

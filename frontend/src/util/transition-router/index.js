@@ -34,17 +34,17 @@ let FadeSwitch = ({ children, timeout, location }) => {
 FadeSwitch = withRouter(FadeSwitch);
 
 const FadeInComponent = ({ children, show, timeout }) => {
-    const [shouldShow, setShouldShow] = useState(show);
+    const [shouldShow, setShouldShow] = useState(false);
     const [style, setStyle] = useState({ opacity: 0 });
 
     useEffect(() => {
         let mounted = true;
+        setStyle({ opacity: 0 });
 
         if (show) {
             setShouldShow(true);
             setStyle({ opacity: 1 });
         } else {
-            setStyle({ opacity: 0 });
             let int = setInterval(() => {
                 if (mounted) {
                     setShouldShow(false);

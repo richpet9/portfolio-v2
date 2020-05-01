@@ -17,7 +17,7 @@ const App = () => {
             <FadeSwitch timeout={200}>
                 <Route exact path="/" component={Home} />
                 <Route path="/home" component={Home} />
-                <Route path="/about" component={About} />
+                <Route path="/about/:resume?" component={About} />
                 <Route path="/contact" component={Contact} />
                 <Route path="/project/:id" component={Home} />
             </FadeSwitch>

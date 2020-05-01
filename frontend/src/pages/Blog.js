@@ -69,7 +69,11 @@ const Blog = ({ match }) => {
         <main id="app-container" style={{ textAlign: 'center' }}>
             <div id="blog-filter-container">
                 <p>SHOWING POSTS FROM</p>
-                <SlidingButton activeButton={subBlogKey} options={['BOTH', 'MOBILE DESIGN', 'SENIOR PORTFOLIO']} urls={['', 'mobile-design', 'senior-portfolio']} />
+                <SlidingButton
+                    activeButton={subBlogKey}
+                    options={['BOTH', 'MOBILE DESIGN', 'SENIOR PORTFOLIO']}
+                    urls={['/blog', '/blog/mobile-design', '/blog/senior-portfolio']}
+                />
             </div>
             {posts.length > 0 ? (
                 posts.length > 1 ? (

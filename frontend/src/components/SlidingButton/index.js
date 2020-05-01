@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import './index.css';
 
 const SlidingButton = ({ activeButton, options, urls }) => {
-    const computeLeft = buttonIndex => {
-        let index = buttonIndex * (options.length - 1);
+    const computeLeft = (buttonIndex) => {
+        let index = buttonIndex * 2;
         let res = 0;
         for (let i = 0; i < index; i++) {
             res += optionContainer.current.children[i].offsetWidth;
@@ -21,7 +21,7 @@ const SlidingButton = ({ activeButton, options, urls }) => {
     const optionContainer = useRef();
 
     const setProportions = () => {
-        setWidth(optionContainer.current.children[activeButton * (options.length - 1)].offsetWidth);
+        setWidth(optionContainer.current.children[activeButton * 2].offsetWidth);
         setHeight(optionContainer.current.offsetHeight);
         setLeft(computeLeft(activeButton));
     };
@@ -59,10 +59,10 @@ const SlidingButton = ({ activeButton, options, urls }) => {
                     const className = activeButton === index ? 'active' : '';
                     let res = [
                         <li key={index}>
-                            <Link to={'/blog/' + (urls[index] ? urls[index] : '')} className={className}>
+                            <Link to={urls[index] ? urls[index] : '#'} className={className}>
                                 {option}
                             </Link>
-                        </li>
+                        </li>,
                     ];
                     if (index !== options.length - 1) {
                         res.push(
