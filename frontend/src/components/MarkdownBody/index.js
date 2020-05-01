@@ -12,7 +12,7 @@ renderer.link = (href, title, text) => {
 
 const MarkdownBody = ({ markdown, className, id }) => {
     markdown = markdown || '';
-    return <div className={'markdown-body container ' + className} id={id} dangerouslySetInnerHTML={{ __html: Marked(markdown, { renderer: renderer }) }} />;
+    return <div className={'markdown-body ' + className} id={id} dangerouslySetInnerHTML={{ __html: Marked(markdown, { renderer: renderer }) }} />;
 };
 
 export default MarkdownBody;

@@ -6,6 +6,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+a {
+    color: $black;
+}
+
+a:hover {
+    color: $highlight;
+}
 
 .italic {
     font-style: italic;
@@ -31,7 +38,8 @@
     text-align: center;
 }
 
-#blog-filter-container {
+#blog-filter-container,
+#about-filter-container {
     text-align: center;
     display: inline-block;
     margin: 0 auto;
@@ -70,17 +78,76 @@ span.vline {
     margin: 0 8px;
 }
 
-#contact-container {
+.container {
     margin: 0 auto;
     width: 57%;
 }
 
+#about-container {
+    width: 100%;
+    margin: 0;
+    padding: 0 48px;
+}
+
+@media screen and (max-width: $tablet) {
+    #contact-container {
+        padding: 0 128px;
+        margin: 0;
+        width: 100%;
+    }
+}
+
 @media screen and (max-width: $landscape) {
-    #blog-posts-container {
-        margin: 0 16px;
+    #blog-posts-container,
+    #contact-container,
+    #resume-container {
+        padding: 0 32px;
+        margin: 0;
+        width: 100%;
+
+        .flex {
+            flex-wrap: wrap;
+        }
     }
 
     #blog-filter-container {
         display: none;
+    }
+
+    #about-container {
+        padding: 0 32px;
+
+        .about-me-container {
+            flex-wrap: wrap;
+        }
+
+        .about-photos-container {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            order: 2;
+        }
+        .about-content-container {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            order: 1;
+
+            p.about-content {
+                padding-right: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $phone) {
+    #blog-posts-container,
+    #contact-container,
+    #resume-container {
+        padding: 0 16px;
+    }
+
+    #about-container {
+        padding: 0 16px;
     }
 }

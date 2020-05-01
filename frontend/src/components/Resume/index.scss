@@ -1,45 +1,63 @@
 @import '../../_defaults.scss';
 
 #resume-container {
-    font-size: 20px;
+    font-size: 18px;
     color: $black;
     display: block;
     margin: 0 auto;
     margin-bottom: 50px;
-    width: 50%;
-    max-width: 680px;
 
-    .resume-header {
-        margin: 16px 0;
-        font-size: 28px;
-        text-align: left;
-    }
-
-    .resume-subhead {
-        font-weight: 600;
-        letter-spacing: 0.2px;
-        margin-top: 16px;
-
-        &:first-child {
-            margin-top: 0;
-        }
-    }
-
-    .resume-body {
-        margin-bottom: 18px;
-        font-weight: 400;
-        letter-spacing: 0.2px;
-
-        * {
+    .resume-section {
+        p {
+            letter-spacing: 0.2px;
+            line-height: 155%;
+            font-size: 20px;
             font-family: $body;
+            font-weight: 400;
+        }
+        .resume-header {
+            font-weight: 700;
+            margin: 16px 0;
+            margin-top: 48px;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            color: $highlight;
+            font-size: 24px;
+
+            &:first-of-type {
+                margin-top: 24px;
+            }
         }
 
-        .resume-list {
-            margin-left: 18px;
-            margin-bottom: 8px;
+        .resume-subhead {
+            font-size: 18px;
+            margin-top: 16px;
+            font-weight: 600;
 
-            :last-child {
-                margin-bottom: 0;
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+        .resume-body {
+            p {
+                font-size: 17px;
+                line-height: 120%;
+            }
+
+            .resume-list {
+                padding-left: 18px;
+
+                li {
+                    font-family: $body;
+                    font-size: 17px;
+
+                    .aside {
+                        display: block;
+                        margin-left: 24px;
+                        font-style: italic;
+                        font-family: $body;
+                    }
+                }
             }
         }
     }

@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
-let FadeSwitch = ({ children, timeout, location, controller }) => {
+let FadeSwitch = ({ children, timeout, location }) => {
     const [delayedPath, setDelayedPath] = useState(location);
     const [show, setShow] = useState(true);
 
     useEffect(() => {
         if (location.pathname != delayedPath.pathname) {
             setShow(false);
-            controller(true);
             let int = setInterval(() => {
                 setDelayedPath(location);
                 clearInterval(int);
@@ -19,7 +18,6 @@ let FadeSwitch = ({ children, timeout, location, controller }) => {
     useEffect(() => {
         let int = setInterval(() => {
             setShow(true);
-            controller(false);
             clearInterval(int);
         }, timeout / 2);
     }, [delayedPath.pathname]);
@@ -36,17 +34,17 @@ let FadeSwitch = ({ children, timeout, location, controller }) => {
 FadeSwitch = withRouter(FadeSwitch);
 
 const FadeInComponent = ({ children, show, timeout }) => {
-    const [shouldShow, setShouldShow] = useState(show);
+    const [shouldShow, setShouldShow] = useState(false);
     const [style, setStyle] = useState({ opacity: 0 });
 
     useEffect(() => {
         let mounted = true;
+        setStyle({ opacity: 0 });
 
         if (show) {
             setShouldShow(true);
             setStyle({ opacity: 1 });
         } else {
-            setStyle({ opacity: 0 });
             let int = setInterval(() => {
                 if (mounted) {
                     setShouldShow(false);
@@ -58,7 +56,20 @@ const FadeInComponent = ({ children, show, timeout }) => {
         return () => (mounted = false);
     }, [show]);
 
-    return <div style={{ transition: 'opacity ease-in-out ' + timeout + 'ms', ...style }}>{shouldShow ? children : ''}</div>;
+    return (
+        <div
+            style={{
+                transition: 'opacity ease-in-out ' + timeout + 'ms',
+                msTransition: 'opacity ease-in-out ' + timeout + 'ms',
+                OTransition: 'opacity ease-in-out ' + timeout + 'ms',
+                WebkitTransition: 'opacity ease-in-out ' + timeout + 'ms',
+                MozTransition: 'opacity ease-in-out ' + timeout + 'ms',
+                ...style,
+            }}
+        >
+            {shouldShow ? children : ''}
+        </div>
+    );
 };
 
 const FadeInRoute = ({ component: Component, ...rest }) => {

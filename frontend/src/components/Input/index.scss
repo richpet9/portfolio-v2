@@ -37,5 +37,9 @@
 
     &:first-child {
         margin-right: 16px;
+
+        @media screen and (max-width: $phone) {
+            margin-right: 0;
+        }
     }
 }

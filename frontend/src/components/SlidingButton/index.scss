@@ -7,6 +7,7 @@ $div_w: 27px;
     position: relative;
     background-color: $light_gray;
     overflow: hidden;
+    box-shadow: $textShadowNoColor rgba(0, 0, 0, 0.05);
 
     ul {
         position: relative;
@@ -61,6 +62,7 @@ $div_w: 27px;
                     height: 140%;
                     background: white;
                     transform: rotate(35deg);
+                    box-shadow: $textShadowNoColor rgba(0, 0, 0, 0.05);
                 }
             }
         }
@@ -77,32 +79,32 @@ $div_w: 27px;
         transition: all 150ms $quarticOut;
 
         // Left subtractor
-        &::before {
-            content: '';
-            position: absolute;
-            display: inline-block;
-            width: 8px;
-            height: 140%;
-            left: calc(0% - #{$div_w * 2});
-            top: -20%;
-            background: $light_gray;
-            transform: rotate(35deg);
-            z-index: 2;
-        }
+        // &::before {
+        //     content: '';
+        //     position: absolute;
+        //     display: inline-block;
+        //     width: 8px;
+        //     height: 140%;
+        //     left: calc(0% - #{$div_w * 2});
+        //     top: -20%;
+        //     background: $light_gray;
+        //     transform: rotate(35deg);
+        //     z-index: 2;
+        // }
 
         //Right Subtractor
-        &::after {
-            content: '';
-            position: absolute;
-            display: inline-block;
-            width: 8px;
-            height: 140%;
-            left: calc(100% + #{$div_w * 2});
-            top: -20%;
-            background: $light_gray;
-            transform: rotate(35deg);
-            z-index: 2;
-        }
+        // &::after {
+        //     content: '';
+        //     position: absolute;
+        //     display: inline-block;
+        //     width: 8px;
+        //     height: 140%;
+        //     left: calc(100% + #{$div_w * 2});
+        //     top: -20%;
+        //     background: $light_gray;
+        //     transform: rotate(35deg);
+        //     z-index: 2;
+        // }
 
         //Background itself
         span {

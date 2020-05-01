@@ -28,7 +28,7 @@ const BlogPost = ({ post }) => {
 
             <div className="blog-post-img" style={{ backgroundImage: "url('" + post.img_url + "')" }}></div>
 
-            <MarkdownBody markdown={post.body} className={'blog-post-long-body'} />
+            <MarkdownBody markdown={post.body} className={'container blog-post-long-body'} />
         </div>
     );
 };

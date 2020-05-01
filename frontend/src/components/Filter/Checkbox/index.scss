@@ -41,7 +41,7 @@
     }
 
     .checkbox-box:after {
-        display: none;
+        display: block;
         content: '';
         position: relative;
         top: 4px;
@@ -49,12 +49,14 @@
         width: 9px;
         height: 9px;
         background: white;
+        opacity: 0;
         border-radius: 1px;
         z-index: 10;
+        transition: opacity 100ms $quarticOut;
     }
 
     .checkbox-input:checked ~ .checkbox-box:after {
-        display: block;
+        opacity: 1;
     }
 
     &:hover,
