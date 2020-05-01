@@ -13,7 +13,7 @@ const About = ({ match }) => {
         <>
             <main className="container" id="about-container">
                 <div style={{ width: '100%', textAlign: 'center' }}>
-                    <div id="blog-filter-container">
+                    <div id="about-filter-container">
                         <SlidingButton activeButton={match.params.resume ? 1 : 0} options={['ABOUT ME', 'RESUME']} urls={['/about', '/about/resume']} />
                     </div>
                 </div>

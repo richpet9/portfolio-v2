@@ -110,7 +110,7 @@ const Honors = () => {
 };
 
 export default () => (
-    <div className="resume-container container">
+    <div className="container" id="resume-container">
         <Experience />
         <Education />
         <Skills />

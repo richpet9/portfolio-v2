@@ -38,7 +38,8 @@ a:hover {
     text-align: center;
 }
 
-#blog-filter-container {
+#blog-filter-container,
+#about-filter-container {
     text-align: center;
     display: inline-block;
     margin: 0 auto;
@@ -98,7 +99,8 @@ span.vline {
 
 @media screen and (max-width: $landscape) {
     #blog-posts-container,
-    #contact-container {
+    #contact-container,
+    #resume-container {
         padding: 0 32px;
         margin: 0;
         width: 100%;
@@ -114,7 +116,10 @@ span.vline {
 
     #about-container {
         padding: 0 32px;
-        flex-wrap: wrap;
+
+        .about-me-container {
+            flex-wrap: wrap;
+        }
 
         .about-photos-container {
             width: 100%;
@@ -137,7 +142,8 @@ span.vline {
 
 @media screen and (max-width: $phone) {
     #blog-posts-container,
-    #contact-container {
+    #contact-container,
+    #resume-container {
         padding: 0 16px;
     }
 

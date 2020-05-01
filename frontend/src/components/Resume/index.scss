@@ -1,13 +1,11 @@
 @import '../../_defaults.scss';
 
-.resume-container {
+#resume-container {
     font-size: 18px;
     color: $black;
     display: block;
     margin: 0 auto;
     margin-bottom: 50px;
-    width: 50%;
-    max-width: 680px;
 
     .resume-section {
         p {
@@ -34,6 +32,7 @@
         .resume-subhead {
             font-size: 18px;
             margin-top: 16px;
+            font-weight: 600;
 
             &:first-child {
                 margin-top: 0;
