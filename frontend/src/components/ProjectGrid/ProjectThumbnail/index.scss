@@ -103,9 +103,18 @@
             width: 100% !important;
             height: 45vw;
 
+            &::after {
+                opacity: 0 !important;
+            }
+
+            .item-bg {
+                transform: scale(118%);
+            }
+
             .item-meta {
                 padding: 16px;
                 padding-top: 12px;
+                opacity: 0 !important;
 
                 .item-name {
                     margin-bottom: 8px;

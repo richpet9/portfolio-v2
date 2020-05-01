@@ -72,7 +72,6 @@ const AboutMe = () => (
                 />
                 <span className="about-photo-cap">The woods</span>
             </div>
-            <p className="about-content">Was it my mission to make this page look like a 2010 Tumblr site? Was I just lazy?? Is it funnyy???</p>
         </div>
     </div>
 );
