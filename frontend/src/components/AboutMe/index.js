@@ -9,7 +9,7 @@ const AboutMe = () => (
             <div className="about-photo">
                 <img src="https://cdn.richardpetrosino.com/img/me/0.jpg" title="My photo, as taken by the boss while warming up for a shoot" />
                 <span className="about-photo-cap">
-                    A warmup-photo, taken by my{' '}
+                    A warm-up photo, taken by my{' '}
                     <a href="http://autumnlind.com/" title="My boss">
                         boss
                     </a>
@@ -37,17 +37,17 @@ const AboutMe = () => (
                 enough to control the phases of the moon. Yet.
             </marquee>
             <p className="about-content">
-                Richie is a designer and developer based in New York and New Jersey. He is an experienced web developer who spends more time than he'd ever admit inside
+                Richie is a designer and developer based in the New York metro area. He is an experienced web developer who spends more time than he'd ever admit inside
                 VS Code documents tip-tapping away. He claims the process of going from blank text document to interactive website provides him sufficient dopamine to
                 wake up everyday, though these claims have not yet been confirmed.
             </p>
             <p className="about-content">
-                We have reasonable suspcision that he may suppliment this web-based dopamine release with the frequent hike, photo shoot, or occasional knitting project.
-                While these are all still theories, his portfolio does{' '}
+                We have reasonable suspcision that he may suppliment this web-based dopamine with the frequent hike, photo shoot, or occasional knitting project. While
+                these are all still theories, his portfolio does{' '}
                 <a href="https://old.richardpetrosino.com" title="View my photo portfolio">
                     showcase a number of photographs
                 </a>
-                , giving some credibitiy to at least one of those prospects.
+                , giving some credibilitiy to at least one of those prospects.
             </p>
             <p
                 className="about-content"
@@ -63,14 +63,14 @@ const AboutMe = () => (
             </p>
             <div className="about-photo">
                 <img src="https://cdn.richardpetrosino.com/img/me/1.jpg" title="I used to shoot a lot more film" />
-                <span className="about-photo-cap">Something I should be doing much more of</span>
+                <span className="about-photo-cap">I used to do, and should be doing much more, film photography.</span>
             </div>
             <div className="about-photo">
                 <img
                     src="https://cdn.richardpetrosino.com/img/me/2.jpg"
                     title="I had just finished a week-long self-portrait assignment in photography class and figured I could do better. Got dressed up and went to the nearby woods on campus. "
                 />
-                <span className="about-photo-cap">The woods</span>
+                <span className="about-photo-cap">A woodland of Hamden, CT.</span>
             </div>
         </div>
     </div>
