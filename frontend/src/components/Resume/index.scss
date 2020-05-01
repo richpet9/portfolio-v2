@@ -7,6 +7,11 @@
     margin: 0 auto;
     margin-bottom: 50px;
 
+    .resume-link-container {
+        margin-top: 16px;
+        font-size: 16px;
+    }
+
     .resume-section {
         .resume-header {
             font-weight: 700;
@@ -18,7 +23,7 @@
             font-size: 24px;
 
             &:first-of-type {
-                margin-top: 24px;
+                margin-top: 16px;
             }
         }
 

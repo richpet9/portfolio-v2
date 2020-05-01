@@ -44,7 +44,7 @@ const AboutMe = () => (
             <p className="about-content">
                 We have reasonable suspcision that he may suppliment this web-based dopamine with the frequent hike, photo shoot, or occasional knitting project. While
                 these are all still theories, his portfolio does{' '}
-                <a href="https://old.richardpetrosino.com" title="View my photo portfolio">
+                <a className="highlight" href="https://old.richardpetrosino.com" title="View my photo portfolio">
                     showcase a number of photographs
                 </a>
                 , giving some credibilitiy to at least one of those prospects.
@@ -56,7 +56,7 @@ const AboutMe = () => (
                 }}
             >
                 If you would like to contact Richie, feel free to reach out using the{' '}
-                <Link to="/contact" title="Go to the contact form">
+                <Link className="highlight" to="/contact" title="Go to the contact form">
                     on-site contact form
                 </Link>
                 , or the email at the bottom of this page.

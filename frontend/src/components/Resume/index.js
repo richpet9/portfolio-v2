@@ -130,6 +130,11 @@ const Honors = () => {
 
 export default () => (
     <div className="container" id="resume-container">
+        <div className="resume-link-container">
+            <a className="highlight" href="https://cdn.richardpetrosino.com/doc/me/RichardPetrosino.pdf" title="Download my resume as a PDF">
+                Download Resume as PDF
+            </a>
+        </div>
         <Experience />
         <Education />
         <Skills />

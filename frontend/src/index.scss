@@ -14,6 +14,24 @@ a:hover {
     color: $highlight;
 }
 
+a.highlight {
+    display: inline-block;
+    color: $darkHighlight;
+    background: rgb(223, 236, 252);
+    text-decoration: none;
+    padding: 0 2px;
+    margin: 2px 1px;
+    margin-bottom: -3px;
+    border-bottom: 2px solid transparent;
+    transition: all 100ms;
+
+    &:focus,
+    &:hover {
+        background: rgb(203, 226, 255);
+        border-bottom-color: $darkHighlight;
+    }
+}
+
 .italic {
     font-style: italic;
 }
