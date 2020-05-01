@@ -8,13 +8,6 @@
     margin-bottom: 50px;
 
     .resume-section {
-        p {
-            letter-spacing: 0.2px;
-            line-height: 155%;
-            font-size: 20px;
-            font-family: $body;
-            font-weight: 400;
-        }
         .resume-header {
             font-weight: 700;
             margin: 16px 0;
@@ -40,8 +33,20 @@
         }
         .resume-body {
             p {
+                letter-spacing: 0.2px;
                 font-size: 17px;
                 line-height: 120%;
+                font-family: $body;
+                font-weight: 400;
+            }
+
+            .resume-col {
+                width: 100%;
+                margin-right: 16px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
             }
 
             .resume-list {
