@@ -11,6 +11,11 @@ import { FadeSwitch } from '../util/transition-router';
 import '../index.css';
 
 const App = () => {
+    let location = window.location;
+
+    useEffect(() => {
+        console.log(location);
+    }, [location]);
     return (
         <Router id="root-container">
             <Header />
