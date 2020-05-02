@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Filter from '../components/Filter';
-import ProjectContainer from '../components/ProjectGrid';
+import ProjectGrid from '../components/ProjectGrid';
 import Project from '../components/Project';
 import { FadeInComponent } from '../util/transition-router';
 import { getQueryParams } from '../util';
@@ -110,7 +110,7 @@ const Home = ({ match }) => {
                     match.params.id ? (
                         <Project item={sortedProjects.filter((proj) => proj.id == match.params.id)[0]} />
                     ) : (
-                        <ProjectContainer items={sortedProjects} />
+                        <ProjectGrid items={sortedProjects} />
                     )
                 ) : sortedProjects && sortedProjects.length == 0 ? (
                     <h1 className="header center">No posts found with that filter!</h1>
