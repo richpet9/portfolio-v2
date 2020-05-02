@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import { Header } from '../components/Header';
@@ -11,11 +11,6 @@ import { FadeSwitch } from '../util/transition-router';
 import '../index.css';
 
 const App = () => {
-    let location = window.location;
-
-    useEffect(() => {
-        console.log(location);
-    }, [location]);
     return (
         <Router id="root-container">
             <Header />
