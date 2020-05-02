@@ -22,9 +22,10 @@
         padding: 6px 8px;
         border: 1px solid rgb(216, 216, 216);
         font-family: $body;
-        transition: border-color 150ms $quarticOut;
+        background-clip: padding-box;
         background-color: white;
         box-shadow: $textShadowNoColor rgba(0, 0, 0, 0.05);
+        transition: border-color 150ms $quarticOut;
 
         &:focus {
             border-color: $highlight !important;
