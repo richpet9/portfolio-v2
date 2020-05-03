@@ -89,7 +89,15 @@
 
         .blog-post-img {
             height: 45vw;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
+        }
+
+        .blog-post-text {
+            padding: 0;
+
+            .blog-post-name {
+                line-height: 95%;
+            }
         }
     }
 }
