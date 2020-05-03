@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import MarkdownBody from '../MarkdownBody';
 import ProjectMetaInfo from './ProjectMetaInfo';
+import { truncateString } from '../../util';
 
 import './index.css';
 
@@ -13,6 +14,16 @@ const Project = ({ item }) => {
     // Scroll to top
     useEffect(() => {
         window.scrollTo(0, 0);
+        // Set the OG tags to this project's info
+        let ogImage = document.querySelector('meta[property="og:image"]');
+        let ogTitle = document.querySelector('meta[property="og:title"]');
+        let ogDesc = document.querySelector('meta[property="og:description"]');
+        let ogUrl = document.querySelector('meta[property="og:url"]');
+        ogImage.setAttribute('content', item.thumbnail);
+        ogTitle.setAttribute('content', "Richie's Portfolio: " + item.name);
+        ogDesc.setAttribute('content', 'View ' + item.name + " on Richard Petrosino's portfolio. " + truncateString(item.body, 40));
+        ogUrl.setAttribute('content', 'https://richardpetrosino.com/project/' + item.id);
+
         // When we unmount, reset imgUrls so we don't see
         // the wrong image on next load
         return () => {
