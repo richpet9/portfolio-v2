@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import Filter from '../components/Filter';
 import ProjectGrid from '../components/ProjectGrid';
 import Project from '../components/Project';
@@ -14,7 +13,7 @@ const connectError = (
 );
 
 const Home = ({ match }) => {
-    let location = useLocation();
+    let location = window.location;
 
     const [projects, setProjects] = useState(null);
     const [sortedProjects, setSortedProjects] = useState(null);
