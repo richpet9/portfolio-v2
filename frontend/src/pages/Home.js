@@ -84,7 +84,7 @@ const Home = ({ match }) => {
 
     // On first mount
     useEffect(() => {
-        document.title = 'Richard Petrosino';
+        document.title = 'Richard Petrosino | Work';
 
         fetchProjects()
             .then((res) => {

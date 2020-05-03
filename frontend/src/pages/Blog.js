@@ -28,8 +28,6 @@ const matchUrlToKey = (url) => {
 };
 
 const Blog = ({ match }) => {
-    document.title = 'Richard Petrosino | Blog';
-
     const [subBlogKey, setSubBlogKey] = useState(matchUrlToKey(match.params.subblog));
     const [posts, setPosts] = useState([]);
 
@@ -64,6 +62,10 @@ const Blog = ({ match }) => {
             setPosts(res);
         });
     }, [match.params]);
+
+    useEffect(() => {
+        document.title = 'Richard Petrosino | Blog';
+    }, []);
 
     return (
         <main id="app-container" style={{ textAlign: 'center' }}>

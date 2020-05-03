@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import Spinner from '../components/Spinner';
@@ -83,6 +83,11 @@ const Contact = () => {
 
         sendEmail(body);
     };
+
+    useEffect(() => {
+        document.title = 'Richard Petrosino | Contact';
+    }, []);
+
     return (
         <main className="container" id="contact-container">
             <h1 className="header" style={{ marginBottom: '16px' }}>
