@@ -91,36 +91,6 @@
         }
     }
 
-    @media screen and (max-width: $laptop) {
-        & {
-            width: 50% !important;
-            height: 20vw;
-        }
-    }
-
-    @media screen and (max-width: $landscape) {
-        & {
-            width: 100% !important;
-            height: 45vw;
-
-            .item-meta {
-                padding: 16px;
-                padding-top: 12px;
-
-                .item-name {
-                    margin-bottom: 8px;
-                    font-size: 22px;
-                }
-
-                .item-tags {
-                    .tag {
-                        font-size: 14px;
-                    }
-                }
-            }
-        }
-    }
-
     &:hover {
         box-shadow: $textShadow;
 
@@ -143,6 +113,53 @@
             .item-tags {
                 top: 0;
                 box-shadow: $textShadow;
+            }
+        }
+    }
+
+    @media screen and (max-width: $laptop) {
+        & {
+            width: 50% !important;
+            height: 22vw;
+        }
+    }
+
+    @media screen and (max-width: $tablet) {
+        & {
+            width: 50% !important;
+            height: 24vw;
+        }
+    }
+
+    @media screen and (max-width: $landscape) {
+        & {
+            width: 100% !important;
+            height: 48vw;
+            margin-bottom: 16px;
+
+            &::after {
+                opacity: 0 !important;
+            }
+
+            .item-bg {
+                transform: scale(118%);
+            }
+
+            .item-meta {
+                padding: 16px;
+                padding-top: 12px;
+                opacity: 0 !important;
+
+                .item-name {
+                    margin-bottom: 8px;
+                    font-size: 22px;
+                }
+
+                .item-tags {
+                    .tag {
+                        font-size: 14px;
+                    }
+                }
             }
         }
     }

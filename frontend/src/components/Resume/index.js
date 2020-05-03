@@ -69,20 +69,39 @@ const Skills = () => {
         <div className="resume-section">
             <h2 className="resume-header">SKILLS</h2>
             <div className="resume-body">
-                <h4 className="resume-subhead">Development</h4>
-                <ul className="resume-list">
-                    <li>Fluent in HTML, CSS, MySQL</li>
-                    <li>Experience with PHP, Scala, and Python</li>
-                    <li>Developed with Javascript libraries React, jQuery, TypeScript, and Express</li>
-                    <li>Designing and implementing RESTful APIs</li>
-                    <li>Managing a remote Linux machine through SSH and SFTP</li>
-                    <li>Algorithm design & implementation in Java</li>
-                </ul>
-                <h4 className="resume-subhead">Design</h4>
-                <ul className="resume-list">
-                    <li>6 years of web design</li>
-                    <li>4 years of graphic design and photography</li>
-                </ul>
+                <div className="flex">
+                    <div className="resume-col">
+                        <h4 className="resume-subhead">Proficient</h4>
+                        <ul className="resume-list">
+                            <li>ES6+, HTML, CSS and SQL</li>
+                            <li>Javascript libraries jQuery, React, Typescript, Node and Express</li>
+                            <li>Database systems PostgreSQL, MySQL and MongoDB</li>
+                            <li>Algorithm design with Java</li>
+                            <li>Implementing a RESTful API</li>
+                        </ul>
+                    </div>
+                    <div className="resume-col">
+                        <h4 className="resume-subhead">Familiar</h4>
+                        <ul className="resume-list">
+                            <li>PHP, Wordpress, Scala and Python</li>
+                            <li> Game design and development</li>
+                            <li> Managing a remote Linux machine through SSH and SFTP</li>
+                            <li> Google Analytics</li>
+                            <li> CMS development</li>
+                        </ul>
+                    </div>
+                    <div className="resume-col">
+                        <h4 className="resume-subhead">Other Skills</h4>
+                        <ul className="resume-list">
+                            <li>Adobe Suite</li>
+                            <li>Microsoft Office</li>
+                            <li>Publication design</li>
+                            <li>Photography</li>
+                            <li>InVision Prototyping</li>
+                            <li>Knitting</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     );
@@ -111,6 +130,11 @@ const Honors = () => {
 
 export default () => (
     <div className="container" id="resume-container">
+        <div className="resume-link-container">
+            <a className="highlight" href="https://cdn.richardpetrosino.com/doc/me/RichardPetrosino.pdf" title="Download my resume as a PDF">
+                Download Resume as PDF
+            </a>
+        </div>
         <Experience />
         <Education />
         <Skills />

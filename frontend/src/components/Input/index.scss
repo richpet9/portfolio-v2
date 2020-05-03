@@ -20,13 +20,16 @@
         display: block;
         font-size: 16px;
         padding: 6px 8px;
-        border-radius: 5px;
-        border: 2px solid rgb(216, 216, 216);
+        border: 1px solid rgb(216, 216, 216);
         font-family: $body;
+        background-clip: padding-box;
+        background-color: white;
+        box-shadow: $textShadowNoColor rgba(0, 0, 0, 0.05);
         transition: border-color 150ms $quarticOut;
 
         &:focus {
             border-color: $highlight !important;
+            box-shadow: $textShadowNoColor rgba($color: $darkHighlight, $alpha: 0.15);
         }
     }
 

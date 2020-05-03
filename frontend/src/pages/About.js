@@ -6,8 +6,8 @@ import { withRouter } from 'react-router-dom';
 
 const About = ({ match }) => {
     useEffect(() => {
-        document.title = 'Richard Petrosino | About';
-    }, []);
+        document.title = 'Richard Petrosino | ' + (match.params.resume ? 'Resume' : 'About Me');
+    }, [match.params.resume]);
 
     return (
         <>
