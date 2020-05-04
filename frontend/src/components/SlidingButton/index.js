@@ -59,7 +59,7 @@ const SlidingButton = ({ activeButton, options, urls }) => {
                     const className = activeButton === index ? 'active' : '';
                     let res = [
                         <li key={index}>
-                            <Link to={urls[index] ? urls[index] : '#'} className={className}>
+                            <Link to={urls[index] ? urls[index] : '#'} className={className} title={option}>
                                 {option}
                             </Link>
                         </li>,
