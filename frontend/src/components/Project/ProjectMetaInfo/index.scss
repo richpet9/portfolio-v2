@@ -32,6 +32,10 @@
                 &.tag {
                     display: inline-block;
                 }
+
+                &.link {
+                    margin-bottom: 4px;
+                }
             }
 
             &:last-child {
