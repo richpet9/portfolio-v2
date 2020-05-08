@@ -20,7 +20,6 @@ const Item = ({ url, name, tags, desc, thumbnail }) => {
                             );
                         })}
                     </span>
-                    <p>{desc}</p>
                 </div>
             </Link>
         </div>

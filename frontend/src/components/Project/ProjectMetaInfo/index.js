@@ -16,7 +16,7 @@ const ProjectMetaInfo = ({ item }) => {
             let linkUrl = link.substring(delimIndex + 2, link.length - 1);
 
             links[i] = (
-                <div className="project-meta-value" key={linkUrl}>
+                <div className="project-meta-value link" key={linkUrl}>
                     <a href={linkUrl} title="Process Book">
                         {linkCopy}
                     </a>

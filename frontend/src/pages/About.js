@@ -10,16 +10,17 @@ const About = ({ match }) => {
     }, [match.params.resume]);
 
     return (
-        <>
-            <main className="container" id="about-container">
-                <div style={{ width: '100%', textAlign: 'center' }}>
-                    <div id="about-filter-container">
-                        <SlidingButton activeButton={match.params.resume ? 1 : 0} options={['ABOUT ME', 'RESUME']} urls={['/about', '/about/resume']} />
-                    </div>
+        <main className="container" id="about-container">
+            <a id="space-cat" href="https://space-cat.richardpetrosino.com" title="Follow the space-cat">
+                <img src="https://space-cat.richardpetrosino.com/svg/space-cat.svg" />
+            </a>
+            <div style={{ width: '100%', textAlign: 'center' }}>
+                <div id="about-filter-container">
+                    <SlidingButton activeButton={match.params.resume ? 1 : 0} options={['ABOUT ME', 'RESUME']} urls={['/about', '/about/resume']} />
                 </div>
-                {match.params.resume ? <Resume /> : <AboutMe />}
-            </main>
-        </>
+            </div>
+            {match.params.resume ? <Resume /> : <AboutMe />}
+        </main>
     );
 };
 

@@ -12,11 +12,11 @@ export const truncateString = (str, length) => {
         }
     }
 
-    while (str[length + 1] !== ' ') {
+    while (str[length] && str[length] !== ' ') {
         length--;
     }
 
-    return str.slice(0, length - 2) + '...';
+    return str.slice(0, length) + '...';
 };
 
 export const dateFormat = (date) => {

@@ -6,6 +6,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+#root {
+    position: relative;
+    overflow-x: hidden;
+}
+
 a {
     color: $black;
 }
@@ -105,6 +111,31 @@ span.vline {
     width: 100%;
     margin: 0;
     padding: 0 48px;
+}
+
+#space-cat {
+    position: absolute;
+    width: 75px;
+    right: -18px;
+    top: 100px;
+    transform: rotate(-90deg);
+
+    &:hover {
+        animation-duration: 500ms;
+        animation-name: bounce;
+        animation-iteration-count: 4;
+        animation-direction: alternate;
+    }
+}
+
+@keyframes bounce {
+    from {
+        right: -18px;
+    }
+
+    to {
+        right: -10px;
+    }
 }
 
 @media screen and (max-width: $tablet) {

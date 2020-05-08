@@ -1,6 +1,6 @@
 import React from 'react';
 import ProjectThumbnail from './ProjectThumbnail';
-import { makeUrl } from '../../util';
+import { makeUrl, truncateString } from '../../util';
 
 import './index.css';
 
@@ -10,7 +10,9 @@ const ProjectGrid = ({ items }) => {
             {items &&
                 items.map((item) => {
                     const url = '/project/' + item.id + '/' + makeUrl(item.name);
-                    return <ProjectThumbnail key={item.id} name={item.name} tags={item.tags} url={url} thumbnail={item.thumbnail} />;
+                    return (
+                        <ProjectThumbnail key={item.id} name={item.name} tags={item.tags} url={url} thumbnail={item.thumbnail} desc={truncateString(item.body, 100)} />
+                    );
                 })}
         </div>
     );
