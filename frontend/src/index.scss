@@ -187,6 +187,10 @@ span.vline {
             }
         }
     }
+
+    #space-cat {
+        display: none;
+    }
 }
 
 @media screen and (max-width: $phone) {
