@@ -22,7 +22,7 @@ const Experience = () => {
             <div className="resume-body">
                 <h4 className="resume-subhead">Quinnipiac University &mdash; Office of Integrated Marketing Communnications</h4>
                 <p className="italic">Assistant Photographer</p>
-                <p className="italic">Oct. 2017 &mdash; Present</p>
+                <p className="italic">Oct. 2017 &mdash; May 2020</p>
                 <ul className="resume-list">
                     <li>Shoot University events for social media channels, branding & marketing, documentation, and publications</li>
                     <li>Use, organize, and maintain an online PhotoShelter server and local SAM server hosting University photos</li>
