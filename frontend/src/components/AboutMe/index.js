@@ -49,18 +49,34 @@ const AboutMe = () => (
                 </a>
                 , giving some credibilitiy to at least one of those prospects.
             </p>
-            <p
-                className="about-content"
-                style={{
-                    marginBottom: 32,
-                }}
-            >
+            <p className="about-content">
                 If you would like to contact Richie, feel free to reach out using the{' '}
                 <Link className="highlight" to="/contact" title="Go to the contact form">
                     on-site contact form
                 </Link>
-                , or the email at the bottom of this page.
+                , or the email at the bottom of this page. You can also find him at these fine sites:
             </p>
+
+            <div className="center">
+                <ul className="about-contact-info">
+                    <li>
+                        <a href="https://github.com/richpet9" className="highlight about-content" title="Visit my Github">
+                            Github
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com/petrotography" className="highlight about-content" title="Visit my Instagram">
+                            Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/richard-petrosino-15921b156/" className="highlight about-content" title="Visit my LinkedIn">
+                            LinkedIn
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
             <div className="about-photo">
                 <img src="https://cdn.richardpetrosino.com/img/me/1.jpg" title="I used to shoot a lot more film" />
                 <span className="about-photo-cap">I used to do, and should be doing much more, film photography.</span>

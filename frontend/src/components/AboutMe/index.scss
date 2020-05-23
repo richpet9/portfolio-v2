@@ -45,6 +45,7 @@
             }
         }
     }
+
     .about-content-container {
         width: 50%;
 
@@ -65,6 +66,17 @@
         p.about-content {
             padding-right: 32px;
             margin: 16px 0;
+        }
+
+        .about-contact-info {
+            display: inline-block;
+            list-style: none;
+            margin-bottom: 32px;
+
+            li {
+                display: inline-block;
+                margin-right: 8px;
+            }
         }
     }
 }
