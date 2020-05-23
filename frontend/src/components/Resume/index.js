@@ -33,7 +33,7 @@ const Experience = () => {
                 <p className="italic">June 2019 &mdash; Aug. 2019</p>
                 <ul className="resume-list">
                     <li>Implemented new website features using JavaScript, PHP, and Wordpress</li>
-                    <li>Concieved, designed, and developed a department staff directory using the ReactJS framework</li>
+                    <li>Conceived, designed, and developed a department staff directory using the ReactJS framework</li>
                     <li>Leveraged Photoshop, Illustrator, and InDesign to create promotional content for social channels</li>
                     <li>Develop creative strategies for internal Viacom brands and events</li>
                     <li>Created designs and mockups for a new Catalyst brand identity</li>
