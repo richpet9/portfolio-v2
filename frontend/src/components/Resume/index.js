@@ -20,6 +20,18 @@ const Experience = () => {
         <div className="resume-section">
             <h2 className="resume-header">EXPERIENCE</h2>
             <div className="resume-body">
+                <h4 className="resume-subhead">Accrediation Council for Medical Affairs (ACMA)</h4>
+                <p className="italic">Junior Full-Stack Developer</p>
+                <p className="italic">July 2020 &mdash; Present</p>
+                <ul className="resume-list">
+                    <li>Develop and design with JavaScript, PHP, and CSS across multiple domains</li>
+                    <li>Use Adobe Illustrator and Photoshop to create and iterate upon web and mobile mockups</li>
+                    <li>Redesign and customize various Wordpress themes to fit the company's marketing requirements</li>
+                    <li>Serve as lead liason between our third-party LMS developer and the ACMA tech team</li>
+                    <li>Provide both internal and external tech support, administrative guidance, and maintenance of our Learning Management System (LMS)</li>
+                    <li>Manage a third-party vendor custom building a Content Management System (CMS) for a major web redesign and restructuring</li>
+                </ul>
+
                 <h4 className="resume-subhead">Quinnipiac University &mdash; Office of Integrated Marketing Communnications</h4>
                 <p className="italic">Assistant Photographer</p>
                 <p className="italic">Oct. 2017 &mdash; May 2020</p>
@@ -50,14 +62,6 @@ const Experience = () => {
                     </li>
                     <li>Worked on-site to gather patron’s demographic information using Google Surveys</li>
                     <li>Designed and implemented website changes using Shopify</li>
-                </ul>
-
-                <h4 className="resume-subhead">Milan Rose Photography</h4>
-                <p className="italic">Studio Photographer</p>
-                <p className="italic">June 2017 &mdash; Aug. 2018</p>
-                <ul className="resume-list">
-                    <li>Work in-studio with poser shooting roughly 200 photos per day</li>
-                    <li>Use Lightroom and Photoshop to organize, edit, and touch up photos</li>
                 </ul>
             </div>
         </div>
@@ -135,8 +139,8 @@ export default () => (
                 Download Resume as PDF
             </a>
         </div>
-        <Experience />
         <Education />
+        <Experience />
         <Skills />
         <Honors />
     </div>
