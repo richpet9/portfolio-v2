@@ -14,7 +14,7 @@
         "build:dev": "webpack --mode development --watch",
         "build:prod": "webpack --mode production",
         "dev-start": "concurrently \"npm run build:dev\" \"npm run start:dev\"",
-        "deploy": "npm run build:prod && pm2 restart portfolio-v2 "
+        "deploy": "npm run build:prod && pm2 restart pm2.config.js"
     },
     "author": "Richard Petrosino",
     "license": "MIT",
