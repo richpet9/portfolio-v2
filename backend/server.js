@@ -17,7 +17,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 //Postgres DB set up
-let db = new Pool();
+let db = new Pool({
+    host: process.env.PGHOST,
+    port: process.env.PGPORT,
+    database: process.env.PGDATABASE,
+    user: process.env.PGUSER,
+    password: process.env.PGPASSWORD,
+});
 
 //Connect to DB
 db.connect().catch((err) => {
