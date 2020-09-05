@@ -17,19 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 //Postgres DB set up
-let db = new Pool({
-    host: process.env.PGHOST,
-    port: process.env.PGPORT,
-    database: process.env.PGDATABASE,
-    user: process.env.PGUSER,
-    password: process.env.PGPASSWORD,
-});
-
-//Connect to DB
-db.connect().catch((err) => {
-    console.error('[postgres] Error connecting to db server: ' + err);
-    db = null;
-});
+let pool = new Pool();
 
 // Set up nodemailer
 // Instantiate the SMTP server
@@ -47,7 +35,7 @@ const transport = nodemailer.createTransport({
 app.use(express.static(path.join(__dirname, '../frontend/public')));
 
 // Catch all api requests
-app.use('/api', apiRouter({ db, transport }));
+app.use('/api', apiRouter({ pool, transport }));
 // Blog bundles are split off from main website to increase load time
 app.use('/blog', blogRouter);
 // All other requests to front end

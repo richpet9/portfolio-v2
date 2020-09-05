@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = function (args) {
-    let db = args.db || null;
+    let pool = args.pool || null;
     let transport = args.transport || null;
 
     //Get the recent project posts
     router.get('/projects/:id?', (req, res) => {
-        if (!db) {
+        if (!pool) {
             res.redirect('/');
             console.error('[server] Attempted to access invalid database!');
             return;
@@ -20,15 +20,17 @@ module.exports = function (args) {
             queryStr = 'SELECT * FROM projects ORDER BY date DESC';
         }
 
-        db.query(queryStr, (err, response) => {
-            if (err) console.error('[postgres] error query: ' + err);
-            else res.send(response.rows);
+        pool.query(queryStr, (err, response) => {
+            if (err) {
+                console.error('[postgres] error query: ' + err);
+                res.status(501).send('Bad pool');
+            } else res.send(response.rows);
         });
     });
 
     //Get the recent blog posts
     router.get('/blog-posts/:category?/:id?', (req, res) => {
-        if (!db) {
+        if (!pool) {
             res.redirect('/');
             console.error('[server] Attempted to access invalid database!');
             return;
@@ -45,9 +47,11 @@ module.exports = function (args) {
         }
         query += 'ORDER BY date DESC';
 
-        db.query(query, (err, response) => {
-            if (err) console.error('[postgres] error query: ' + err);
-            else res.send(response.rows);
+        pool.query(query, (err, response) => {
+            if (err) {
+                console.error('[postgres] error query: ' + err);
+                res.status(501).send('Bad pool');
+            } else res.send(response.rows);
         });
     });
 
