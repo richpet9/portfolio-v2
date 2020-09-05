@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
-import './index.css';
+import './index.scss';
 
 export const Header = () => {
     return (

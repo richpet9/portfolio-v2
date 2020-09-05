@@ -1,6 +1,6 @@
 import React, { useState, forwardRef } from 'react';
 
-import './index.css';
+import './index.scss';
 
 const Button = (props, ref) => {
     let value = props.value || '';

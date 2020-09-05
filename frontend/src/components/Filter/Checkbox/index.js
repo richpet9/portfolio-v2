@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './index.css';
+import './index.scss';
 
 const Checkbox = ({ value, preChecked, onToggle }) => {
     const [active, setActive] = useState(preChecked ? preChecked : false); // Defautl state of checkbox

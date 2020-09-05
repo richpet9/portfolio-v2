@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { makeUrl } from '../../util';
 import MarkdownBody from '../MarkdownBody';
 
-import './index.css';
+import './index.scss';
 
 const BlogPost = ({ post }) => {
     post.url = '/blog/' + post.category + '/' + post.id + '/' + makeUrl(post.name);

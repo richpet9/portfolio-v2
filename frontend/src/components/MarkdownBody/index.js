@@ -1,7 +1,7 @@
 import React from 'react';
 import Marked from 'marked';
 
-import './index.css';
+import './index.scss';
 
 // Make a renderer for marked
 const renderer = new Marked.Renderer();

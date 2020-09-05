@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './index.css';
+import './index.scss';
 
 const AboutMe = () => (
     <div className="about-me-container">
@@ -31,10 +31,10 @@ const AboutMe = () => (
         <div className="about-content-container">
             <h1 className="header">About Richie</h1>
             <marquee>
-                Hello. Hope you didn't forget about the {'<'}marquee> tag. I hope that now you won't. Please use this information to your advantage, as such knowledge can
-                only be passed between developers during full moons. Go ahead, look outside. Hey, not too quick now, don't want to scare it. If there is not a full moon,
-                please refresh the page and try looking outside again. If that doesn't work, you may need to clear your cache. Just kidding. Javascript isn't powerful
-                enough to control the phases of the moon. Yet.
+                Hello. Hope you didn't forget about the {'<'}marquee{'>'} tag. I hope that now you won't. Please use this information to your advantage, as such knowledge
+                can only be passed between developers during full moons. Go ahead, look outside. Hey, not too quick now, don't want to scare it. If there is not a full
+                moon, please refresh the page and try looking outside again. If that doesn't work, you may need to clear your cache. Just kidding. Javascript isn't
+                powerful enough to control the phases of the moon. Yet.
             </marquee>
             <p className="about-content">
                 Richie is a designer and developer based in the New York metro area. He is an experienced web developer who spends more time than he'd ever admit inside

@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Checkbox from './Checkbox';
 
-import './index.css';
+import './index.scss';
 
 const Filter = (props) => {
     const tags = ['Print', 'PHP', 'Javascript', 'React', 'Brand', 'Logo', 'Python', 'Java', 'Game', 'Database'];

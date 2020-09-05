@@ -8,7 +8,7 @@ import Contact from '../pages/Contact.js';
 import Footer from '../components/Footer';
 import { FadeSwitch } from '../util/transition-router';
 
-import '../index.css';
+import '../index.scss';
 
 const App = () => {
     return (

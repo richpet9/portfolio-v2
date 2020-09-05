@@ -1,7 +1,7 @@
 import React from 'react';
 import { dateFormat } from '../../../util';
 
-import './index.css';
+import './index.scss';
 
 const ProjectMetaInfo = ({ item }) => {
     let links = item.links ? item.links.split(',') : [];

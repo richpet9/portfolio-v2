@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import './index.css';
+import './index.scss';
 
 const Input = (props, ref) => {
     let label, input;

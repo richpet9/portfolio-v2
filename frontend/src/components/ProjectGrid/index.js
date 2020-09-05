@@ -2,7 +2,7 @@ import React from 'react';
 import ProjectThumbnail from './ProjectThumbnail';
 import { makeUrl, truncateString } from '../../util';
 
-import './index.css';
+import './index.scss';
 
 const ProjectGrid = ({ items }) => {
     return (

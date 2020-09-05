@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import MarkdownBody from '../MarkdownBody';
 import { dateFormat, truncateString } from '../../util';
 
-import './index.css';
+import './index.scss';
 
 const BlogPost = ({ post }) => {
     useEffect(() => {

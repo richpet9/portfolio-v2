@@ -4,7 +4,7 @@ import MarkdownBody from '../MarkdownBody';
 import ProjectMetaInfo from './ProjectMetaInfo';
 import { truncateString } from '../../util';
 
-import './index.css';
+import './index.scss';
 
 const Project = ({ item }) => {
     const [style, setStyle] = useState(true);

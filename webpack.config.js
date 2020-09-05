@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     entry: {
         main: path.join(__dirname, 'frontend/src/entries/main.js'),
-        blog: path.join(__dirname, 'frontend/src/entries/blog.js')
+        blog: path.join(__dirname, 'frontend/src/entries/blog.js'),
     },
     module: {
         rules: [
@@ -11,22 +11,22 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: 'babel-loader'
-                }
+                    loader: 'babel-loader',
+                },
             },
             {
-                test: /\.css$/,
-                use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
-            }
-        ]
+                test: /\.s[ac]ss$/i,
+                use: ['style-loader', 'css-loader', 'sass-loader'],
+            },
+        ],
     },
     output: {
         path: path.join(__dirname, '/frontend/public'),
-        filename: '[name].bundle.js'
+        filename: '[name].bundle.js',
     },
     optimization: {
         splitChunks: {
-            chunks: 'all'
-        }
-    }
+            chunks: 'all',
+        },
+    },
 };

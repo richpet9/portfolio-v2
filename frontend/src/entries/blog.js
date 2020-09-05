@@ -5,7 +5,7 @@ import { BlogHeader } from '../components/Header';
 import Blog from '../pages/Blog';
 import Footer from '../components/Footer';
 
-import '../index.css';
+import '../index.scss';
 
 const App = () => {
     return (

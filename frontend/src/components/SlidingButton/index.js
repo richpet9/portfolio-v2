@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
-import './index.css';
+import './index.scss';
 
 const SlidingButton = ({ activeButton, options, urls }) => {
     const computeLeft = (buttonIndex) => {

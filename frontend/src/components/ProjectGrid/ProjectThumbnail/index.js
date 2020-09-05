@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './index.css';
+import './index.scss';
 
 const Item = ({ url, name, tags, desc, thumbnail }) => {
     tags = tags.split(',');
