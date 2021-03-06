@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 // Routes
 const apiRouter = require('./routes/api');
@@ -13,8 +12,8 @@ const app = express();
 const PORT = 8080;
 
 //Middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 //Postgres DB set up
 let pool = new Pool();
@@ -44,4 +43,5 @@ app.use('/*', mainRouter);
 //Listen on PORT
 app.listen(PORT, () => {
     console.log(`[server] listening on port ${PORT}`);
+    console.log(`[server] pool => `, pool)
 });
