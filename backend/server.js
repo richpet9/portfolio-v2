@@ -16,7 +16,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //Postgres DB set up
-let pool = new Pool();
+const pool = new Pool();
+
+// Show errors on pool
+pool.on('error', (err, client) => {
+    console.error('[server] Unexpected error on idle client', err)
+    process.exit(-1)
+})
 
 // Set up nodemailer
 // Instantiate the SMTP server
@@ -43,5 +49,7 @@ app.use('/*', mainRouter);
 //Listen on PORT
 app.listen(PORT, () => {
     console.log(`[server] listening on port ${PORT}`);
-    console.log(`[server] pool => `, pool)
+    pool.query('SELECT NOW()', (err, res) => {
+        console.log(`[server] pool test => `, err ? err : res.rows[0]);
+    })
 });
