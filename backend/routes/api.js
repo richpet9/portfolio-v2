@@ -20,8 +20,10 @@ module.exports = function (args) {
             queryStr = 'SELECT * FROM projects ORDER BY date DESC';
         }
 
+            console.log('[server] Querying DB for projects: ' + queryStr);
         pool.query(queryStr, (err, response) => {
-            if (err) {
+
+	    if (err) {
                 console.error('[postgres] error query: ' + err);
                 res.status(501).send('Bad pool');
             } else res.send(response.rows);
