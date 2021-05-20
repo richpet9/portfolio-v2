@@ -37,20 +37,7 @@ const AboutMe = () => (
                 powerful enough to control the phases of the moon. Yet.
             </marquee>
             <p className="about-content">
-                Richie is a designer and developer based in the New York metro area. He is an experienced web developer who spends more time than he'd ever admit inside
-                VS Code documents tip-tapping away. He claims the process of going from blank text document to interactive website provides him sufficient dopamine to
-                wake up everyday, though these claims have not yet been confirmed.
-            </p>
-            <p className="about-content">
-                We have reasonable suspcision that he may suppliment this web-based dopamine with the frequent hike, photo shoot, or occasional knitting project. While
-                these are all still theories, his portfolio does{' '}
-                <a className="highlight" href="https://old.richardpetrosino.com" title="View my photo portfolio">
-                    showcase a number of photographs
-                </a>
-                , giving some credibilitiy to at least one of those prospects.
-            </p>
-            <p className="about-content">
-                If you would like to contact Richie, feel free to reach out using the{' '}
+                If you would like to contact me, feel free to reach out using the{' '}
                 <Link className="highlight" to="/contact" title="Go to the contact form">
                     on-site contact form
                 </Link>
@@ -75,18 +62,6 @@ const AboutMe = () => (
                         </a>
                     </li>
                 </ul>
-            </div>
-
-            <div className="about-photo">
-                <img src="https://cdn.richardpetrosino.com/img/me/1.jpg" title="I used to shoot a lot more film" />
-                <span className="about-photo-cap">I used to do, and should be doing much more, film photography.</span>
-            </div>
-            <div className="about-photo">
-                <img
-                    src="https://cdn.richardpetrosino.com/img/me/2.jpg"
-                    title="I had just finished a week-long self-portrait assignment in photography class and figured I could do better. Got dressed up and went to the nearby woods on campus. "
-                />
-                <span className="about-photo-cap">A woodland of Hamden, CT.</span>
             </div>
         </div>
     </div>

@@ -21,23 +21,31 @@ const Experience = () => {
             <h2 className="resume-header">EXPERIENCE</h2>
             <div className="resume-body">
                 <h4 className="resume-subhead">Accrediation Council for Medical Affairs (ACMA)</h4>
-                <p className="italic">Junior Full-Stack Developer</p>
-                <p className="italic">July 2020 &mdash; Present</p>
+                <p className="italic">Associate Creative Director, UX/Product Specialist</p>
+                <p className="italic">December 2020 &mdash; Present</p>
                 <ul className="resume-list">
-                    <li>Develop and design with JavaScript, PHP, and CSS across multiple domains</li>
-                    <li>Use Adobe Illustrator and Photoshop to create and iterate upon web and mobile mockups</li>
-                    <li>Redesign and customize various Wordpress themes to fit the company's marketing requirements</li>
-                    <li>Serve as lead liason between our third-party LMS developer and the ACMA tech team</li>
-                    <li>Provide both internal and external tech support, administrative guidance, and maintenance of our Learning Management System (LMS)</li>
-                    <li>Manage a third-party vendor custom building a Content Management System (CMS) for a major web redesign and restructuring</li>
+                    <li>Designed a new brand identity and implemented new brand guidelines and imagery</li>
+                    <li>Conduct customer research and compile insights on user journey and experience using Google Analytics, Mailchimp and our Learning Management System (LMS)</li>
+                    <li>Oversee the transition and implementation of our legacy (Wordpress) web platforms to modern and scalable Javascript and AWS solutions; including creating product mockups, prototypes and final designs, and developer project management</li>
+                    <li>Facilitate full-stack marketing strategies; from creative visual design and messaging to technical development, implementation and analysis, using Adobe Creative Cloud, and Google AdWords & Analytics</li>
+                </ul>
+
+                <h4 className="resume-subhead">Accrediation Council for Medical Affairs (ACMA)</h4>
+                <p className="italic">Junior Full-Stack Developer</p>
+                <p className="italic">July 2020 &mdash; December 2020</p>
+                <ul className="resume-list">
+                    <li>Developed and maintain various product sites across multiple domains</li>
+                    <li>Designed web mockups, wireframes, and interactive prototypes for various web-based applications</li>
+                    <li>Utilized Wordpress to create automated marketing integrations across display, email, and social channels</li>
+                    <li>Provided external support for user of our Learning Management System (LMS)</li>
                 </ul>
 
                 <h4 className="resume-subhead">Quinnipiac University &mdash; Office of Integrated Marketing Communnications</h4>
                 <p className="italic">Assistant Photographer</p>
                 <p className="italic">Oct. 2017 &mdash; May 2020</p>
                 <ul className="resume-list">
-                    <li>Shoot University events for social media channels, branding & marketing, documentation, and publications</li>
-                    <li>Use, organize, and maintain an online PhotoShelter server and local SAM server hosting University photos</li>
+                    <li>Shot University events for social media channels, branding &amp; marketing, documentation, and publications</li>
+                    <li>Used, organized, and maintained an online PhotoShelter and local SAM server hosting University photos</li>
                 </ul>
 
                 <h4 className="resume-subhead">Viacom Inc. &mdash; Catalyst (Internal Creative Agency)</h4>
@@ -47,21 +55,8 @@ const Experience = () => {
                     <li>Implemented new website features using JavaScript, PHP, and Wordpress</li>
                     <li>Conceived, designed, and developed a department staff directory using the ReactJS framework</li>
                     <li>Leveraged Photoshop, Illustrator, and InDesign to create promotional content for social channels</li>
-                    <li>Develop creative strategies for internal Viacom brands and events</li>
+                    <li>Developed creative strategies for internal Viacom brands and events</li>
                     <li>Created designs and mockups for a new Catalyst brand identity</li>
-                </ul>
-
-                <h4 className="resume-subhead">The Agency at Quinnipiac (on-campus Advertising/PR firm for public accounts)</h4>
-                <p className="italic">Web Designer, Graphic Designer, Photographer</p>
-                <p className="italic">Sep. 2019 &mdash; Dec. 2019</p>
-                <ul className="resume-list">
-                    <li>Clients included The Discovery Museum of Bridgeport, CT and start-up manufacturer 3DuxDesigns</li>
-                    <li>
-                        Worked in client teams to develop marketing materials such as promotional photos, social media campaigns, Kickstarter campaigns, mass
-                        communication copy, program guides and other informational documents
-                    </li>
-                    <li>Worked on-site to gather patron’s demographic information using Google Surveys</li>
-                    <li>Designed and implemented website changes using Shopify</li>
                 </ul>
             </div>
         </div>
@@ -77,31 +72,30 @@ const Skills = () => {
                     <div className="resume-col">
                         <h4 className="resume-subhead">Proficient</h4>
                         <ul className="resume-list">
-                            <li>ES6+, HTML, CSS and SQL</li>
-                            <li>Javascript libraries jQuery, React, Typescript, Node and Express</li>
-                            <li>Database systems PostgreSQL, MySQL and MongoDB</li>
-                            <li>Algorithm design with Java</li>
-                            <li>Implementing a RESTful API</li>
+                            <li>Javascript ES6+, Python, PHP, Java, SQL, HTML5 and CSS</li>
+                            <li>Libraries jQuery, React, Typescript, Node and Express</li>
+                            <li>Databases PostgreSQL and MySQL</li>
+                            <li>Messaging and brand development</li>
+                            <li>Google Analytics</li>
                         </ul>
                     </div>
                     <div className="resume-col">
                         <h4 className="resume-subhead">Familiar</h4>
                         <ul className="resume-list">
-                            <li>PHP, Wordpress, Scala and Python</li>
-                            <li> Game design and development</li>
-                            <li> Managing a remote Linux machine through SSH and SFTP</li>
-                            <li> Google Analytics</li>
-                            <li> CMS development</li>
+                            <li>SSH, SFTP, DNS configuration, network management and related DevOps pipelines</li>
+                            <li>NoSQL document-based systems</li>
+                            <li>Amazon Web Services (S3, Cloudfront, Certificate Manager, Route 53, Lambda)</li>
                         </ul>
                     </div>
                     <div className="resume-col">
                         <h4 className="resume-subhead">Other Skills</h4>
                         <ul className="resume-list">
-                            <li>Adobe Suite</li>
+                            <li>Adobe Creative Cloud</li>
                             <li>Microsoft Office</li>
-                            <li>Publication design</li>
-                            <li>Photography</li>
-                            <li>InVision Prototyping</li>
+                            <li>Marketing automation</li>
+                            <li>AdWords, Linkedin Campaigns</li>
+                            <li>UI/UX Prototyping</li>
+                            <li>Mailchimp</li>
                             <li>Knitting</li>
                         </ul>
                     </div>

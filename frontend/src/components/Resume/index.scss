@@ -21,10 +21,6 @@
             letter-spacing: 0.5px;
             color: $highlight;
             font-size: 24px;
-
-            &:first-of-type {
-                margin-top: 16px;
-            }
         }
 
         .resume-subhead {
@@ -37,10 +33,11 @@
             }
         }
         .resume-body {
+            line-height: 30px;
+
             p {
                 letter-spacing: 0.2px;
                 font-size: 17px;
-                line-height: 120%;
                 font-family: $body;
                 font-weight: 400;
             }
