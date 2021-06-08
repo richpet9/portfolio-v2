@@ -16,16 +16,6 @@ const AboutMe = () => (
                     , during a pre-shoot lighting test.
                 </span>
             </div>
-            <div className="about-photo">
-                <img src="https://cdn.richardpetrosino.com/img/me/3.jpg" title="At the base of a ravine" />
-                <span className="about-photo-cap">
-                    Taken by Mike. At the base of one of{' '}
-                    <a href="https://en.wikipedia.org/wiki/The_Three_Sisters_(Alberta)" title="Wikipedia article for The Three Sisters">
-                        The Three Sisters
-                    </a>
-                    , Canmore, AB.
-                </span>
-            </div>
         </div>
 
         <div className="about-content-container">
