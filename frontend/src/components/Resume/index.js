@@ -20,7 +20,7 @@ const Experience = () => {
         <div className="resume-section">
             <h2 className="resume-header">EXPERIENCE</h2>
             <div className="resume-body">
-                <h4 className="resume-subhead">Accrediation Council for Medical Affairs (ACMA)</h4>
+                <h4 className="resume-subhead">Accreditation Council for Medical Affairs (ACMA)</h4>
                 <p className="italic">Associate Creative Director, UX/Product Specialist</p>
                 <p className="italic">December 2020 &mdash; Present</p>
                 <ul className="resume-list">
