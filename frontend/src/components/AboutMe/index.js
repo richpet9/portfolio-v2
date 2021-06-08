@@ -31,17 +31,22 @@ const AboutMe = () => (
         <div className="about-content-container">
             <h1 className="header">About Richie</h1>
             <marquee>
-                Hello. Hope you didn't forget about the {'<'}marquee{'>'} tag. I hope that now you won't. Please use this information to your advantage, as such knowledge
-                can only be passed between developers during full moons. Go ahead, look outside. Hey, not too quick now, don't want to scare it. If there is not a full
-                moon, please refresh the page and try looking outside again. If that doesn't work, you may need to clear your cache. Just kidding. Javascript isn't
-                powerful enough to control the phases of the moon. Yet.
+                Hello. Please don't forget about the {'<'}marquee{'>'} tag.
             </marquee>
+
+            <p className="about-content">
+                My day-to-day consists of innovating brand creative imagery and facilitating the design, development, and
+                implementation of websites and their network infrastructures. Along the way I manage integrated marketing
+                between the brand, it's customers, and the various channels in which they interact, including: websites,
+                email, paid advertisements, and social media.
+            </p>
+
             <p className="about-content">
                 If you would like to contact me, feel free to reach out using the{' '}
                 <Link className="highlight" to="/contact" title="Go to the contact form">
                     on-site contact form
                 </Link>
-                , or the email at the bottom of this page. You can also find him at these fine sites:
+                , or the email at the bottom of this page. You can also find me at these fine sites:
             </p>
 
             <div className="center">
